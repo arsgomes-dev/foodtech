@@ -15,7 +15,7 @@ $planService = new CheckPlan;
 $check = $planService->checkPlan();
 ?>
 <!DOCTYPE html>
-<html lang="pt-br" style="height: auto;" data-theme="dark">
+<html lang="pt-br" style="height: auto;">
 
     <head>
         <!-- start top base html css -->

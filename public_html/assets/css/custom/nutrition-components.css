@@ -1,41 +1,432 @@
 /* ================================================
-   NUTRITION COMPONENTS - MODERN STYLE
-   Cards, Progress Bars e Widgets
+   NUTRITION SYSTEM - ARGON LAYOUT & COMPONENTS
    ================================================ */
+
+:root {
+    --sidebar-width: 250px;
+    --sidebar-bg: #1b4332;
+    --sidebar-brand-bg: #163728;
+    --sidebar-hover-bg: rgba(255, 255, 255, 0.06);
+    --sidebar-active-bg: #2d6a4f;
+    --sidebar-text: rgba(255, 255, 255, 0.7);
+    --sidebar-text-hover: rgba(255, 255, 255, 0.9);
+    --sidebar-active-text: #ffffff;
+    --sidebar-divider: rgba(255, 255, 255, 0.1);
+    --sidebar-radius: 1rem;
+    --sidebar-margin: 1rem;
+    --sidebar-collapsed-width: 80px;
+    --content-offset: calc(var(--sidebar-width) + var(--sidebar-margin) * 2);
+    --content-offset-collapsed: calc(var(--sidebar-collapsed-width) + var(--sidebar-margin) * 2);
+}
+
+/* =========================
+   FLOATING SIDEBAR (Argon)
+========================= */
+.main-sidebar {
+    position: fixed !important;
+    top: var(--sidebar-margin) !important;
+    left: var(--sidebar-margin) !important;
+    bottom: var(--sidebar-margin) !important;
+    height: auto !important;
+    min-height: auto !important;
+    width: var(--sidebar-width) !important;
+    background-color: var(--sidebar-bg) !important;
+    border-radius: var(--sidebar-radius) !important;
+    border: none !important;
+    box-shadow: 0 0 2rem rgba(0, 0, 0, 0.15) !important;
+    overflow: hidden !important;
+    z-index: 1038 !important;
+    transition: transform 0.3s ease, width 0.3s ease !important;
+}
+
+.main-sidebar .sidebar {
+    height: 100% !important;
+    overflow-y: auto !important;
+    overflow-x: hidden !important;
+    padding: 0.25rem 0 1rem !important;
+    background: transparent !important;
+}
+
+/* =========================
+   SIDEBAR BRAND
+========================= */
+.main-sidebar .brand-link {
+    display: flex !important;
+    align-items: center !important;
+    padding: 1.25rem 1.5rem !important;
+    background-color: transparent !important;
+    border-bottom: 1px solid var(--sidebar-divider) !important;
+    border-right: none !important;
+    text-decoration: none !important;
+    transition: background-color 0.2s ease !important;
+}
+
+.main-sidebar .brand-link:hover {
+    background-color: rgba(255, 255, 255, 0.04) !important;
+}
+
+.main-sidebar .brand-image {
+    max-height: 36px !important;
+    width: 36px !important;
+    opacity: 1 !important;
+    border: none !important;
+    object-fit: contain !important;
+}
+
+.main-sidebar .brand-text {
+    color: #fff !important;
+    font-weight: 700 !important;
+    font-size: 1.1rem !important;
+    white-space: nowrap !important;
+    overflow: hidden !important;
+    text-overflow: ellipsis !important;
+}
+
+/* =========================
+   SIDEBAR USER PANEL
+========================= */
+.sidebar .user-panel {
+    padding: 0.75rem 1rem !important;
+    margin: 0 !important;
+    background: transparent !important;
+}
+
+.sidebar .user-panel .image img {
+    width: 32px !important;
+    height: 32px !important;
+    border: 2px solid rgba(255, 255, 255, 0.2) !important;
+    border-radius: 50% !important;
+}
+
+.sidebar .user-panel .info a,
+.sidebar .user-panel .info span {
+    color: var(--sidebar-text) !important;
+    font-size: 0.85rem !important;
+    font-weight: 500 !important;
+}
+
+.sidebar .user-panel .info a:hover {
+    color: #fff !important;
+}
+
+/* =========================
+   SIDEBAR HEADING
+========================= */
+.sidebar-heading {
+    color: rgba(255, 255, 255, 0.4);
+    font-size: 0.7rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    padding: 1rem 1.5rem 0.5rem;
+    margin: 0;
+}
+
+/* =========================
+   NAV ITEMS
+========================= */
+.nav-sidebar {
+    padding: 0 !important;
+}
+
+.nav-sidebar .nav-item {
+    margin-bottom: 2px !important;
+}
+
+.nav-sidebar .nav-item > .nav-link {
+    color: var(--sidebar-text) !important;
+    background: transparent !important;
+    border-radius: 0.5rem !important;
+    padding: 0.65rem 1rem !important;
+    margin: 0 0.75rem !important;
+    font-weight: 500 !important;
+    font-size: 0.875rem !important;
+    transition: all 0.15s ease !important;
+    border: none !important;
+    display: flex !important;
+    align-items: center !important;
+    width: auto !important;
+}
+
+.nav-sidebar .nav-item > .nav-link:hover {
+    color: var(--sidebar-text-hover) !important;
+    background: var(--sidebar-hover-bg) !important;
+}
+
+.nav-sidebar .nav-item > .nav-link.active,
+.nav-sidebar > .nav-item > .nav-link.active {
+    color: var(--sidebar-active-text) !important;
+    background: var(--sidebar-active-bg) !important;
+    font-weight: 600 !important;
+    box-shadow: none !important;
+}
+
+.nav-sidebar .nav-item > .nav-link.active:hover {
+    background: #348c60 !important;
+}
+
+.nav-sidebar .nav-icon {
+    font-size: 1.1rem !important;
+    margin-right: 0.75rem !important;
+    width: 1.25rem !important;
+    text-align: center !important;
+    color: inherit !important;
+    flex-shrink: 0 !important;
+}
+
+.nav-sidebar .nav-link p {
+    margin: 0 !important;
+    color: inherit !important;
+}
+
+/* Treeview */
+.nav-treeview {
+    padding-left: 0 !important;
+    margin-top: 2px !important;
+}
+
+.nav-treeview > .nav-item > .nav-link {
+    padding-left: 3.2rem !important;
+    font-size: 0.825rem !important;
+}
+
+.nav-treeview > .nav-item > .nav-link.active {
+    background: rgba(255, 255, 255, 0.1) !important;
+    color: #fff !important;
+}
+
+/* Plan renewal items */
+.renew-plan .nav-link {
+    color: #fbbf24 !important;
+}
+
+.renew-plan .nav-link:hover {
+    background: rgba(251, 191, 36, 0.1) !important;
+}
+
+/* Sidebar divider */
+.sidebar .sidebar-divider {
+    border-top: 1px solid var(--sidebar-divider);
+    margin: 0.5rem 1.5rem;
+}
+
+/* =========================
+   SIDEBAR SCROLLBAR
+========================= */
+.main-sidebar .sidebar::-webkit-scrollbar {
+    width: 4px;
+}
+
+.main-sidebar .sidebar::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+.main-sidebar .sidebar::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.15);
+    border-radius: 2px;
+}
+
+.main-sidebar .sidebar::-webkit-scrollbar-thumb:hover {
+    background: rgba(255, 255, 255, 0.3);
+}
+
+/* =========================
+   CONTENT OFFSET
+========================= */
+.content-wrapper,
+.main-footer {
+    margin-left: var(--content-offset) !important;
+    transition: margin-left 0.3s ease !important;
+}
+
+.main-header.navbar {
+    margin-left: var(--content-offset) !important;
+    transition: margin-left 0.3s ease !important;
+}
+
+.layout-navbar-fixed .wrapper .main-header {
+    margin-left: var(--content-offset) !important;
+}
+
+.layout-footer-fixed .wrapper .main-footer {
+    margin-left: var(--content-offset) !important;
+}
+
+/* =========================
+   COLLAPSE (Desktop) - Mini Sidebar
+========================= */
+.sidebar-collapse .main-sidebar,
+.sidebar-mini.sidebar-collapse .main-sidebar {
+    width: var(--sidebar-collapsed-width) !important;
+    transform: none !important;
+    overflow: hidden !important;
+}
+
+.sidebar-mini.sidebar-collapse .main-sidebar:hover {
+    width: var(--sidebar-width) !important;
+    box-shadow: 0 0 3rem rgba(0, 0, 0, 0.25) !important;
+    z-index: 1039 !important;
+}
+
+.sidebar-collapse .content-wrapper,
+.sidebar-collapse .main-header.navbar,
+.sidebar-collapse .main-header,
+.sidebar-collapse .main-footer,
+.sidebar-mini.sidebar-collapse .content-wrapper,
+.sidebar-mini.sidebar-collapse .main-header,
+.sidebar-mini.sidebar-collapse .main-footer,
+.sidebar-collapse.layout-navbar-fixed .wrapper .main-header,
+.sidebar-collapse.layout-footer-fixed .wrapper .main-footer {
+    margin-left: var(--content-offset-collapsed) !important;
+}
+
+/* Brand - collapsed: center logo, hide text */
+.sidebar-mini.sidebar-collapse .main-sidebar .brand-link {
+    justify-content: center !important;
+    padding: 1.25rem 0.5rem !important;
+}
+
+.sidebar-mini.sidebar-collapse .main-sidebar .brand-text {
+    display: none !important;
+}
+
+.sidebar-mini.sidebar-collapse .main-sidebar .brand-image {
+    margin: 0 !important;
+}
+
+/* Brand - hover restore */
+.sidebar-mini.sidebar-collapse .main-sidebar:hover .brand-link {
+    justify-content: flex-start !important;
+    padding: 1.25rem 1.5rem !important;
+}
+
+.sidebar-mini.sidebar-collapse .main-sidebar:hover .brand-text {
+    display: inline !important;
+}
+
+.sidebar-mini.sidebar-collapse .main-sidebar:hover .brand-image {
+    margin-right: 0.5rem !important;
+}
+
+/* Sidebar heading - collapsed: hide */
+.sidebar-mini.sidebar-collapse .main-sidebar .sidebar-heading {
+    visibility: hidden !important;
+    height: 0 !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    overflow: hidden !important;
+}
+
+.sidebar-mini.sidebar-collapse .main-sidebar:hover .sidebar-heading {
+    visibility: visible !important;
+    height: auto !important;
+    padding: 1rem 1.5rem 0.5rem !important;
+}
+
+/* Nav items - collapsed: center icons, hide text */
+.sidebar-mini.sidebar-collapse .nav-sidebar .nav-item > .nav-link {
+    justify-content: center !important;
+    padding: 0.75rem !important;
+    margin: 0 0.5rem !important;
+}
+
+.sidebar-mini.sidebar-collapse .nav-sidebar .nav-icon {
+    margin-right: 0 !important;
+    font-size: 1.2rem !important;
+}
+
+.sidebar-mini.sidebar-collapse .nav-sidebar .nav-link p,
+.sidebar-mini.sidebar-collapse .renew-plan .nav-link p {
+    display: none !important;
+}
+
+/* Nav items - hover restore */
+.sidebar-mini.sidebar-collapse .main-sidebar:hover .nav-sidebar .nav-item > .nav-link {
+    justify-content: flex-start !important;
+    padding: 0.65rem 1rem !important;
+    margin: 0 0.75rem !important;
+}
+
+.sidebar-mini.sidebar-collapse .main-sidebar:hover .nav-sidebar .nav-icon {
+    margin-right: 0.75rem !important;
+    font-size: 1.1rem !important;
+}
+
+.sidebar-mini.sidebar-collapse .main-sidebar:hover .nav-sidebar .nav-link p,
+.sidebar-mini.sidebar-collapse .main-sidebar:hover .renew-plan .nav-link p {
+    display: block !important;
+}
+
+/* Treeview collapsed */
+.sidebar-mini.sidebar-collapse .nav-treeview {
+    display: none !important;
+}
+
+.sidebar-mini.sidebar-collapse .main-sidebar:hover .nav-treeview {
+    display: block !important;
+}
+
+/* =========================
+   MOBILE
+========================= */
+@media (max-width: 991.98px) {
+    .main-sidebar {
+        top: 0 !important;
+        left: 0 !important;
+        bottom: 0 !important;
+        height: 100vh !important;
+        min-height: 100vh !important;
+        border-radius: 0 !important;
+        width: 280px !important;
+        transform: translateX(-300px) !important;
+        z-index: 1040 !important;
+        box-shadow: 0 0 3rem rgba(0, 0, 0, 0.3) !important;
+    }
+
+    .sidebar-collapse .main-sidebar,
+    .sidebar-mini.sidebar-collapse .main-sidebar {
+        width: 280px !important;
+        transform: translateX(-300px) !important;
+    }
+
+    body.sidebar-open .main-sidebar {
+        transform: translateX(0) !important;
+    }
+
+    .content-wrapper,
+    .main-header.navbar,
+    .main-header,
+    .main-footer,
+    .sidebar-collapse .content-wrapper,
+    .sidebar-collapse .main-header.navbar,
+    .sidebar-collapse .main-header,
+    .sidebar-collapse .main-footer,
+    .sidebar-mini.sidebar-collapse .content-wrapper,
+    .sidebar-mini.sidebar-collapse .main-header,
+    .sidebar-mini.sidebar-collapse .main-footer,
+    .layout-navbar-fixed .wrapper .main-header,
+    .sidebar-collapse.layout-navbar-fixed .wrapper .main-header,
+    .layout-footer-fixed .wrapper .main-footer,
+    .sidebar-collapse.layout-footer-fixed .wrapper .main-footer {
+        margin-left: 0 !important;
+    }
+
+    .sidebar-overlay {
+        z-index: 1039 !important;
+    }
+
+    .layout-footer-fixed .wrapper .main-footer {
+        position: static !important;
+    }
+
+    .content-wrapper {
+        padding-bottom: 16px !important;
+    }
+}
 
 /* =========================
    NUTRITION CARDS - LIGHT
 ========================= */
-/* Quando ela está totalmente recolhida e o mouse não está em cima */
-.sidebar-mini.sidebar-collapse .main-sidebar .nav-sidebar .nav-link.active {
-    width: calc(67px - 1rem) !important;
-}
-.sidebar-mini.sidebar-collapse .main-sidebar .nav-sidebar .nav-link i {
-   margin: 0;
-}
-/* Quando a sidebar está recolhida MAS o mouse está em cima dela (expandindo) */
-.sidebar-mini.sidebar-collapse .main-sidebar:hover .nav-sidebar .nav-link.active {
-    width: calc(240px - 1rem) !important;
-    transition: width 0.3s ease;
-}
-/* Quando a sidebar está ABERTA (padrão) */
-/* Estado Normal (Aberto) */
-.nav-sidebar .nav-link.active {
-    width: calc(240px - 1rem) !important;
-    transition: all 0.3s ease;
-}
-
-/* Estado Recolhido (O AdminLTE coloca .sidebar-collapse no body) */
-.sidebar-collapse .nav-sidebar .nav-link.active {
-    width: 3.6rem !important; /* Tamanho padrão do ícone no AdminLTE */
-    margin-left: 0;
-    margin-right: 0;
-}
-
-/* Quando a sidebar está FECHADA (apenas ícones) */
-.sidebar-collapse .nav-sidebar .nav-link.active {
-    width: 100% !important; /* Ou o tamanho do mini-menu, ex: 4.6rem */
-}
 html[data-theme="light"] .nutrition-card {
     background: #ffffff;
     padding: 24px;
@@ -67,14 +458,14 @@ html[data-theme="light"] .nutrition-card .card-icon {
 html[data-theme="light"] .nutrition-card .card-value {
     font-size: 32px;
     font-weight: 700;
-    color: #1a1a1a;
+    color: #344767;
     margin-bottom: 4px;
     line-height: 1.2;
 }
 
 html[data-theme="light"] .nutrition-card .card-label {
     font-size: 14px;
-    color: #6c757d;
+    color: #67748e;
     font-weight: 500;
 }
 
@@ -95,7 +486,6 @@ html[data-theme="light"] .nutrition-card .card-trend.negative {
     color: #e74c3c;
 }
 
-/* Card Variants - Light */
 html[data-theme="light"] .nutrition-card.calories .card-icon {
     background: linear-gradient(135deg, #f39c12, #e67e22);
 }
@@ -112,10 +502,10 @@ html[data-theme="light"] .nutrition-card.water .card-icon {
    NUTRITION CARDS - DARK
 ========================= */
 html[data-theme="dark"] .nutrition-card {
-    background: #161b22;
+    background: #1f2937;
     padding: 24px;
     border-radius: 16px;
-    border: 1px solid #21262d;
+    border: 1px solid #374151;
     transition: all 0.2s ease;
     position: relative;
     overflow: hidden;
@@ -123,8 +513,8 @@ html[data-theme="dark"] .nutrition-card {
 
 html[data-theme="dark"] .nutrition-card:hover {
     transform: translateY(-2px);
-    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
-    border-color: #30363d;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+    border-color: #4b5563;
 }
 
 html[data-theme="dark"] .nutrition-card .card-icon {
@@ -143,14 +533,14 @@ html[data-theme="dark"] .nutrition-card .card-icon {
 html[data-theme="dark"] .nutrition-card .card-value {
     font-size: 32px;
     font-weight: 700;
-    color: #e6edf3;
+    color: #e5e7eb;
     margin-bottom: 4px;
     line-height: 1.2;
 }
 
 html[data-theme="dark"] .nutrition-card .card-label {
     font-size: 14px;
-    color: #8b949e;
+    color: #9ca3af;
     font-weight: 500;
 }
 
@@ -171,7 +561,6 @@ html[data-theme="dark"] .nutrition-card .card-trend.negative {
     color: #e74c3c;
 }
 
-/* Card Variants - Dark */
 html[data-theme="dark"] .nutrition-card.calories .card-icon {
     background: linear-gradient(135deg, #f39c12, #e67e22);
 }
@@ -185,7 +574,7 @@ html[data-theme="dark"] .nutrition-card.water .card-icon {
 }
 
 /* =========================
-   PROGRESS BARS - LIGHT
+   PROGRESS BARS
 ========================= */
 html[data-theme="light"] .progress {
     height: 8px;
@@ -194,238 +583,29 @@ html[data-theme="light"] .progress {
     overflow: hidden;
 }
 
-html[data-theme="light"] .progress-bar {
-    border-radius: 10px;
-    background: linear-gradient(90deg, #2ecc71, #27ae60);
-    transition: width 0.6s ease;
-}
-
-html[data-theme="light"] .progress-bar.calories {
-    background: linear-gradient(90deg, #f39c12, #e67e22);
-}
-
-html[data-theme="light"] .progress-bar.protein {
-    background: linear-gradient(90deg, #3498db, #2980b9);
-}
-
-html[data-theme="light"] .progress-bar.water {
-    background: linear-gradient(90deg, #1abc9c, #16a085);
-}
-
-/* =========================
-   PROGRESS BARS - DARK
-========================= */
 html[data-theme="dark"] .progress {
     height: 8px;
     border-radius: 10px;
-    background-color: #21262d;
+    background-color: #374151;
     overflow: hidden;
 }
 
-html[data-theme="dark"] .progress-bar {
+.progress-bar {
     border-radius: 10px;
     background: linear-gradient(90deg, #2ecc71, #27ae60);
     transition: width 0.6s ease;
 }
 
-html[data-theme="dark"] .progress-bar.calories {
+.progress-bar.calories {
     background: linear-gradient(90deg, #f39c12, #e67e22);
 }
 
-html[data-theme="dark"] .progress-bar.protein {
+.progress-bar.protein {
     background: linear-gradient(90deg, #3498db, #2980b9);
 }
 
-html[data-theme="dark"] .progress-bar.water {
+.progress-bar.water {
     background: linear-gradient(90deg, #1abc9c, #16a085);
-}
-
-/* =========================
-   QUICK ACTION BUTTONS - LIGHT
-========================= */
-html[data-theme="light"] .quick-action-btn {
-    background-color: #ffffff;
-    border: 2px solid #e9ecef;
-    color: #1a1a1a;
-    padding: 20px;
-    border-radius: 16px;
-    transition: all 0.2s ease;
-    cursor: pointer;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    min-height: 140px;
-}
-
-html[data-theme="light"] .quick-action-btn:hover {
-    border-color: #2ecc71;
-    background-color: rgba(46, 204, 113, 0.05);
-    transform: translateY(-2px);
-    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
-}
-
-html[data-theme="light"] .quick-action-btn i {
-    color: #2ecc71;
-    font-size: 32px;
-    margin-bottom: 12px;
-}
-
-html[data-theme="light"] .quick-action-btn strong {
-    color: #1a1a1a;
-    font-size: 14px;
-    font-weight: 600;
-}
-
-/* =========================
-   QUICK ACTION BUTTONS - DARK
-========================= */
-html[data-theme="dark"] .quick-action-btn {
-    background-color: #161b22;
-    border: 2px solid #21262d;
-    color: #e6edf3;
-    padding: 20px;
-    border-radius: 16px;
-    transition: all 0.2s ease;
-    cursor: pointer;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    min-height: 140px;
-}
-
-html[data-theme="dark"] .quick-action-btn:hover {
-    border-color: #2ecc71;
-    background-color: rgba(46, 204, 113, 0.1);
-    transform: translateY(-2px);
-    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.4);
-}
-
-html[data-theme="dark"] .quick-action-btn i {
-    color: #2ecc71;
-    font-size: 32px;
-    margin-bottom: 12px;
-}
-
-html[data-theme="dark"] .quick-action-btn strong {
-    color: #e6edf3;
-    font-size: 14px;
-    font-weight: 600;
-}
-
-/* =========================
-   ACTIVITY LIST - LIGHT
-========================= */
-html[data-theme="light"] .activity-item {
-    padding: 16px;
-    border-bottom: 1px solid #f1f3f5;
-    transition: all 0.2s ease;
-    border-radius: 12px;
-    margin-bottom: 8px;
-}
-
-html[data-theme="light"] .activity-item:last-child {
-    border-bottom: none;
-}
-
-html[data-theme="light"] .activity-item:hover {
-    background-color: #f8f9fa;
-}
-
-html[data-theme="light"] .activity-icon-wrapper {
-    width: 44px;
-    height: 44px;
-    border-radius: 12px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 18px;
-    color: white;
-    flex-shrink: 0;
-}
-
-/* =========================
-   ACTIVITY LIST - DARK
-========================= */
-html[data-theme="dark"] .activity-item {
-    padding: 16px;
-    border-bottom: 1px solid #21262d;
-    transition: all 0.2s ease;
-    border-radius: 12px;
-    margin-bottom: 8px;
-}
-
-html[data-theme="dark"] .activity-item:last-child {
-    border-bottom: none;
-}
-
-html[data-theme="dark"] .activity-item:hover {
-    background-color: rgba(255, 255, 255, 0.03);
-}
-
-html[data-theme="dark"] .activity-icon-wrapper {
-    width: 44px;
-    height: 44px;
-    border-radius: 12px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 18px;
-    color: white;
-    flex-shrink: 0;
-}
-
-/* =========================
-   MACRO NUTRIENTS - LIGHT
-========================= */
-html[data-theme="light"] .macro-item {
-    margin-bottom: 20px;
-}
-
-html[data-theme="light"] .macro-label {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 10px;
-    font-size: 14px;
-}
-
-html[data-theme="light"] .macro-label span:first-child {
-    color: #6c757d;
-    font-weight: 500;
-}
-
-html[data-theme="light"] .macro-label strong {
-    color: #1a1a1a;
-    font-weight: 600;
-}
-
-/* =========================
-   MACRO NUTRIENTS - DARK
-========================= */
-html[data-theme="dark"] .macro-item {
-    margin-bottom: 20px;
-}
-
-html[data-theme="dark"] .macro-label {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 10px;
-    font-size: 14px;
-}
-
-html[data-theme="dark"] .macro-label span:first-child {
-    color: #8b949e;
-    font-weight: 500;
-}
-
-html[data-theme="dark"] .macro-label strong {
-    color: #e6edf3;
-    font-weight: 600;
 }
 
 /* =========================
@@ -481,7 +661,7 @@ html[data-theme="dark"] .macro-label strong {
 }
 
 /* =========================
-   RESPONSIVE
+   RESPONSIVE CARDS
 ========================= */
 @media (max-width: 768px) {
     html[data-theme="light"] .nutrition-card,
@@ -499,16 +679,5 @@ html[data-theme="dark"] .macro-label strong {
         width: 44px;
         height: 44px;
         font-size: 20px;
-    }
-
-    html[data-theme="light"] .quick-action-btn,
-    html[data-theme="dark"] .quick-action-btn {
-        min-height: 120px;
-        padding: 16px;
-    }
-
-    html[data-theme="light"] .quick-action-btn i,
-    html[data-theme="dark"] .quick-action-btn i {
-        font-size: 28px;
     }
 }

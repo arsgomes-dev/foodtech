@@ -22,7 +22,7 @@ $mySignature = $signatureRepo->getQuery(single: true, customWhere: [
 $signatureGcid = $mySignature ? $mySignature->getGcid() : null;
 ?>
 <!doctype html>
-<html lang="pt-br" style="height: auto;" data-theme="dark">
+<html lang="pt-br" style="height: auto;">
 <head>
     <?php echo $baseHtml->baseCSS(); ?>
     <?php echo $baseHtml->baseCSSICheck(); ?>

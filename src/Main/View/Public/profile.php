@@ -13,7 +13,7 @@ $baseHtml = new BaseHtml();
 $bar_home_active = "active";
 ?>
 <!DOCTYPE html>
-<html lang="pt-br" style="height: auto;" data-theme="dark">
+<html lang="pt-br" style="height: auto;">
 
     <head>
         <!-- start top base html css -->

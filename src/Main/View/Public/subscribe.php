@@ -24,7 +24,7 @@ $plans = new AccessPlan;
 $plans = $plans->getQuery(customWhere: [['column' => 'status', 'value' => 1]], order: 'price ASC');
 ?>
 <!DOCTYPE html>
-<html lang="pt-br" style="height: auto;" data-theme="dark">
+<html lang="pt-br" style="height: auto;">
 
     <head>
         <!-- start top base html css -->

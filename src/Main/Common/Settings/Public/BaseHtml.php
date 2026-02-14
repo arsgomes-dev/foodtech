@@ -38,7 +38,8 @@ class BaseHtml {
         $css .= $favicon;
         $css .= "<meta name='viewport' content='width=device-width, initial-scale=1'>";
         $css .= "<title>" . $website_title . "</title>";
-        $css .= "<link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&amp;display=fallback'>";
+        $css .= "<script>!function(){var t=localStorage.getItem('theme')||'light';document.documentElement.setAttribute('data-theme',t)}();</script>";
+        $css .= "<link rel='stylesheet' href='https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;500;600;700&display=swap'>";
         $css .= "<link rel='stylesheet' href='/assets/fonts/css/all.min.css'>";
         $css .= "<link rel='stylesheet' href='/assets/vendor/bootstrap/css/bootstrap.min.css'>";
         $css .= "<link rel='stylesheet' href='/assets/vendor/lte/css/adminlte.css?v=3.2.0'>"; 
