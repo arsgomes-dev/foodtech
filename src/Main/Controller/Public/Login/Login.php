@@ -7,7 +7,6 @@ use Microfw\Src\Main\Controller\Public\Login\EmailUnlock;
 use Microfw\Src\Main\Common\Entity\Public\Client;
 use Microfw\Src\Main\Common\Entity\Public\Language;
 use Microfw\Src\Main\Common\Entity\Public\ClientLoginAttempts;
-use \Microfw\Src\Main\Common\Entity\Public\YoutubeChannels;
 
 /**
  * Description of Login
@@ -28,9 +27,6 @@ class Login {
         $client_id = "";
         $lang = "";
         $lang_locale = "";
-        $channel_gcid = "";
-        $channel_title = "";
-        $channel_thumb = "";
         $clients = new Client;
         $client = new Client;
         $clients->setEmail($email);
@@ -53,14 +49,6 @@ class Login {
                     $lang = $lg->getCode();
                     $lang_locale = $lg->getLocale();
                     $language = $client->getLanguage_id();
-
-                    $channel = new YoutubeChannels;
-                    $channel = $channel->getQuery(single: true, customWhere: [['column' => 'customer_id', 'value' => $client->getGcid()],['column' => 'workspace', 'value' => 1]]);
-                    if($channel !== null){
-                    $channel_gcid = $channel->getGcid();
-                    $channel_title = $channel->getTitle();
-                    $channel_thumb = $channel->getThumbnail();
-                    }
                 }
             }
             //editar aqui           
@@ -92,15 +80,11 @@ class Login {
                         $_SESSION['client_plan'] = "";
                         $_SESSION['client_plan_code'] = "";
                         $_SESSION['client_plan_title'] = "";
-                        $_SESSION['client_plan_tokens'] = "";
-                        $_SESSION['client_plan_scripts'] = "";
-                        $_SESSION['client_plan_channels'] = "";
-                        $_SESSION['client_plan_message'] = "";
-                        $_SESSION['client_plan_tokens_usage'] = "";
-                        $_SESSION['active_workspace_gcid'] = $channel_gcid ?? null;
-                        $_SESSION['active_workspace_thumb'] = $channel_thumb ?? null;
-                        $_SESSION['active_workspace_title'] = $channel_title ?? "Nenhuma selecionada";
-                        
+                        $_SESSION['client_plan_export_enabled'] = "";
+                        $_SESSION['client_plan_reports_enabled'] = "";
+                        $_SESSION['client_plan_max_foods'] = "";
+                        $_SESSION['client_plan_max_meals_daily'] = "";
+
                         $clientSave = new Client();
                         $clientSave->setId($client_id);
                         $clientSave->setSession_date($clientSave->getDateTime());

@@ -23,10 +23,8 @@ $website_logo = (isset($stConfig) ? $stConfig->getLogo() : "");
         ?>
         <div class="description-plan">
             <span class="float-left badge bg-success"><?php echo (ucfirst($translate->translate('Usuário', $_SESSION['client_lang'])) . ": " . $_SESSION['client_plan_title']); ?></span>
-            <span class="float-left badge bg-blue"><?php echo (ucfirst($translate->translate('Tokens Utilizados', $_SESSION['client_lang'])) . ": " . $_SESSION['client_plan_tokens_usage']); ?></span>
-            <span class="float-left badge bg-info"><?php echo (ucfirst($translate->translate('Tokens Restantes', $_SESSION['client_lang'])) . ": <b>" . ((int) $_SESSION['client_plan_tokens'] - (int) $_SESSION['client_plan_tokens_usage'])); ?></b></span>
         </div>
-            <?php
+        <?php
     }
     ?>         
     <div class="btn-group ml-auto navbar-user">

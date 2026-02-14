@@ -54,67 +54,6 @@ $check = $planService->checkPlan();
                     } else {
                         ?>  
                         <!-- cards -->
-                        <!-- Cards Premium -->
-                        <div class="row g-3">
-
-                            <div class="col-xl-3 col-md-6">
-                                <div class="dashboard-card gradient-blue">
-                                    <?php
-                                    $scripts = new VideoScript;
-                                    $count = $scripts->getCountSumQuery(
-                                            customWhere: [['column' => 'customer_id', 'value' => $_SESSION['client_gcid']], ['column' => 'channel_gcid', 'value' => $_SESSION['active_workspace_gcid']]]
-                                    );
-                                    ?>
-                                    <h4 class="value"><?php echo $count['total_count']; ?></h4>
-                                    <p class="label"><?php echo $translate->translate('Roteiros Gerados', $_SESSION['client_lang']); ?></p>
-                                    <div class="icon"><i class="fas fa-pen-nib"></i></div>
-                                </div>
-                            </div>
-
-                            <div class="col-xl-3 col-md-6">
-                                <div class="dashboard-card gradient-purple">
-                                    <?php
-                                    $scriptsRecording = new VideoScript;
-                                    $countRecording = $scriptsRecording->getCountSumQuery(
-                                            customWhere: [['column' => 'customer_id', 'value' => $_SESSION['client_gcid']], ['column' => 'channel_gcid', 'value' => $_SESSION['active_workspace_gcid']]],
-                                            customWhereOr: [['column' => 'status_id', 'values' => [4]]]
-                                    );
-                                    ?>
-                                    <h4 class="value"><?php echo $countRecording['total_count']; ?></h4>
-                                    <p class="label"><?php echo $translate->translate('Pronto para Gravação', $_SESSION['client_lang']); ?></p>
-                                    <div class="icon"><i class="fas fa-video-camera"></i></div>
-                                </div>
-                            </div>
-
-                            <div class="col-xl-3 col-md-6">
-                                <div class="dashboard-card gradient-orange">
-                                    <?php
-                                    $scriptsAwaiting = new VideoScript;
-                                    $countAwaiting = $scriptsAwaiting->getCountSumQuery(
-                                            customWhere: [['column' => 'customer_id', 'value' => $_SESSION['client_gcid']], ['column' => 'channel_gcid', 'value' => $_SESSION['active_workspace_gcid']]],
-                                            customWhereOr: [['column' => 'status_id', 'values' => [7]]]
-                                    );
-                                    ?>
-                                    <h4 class="value"><?php echo $countAwaiting['total_count']; ?></h4>
-                                    <p class="label"><?php echo $translate->translate('Aguardando Publicação', $_SESSION['client_lang']); ?></p>
-                                    <div class="icon"><i class="fas fa-hourglass-1"></i></div>
-                                </div>
-                            </div>
-                            <div class="col-xl-3 col-md-6">
-                                <div class="dashboard-card gradient-green">
-                                    <?php
-                                    $scriptsPublished = new VideoScript;
-                                    $countPublished = $scriptsPublished->getCountSumQuery(
-                                            customWhere: [['column' => 'customer_id', 'value' => $_SESSION['client_gcid']], ['column' => 'channel_gcid', 'value' => $_SESSION['active_workspace_gcid']]],
-                                            customWhereOr: [['column' => 'status_id', 'values' => [8]]]
-                                    );
-                                    ?>
-                                    <h4 class="value"><?php echo $countPublished['total_count']; ?></h4>
-                                    <p class="label"><?php echo $translate->translate('Projetos Publicados', $_SESSION['client_lang']); ?></p>
-                                    <div class="icon"><i class="fas fa-globe"></i></div>
-                                </div>
-                            </div>
-                        </div>
                         <!-- cards -->
                     <?php } ?>
                 </section>

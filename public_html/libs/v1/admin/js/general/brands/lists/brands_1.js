@@ -1,0 +1,153 @@
+var pag = 1;
+var limit = 20;
+function load_brands() {
+    if (document.querySelector("#dir_site")) {
+        var dir_site = document.querySelector("#dir_site");
+        var dir = "";
+        if (dir_site.value !== null && dir_site.value !== "") {
+            dir = "/" + dir_site.value;
+        }
+    }
+    $("#list").html("");
+    $("#pagination").html("");
+    var description_search = "";
+    var description = document.getElementById("brand_name_search").value;
+    if (description !== "") {
+        description_search = "&description=" + description;
+    }
+    var status = document.querySelector('input[name=brand_status_search]:checked').value;
+    if (status !== "") {
+        description_search += "&status=" + status;
+    }
+    var ord = "";
+    var ordSelect = document.getElementById('ord');
+    var ordValue = ordSelect.options[ordSelect.selectedIndex].value;
+    if (ordValue !== null && ordValue !== "") {
+        ord = "&ord=" + ordValue;
+    }
+    var data = "pag=" + pag + "&limit=" + limit + description_search + ord;
+    $.post(dir + "/list/FoodBrands/list", data, function (response) {
+        $('#list').html(response);
+    });
+    $.post(dir + "/list/FoodBrands/pagination", data, function (response) {
+        $('#pagination').html(response);
+    });
+}
+function pagination(pag) {
+    if (document.querySelector("#dir_site")) {
+        var dir_site = document.querySelector("#dir_site");
+        var dir = "";
+        if (dir_site.value !== null && dir_site.value !== "") {
+            dir = "/" + dir_site.value;
+        }
+    }
+    var description_search = "";
+    var description = document.getElementById("brand_name_search").value;
+    if (description !== "") {
+        description_search = "&description=" + description;
+    }
+    var status = document.querySelector('input[name=brand_status_search]:checked').value;
+    if (status !== "") {
+        description_search += "&status=" + status;
+    }
+    var ord = "";
+    var ordSelect = document.getElementById('ord');
+    var ordValue = ordSelect.options[ordSelect.selectedIndex].value;
+    if (ordValue !== null && ordValue !== "") {
+        ord = "&ord=" + ordValue;
+    }
+    var data = "pag=" + pag + "&limit=" + limit + description_search + ord;
+    $.post(dir + "/list/FoodBrands/list", data, function (response) {
+        $('#list').html(response);
+    });
+    $.post(dir + "/list/FoodBrands/pagination", data, function (response) {
+        $('#pagination').html(response);
+    });
+}
+function clear_search() {
+    document.getElementById("brand_name_search").value = "";
+    document.querySelector('input[id=status3]').checked = true;
+    select_box = document.getElementById("ord");
+    select_box.selectedIndex = 3;
+    load_brands(); 
+}
+$(document).ready(function () {
+    load_brands();
+});
+
+function clean_form(form){
+    form.reset();
+    const to_validations = form.getElementsByClassName("to_validations");
+    var to_validations_count = to_validations.length;
+    for (var i = 0; i < to_validations_count; i++) {
+            to_validations[i].classList.remove('is-invalid');
+            var id_input = "to_validation_blank_" + to_validations[i].id;
+            document.getElementById(id_input).style.display = "none";        
+    }
+}
+function validation_form(form) {
+    var returns = true;
+    const to_validations = form.getElementsByClassName("to_validations");
+    var to_validations_count = to_validations.length;
+    for (var i = 0; i < to_validations_count; i++) {
+        if (to_validations[i].value === "" || to_validations[i].value === null) {
+            to_validations[i].classList.add('is-invalid');
+            var id_input = "to_validation_blank_" + to_validations[i].id;
+            document.getElementById(id_input).style.display = "block";
+            returns = false;
+        } else {
+            to_validations[i].classList.remove('is-invalid');
+            var id_input = "to_validation_blank_" + to_validations[i].id;
+            document.getElementById(id_input).style.display = "none";
+        }
+    }
+    return returns;
+}
+
+function save_Brands(forms) {
+    if (document.querySelector("#dir_site")) {
+        var dir_site = document.querySelector("#dir_site");
+        var dir = "";
+        if (dir_site.value !== null && dir_site.value !== "") {
+            dir = "/" + dir_site.value;
+        }
+    }
+    if (validation_form(forms) === true) {
+        const Toast = swal.mixin({
+            toast: true,
+            position: 'top-end',
+            showConfirmButton: false,
+            timer: 3000
+        });
+        var data = $("#" + forms.id).serialize();
+        $.post(dir + "/control/FoodBrands/Save", data, function (response) {
+            var msg = response.split("->");
+            if (msg[0] === "1") {
+                Toast.fire({
+                    icon: 'success',
+                    title: " " + msg[1]
+                });
+                clean_form(forms);
+                load_brands();
+                $('.brand_modal').modal('hide');
+                $('.brand_edit_modal').modal('hide');
+            } else if (msg[0] === "2") {
+                Toast.fire({
+                    icon: "warning",
+                    title: " " + msg[1]
+                });
+            }
+
+        });
+    }
+}
+function brand_edit(brand, description, status) {
+    document.querySelector("[name='code']").value = brand;
+    document.querySelector("[id='description_edit']").value = description;
+    if(status === 1 || status === 2){
+    document.getElementById('status_edit').value = status;
+}else{
+    document.getElementById('status_edit').value = 0;
+}
+    $('#update-modal').modal('show');
+}

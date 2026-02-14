@@ -12,7 +12,6 @@ use Microfw\Src\Main\Common\Entity\Public\Signature;
 use Microfw\Src\Main\Common\Entity\Public\SignaturePayment;
 use Microfw\Src\Main\Common\Entity\Public\PaymentStatus;
 use Microfw\Src\Main\Common\Entity\Public\AccessPlan;
-use Microfw\Src\Main\Controller\Public\AccessPlans\UsageAtomicService;
 use Microfw\Src\Main\Controller\Public\Signature\GeneratePaymentOrder;
 use Microfw\Src\Main\Controller\Landing\Controller\PaymentLogs;
 
@@ -156,91 +155,11 @@ class CheckPlan {
         $_SESSION['client_plan'] = true;
         $_SESSION['client_plan_code'] = $accessPlan->getId();
         $_SESSION['client_plan_title'] = $accessPlan->getTitle();
-        $_SESSION['client_plan_tokens'] = (int) $accessPlan->getNumber_tokens();
-        $_SESSION['client_plan_scripts'] = (int) $accessPlan->getNumber_scripts();
-        $_SESSION['client_plan_channels'] = $accessPlan->getNumber_channels();
+        $_SESSION['client_plan_export_enabled'] = (int) $accessPlan->getExport_enabled();
+        $_SESSION['client_plan_reports_enabled'] = (int) $accessPlan->getReports_enabled();
+        $_SESSION['client_plan_max_foods'] = $accessPlan->getMax_foods();
+        $_SESSION['client_plan_max_meals_daily'] = $accessPlan->getMax_meals_daily();
         $_SESSION['client_plan_message'] = $translate->translate('Plano de assinatura ativo.', $_SESSION['client_lang']);
-        $usage = new UsageAtomicService;
-        $usage = $usage->ensureUsageRow();
-        if ($usage->getTokens_used()) {
-            $_SESSION['client_plan_tokens_usage'] = (int) $usage->getTokens_used();
-        }
         return ['allowed' => true, 'plan_active' => true, 'plan_payment' => true];
     }
-
-    public function checkScriptsLimits(): array {
-        $this->checkPlan();
-        $translate = new Translate();
-        $usage = new UsageAtomicService;
-        $usage = $usage->ensureUsageRow();
-        if ($usage) {
-            if ((int) $usage->getScripts_used() >= (int) $_SESSION['client_plan_scripts']) {
-                return ['allowed' => false, 'message' => $translate->translate('Você atingiu o limite de scripts deste mês.', $_SESSION['client_lang'])];
-            }
-        }
-        return ['allowed' => true];
-    }
-
-    public function checkTokensLimits(): array {
-        $translate = new Translate();
-        $this->checkPlan();
-        $usage = new UsageAtomicService;
-        $usage = $usage->ensureUsageRow();
-        if ($usage->getTokens_used() >= $_SESSION['client_plan_tokens']) {
-            return ['allowed' => false, 'message' => $translate->translate('Você atingiu o limite de tokens deste mês.', $_SESSION['client_lang'])];
-        }
-
-        return ['allowed' => true, 'tokens_usage' => $usage];
-    }
-
-    /**
-     * PASSO 1: Verificação de Cota (Guard Clause)
-     */
-    public static function checkQuota() {
-        $config = new McClientConfig;
-
-        // Se for Free, o limite é o bolso/cota do Google do usuário, não controlamos aqui
-        // (A não ser que você queira limitar quantas vezes ele usa seu sistema por dia)
-        if ($_SESSION['client_premium'] !== $config->getApi_key_client_premium_system()) {
-            return ['allowed' => true];
-        }
-        $planService = new CheckPlan;
-        $check = $planService->checkTokensLimits();
-
-        if (!$check['allowed']) {
-            return ['allowed' => false, 'message' => $check['message']];
-        }
-
-        return ['allowed' => true];
-    }
-
-    /**
-     * PASSO 2: Atualização de Uso
-     */
-    public static function updateUsage($tokensGastos) {
-        $config = new McClientConfig;
-        // Apenas usuários Premium consomem SEUS tokens
-        if ((int) $_SESSION['client_premium'] !== (int) $config->getApi_key_client_premium_system()) {
-            return true;
-        }
-
-        $usage = new UsageAtomicService;
-
-        if (isset($tokensGastos)) {
-            $usage->addTokensUsed($tokensGastos);
-        }
-    }
-
-    /* /
-     *  Verifica limites antes de rodar IA ou criar script
-     * Exemplos de Uso
-      $check = $planService->checkLimits($customerId);
-      if (!$check['allowed']) {
-      die($check['message']); // ou redirecionar para página de upgrade
-      }
-
-      // Se passar, consome tokens
-      $usageService = new UsageServiceAtomic($pdo);
-      $usageService->addTokensUsed(120); // tokens gerados
-      $usageService->addScriptUsage(); // script cadastrado */
 }

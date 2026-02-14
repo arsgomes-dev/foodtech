@@ -226,31 +226,41 @@ $translate = new Translate();
                                                         <div id="to_validation_blank_ribbon" style="display: none;" class="to_blank"><span><?php echo $translate->translate('Não é permitido campo em branco', $_SESSION['user_lang']); ?>!</span></div>
                                                     </div>
                                                 </div>
+                                                
                                                 <div class="col-lg-6 col-md-6 col-sm-12 to_validation">
                                                     <div class="form-group">
-                                                        <label for="nTokens">
-                                                            <?php echo $translate->translate('Número de Tokens', $_SESSION['user_lang']); ?> *
+                                                        <label for="nFoods">
+                                                            <?php echo $translate->translate('Número de Alimentos/Refeição', $_SESSION['user_lang']); ?> *
                                                         </label>
-                                                        <input type="text" class="form-control to_validations" id="nTokens" name="nTokens" placeholder="<?php echo $translate->translate('Número de Tokens', $_SESSION['user_lang']); ?>" inputmode="numeric" autocomplete="off">
-                                                        <div id="to_validation_blank_nTokens" style="display: none;" class="to_blank"><span><?php echo $translate->translate('Não é permitido campo em branco', $_SESSION['user_lang']); ?>!</span></div>
+                                                        <input <?php echo $edit; ?> type="text" class="form-control to_validations" id="nFoods" name="nFoods" placeholder="<?php echo $translate->translate('Número de Alimentos/Refeição', $_SESSION['user_lang']); ?>" inputmode="numeric" autocomplete="off">
+                                                        <div id="to_validation_blank_nFoods" style="display: none;" class="to_blank"><span><?php echo $translate->translate('Não é permitido campo em branco', $_SESSION['user_lang']); ?>!</span></div>
                                                     </div>
                                                 </div>
                                                 <div class="col-lg-6 col-md-6 col-sm-12 to_validation">
                                                     <div class="form-group">
-                                                        <label for="nScripts">
-                                                            <?php echo $translate->translate('Número de Roteiros', $_SESSION['user_lang']); ?> *
+                                                        <label for="nMeals">
+                                                            <?php echo $translate->translate('Número de Refeições/Dia', $_SESSION['user_lang']); ?> *
                                                         </label>
-                                                        <input type="text" class="form-control to_validations" id="nScripts" name="nScripts" placeholder="<?php echo $translate->translate('Número de Roteiros', $_SESSION['user_lang']); ?>" inputmode="numeric" autocomplete="off">
-                                                        <div id="to_validation_blank_nScripts" style="display: none;" class="to_blank"><span><?php echo $translate->translate('Não é permitido campo em branco', $_SESSION['user_lang']); ?>!</span></div>
+                                                        <input <?php echo $edit; ?> type="text" class="form-control to_validations" id="nMeals" name="nMeals" placeholder="<?php echo $translate->translate('Número de Refeições/Dia', $_SESSION['user_lang']); ?>" inputmode="numeric" autocomplete="off">
+                                                        <div id="to_validation_blank_nMeals" style="display: none;" class="to_blank"><span><?php echo $translate->translate('Não é permitido campo em branco', $_SESSION['user_lang']); ?>!</span></div>
                                                     </div>
                                                 </div>
                                                 <div class="col-lg-6 col-md-6 col-sm-12 to_validation">
                                                     <div class="form-group">
-                                                        <label for="nChannels">
-                                                            <?php echo $translate->translate('Número de Canais', $_SESSION['user_lang']); ?> *
+                                                        <label for="nReports">
+                                                            <?php echo $translate->translate('Exportar Cardápio', $_SESSION['user_lang']); ?> *
                                                         </label>
-                                                        <input type="text" class="form-control to_validations" id="nChannels" name="nChannels" placeholder="<?php echo $translate->translate('Número de Canais', $_SESSION['user_lang']); ?>" inputmode="numeric" autocomplete="off">
-                                                        <div id="to_validation_blank_nChannels" style="display: none;" class="to_blank"><span><?php echo $translate->translate('Não é permitido campo em branco', $_SESSION['user_lang']); ?>!</span></div>
+                                                        <input <?php echo $edit; ?> type="text" class="form-control to_validations" id="nReports" name="nReports" placeholder="<?php echo $translate->translate('Exportar Cardápio', $_SESSION['user_lang']); ?>" inputmode="numeric" autocomplete="off">
+                                                        <div id="to_validation_blank_nReports" style="display: none;" class="to_blank"><span><?php echo $translate->translate('Não é permitido campo em branco', $_SESSION['user_lang']); ?>!</span></div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-lg-6 col-md-6 col-sm-12 to_validation">
+                                                    <div class="form-group">
+                                                        <label for="nExport">
+                                                            <?php echo $translate->translate('Exportar Dados', $_SESSION['user_lang']); ?> *
+                                                        </label>
+                                                        <input <?php echo $edit; ?> type="text" class="form-control to_validations" id="nExport" name="nExport" placeholder="<?php echo $translate->translate('Exportar Dados', $_SESSION['user_lang']); ?>" inputmode="numeric" autocomplete="off">
+                                                        <div id="to_validation_blank_nExport" style="display: none;" class="to_blank"><span><?php echo $translate->translate('Não é permitido campo em branco', $_SESSION['user_lang']); ?>!</span></div>
                                                     </div>
                                                 </div>
                                                     <div class="col-lg-6 col-md-6 col-sm-12 to_validation">

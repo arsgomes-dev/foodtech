@@ -89,9 +89,9 @@ class BaseHtml {
             $cloudFlare->clean();
         }
         // menu topo
-        require_once trim($_SERVER['DOCUMENT_ROOT'] . "src/Main/View/" . $config->getFolderAdmin() . "/topbar.php");
+        require_once trim($_SERVER['DOCUMENT_ROOT'] . "/src/Main/View/" . $config->getFolderAdmin() . "/topbar.php");
         // menu lateral
-        require_once trim($_SERVER['DOCUMENT_ROOT'] . "src/Main/View/" . $config->getFolderAdmin() . "/slidebar.php");
+        require_once trim($_SERVER['DOCUMENT_ROOT'] . "/src/Main/View/" . $config->getFolderAdmin() . "/slidebar.php");
     }
 
     function baseBreadcrumb(String $title, $dir, String $active) {

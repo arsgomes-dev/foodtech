@@ -109,6 +109,10 @@ $router->get('/' . $admin . '/signatures/{id}', function ($id) {
     $signatureController = new Microfw\Src\Main\Controller\Admin\Signatures\Search\Signature();
     $signatureController->page($id);
 });
+$router->get('/' . $admin . '/foods/{id}', function ($id) {
+    $foodController = new Microfw\Src\Main\Controller\Admin\Foods\Search\Food;
+    $foodController->page($id);
+});
 $router->get('/' . $admin . '/ticket/{id}', function ($id) {
     $ticketsController = new Microfw\Src\Main\Controller\Admin\Tickets\Search\Ticket();
     $ticketsController->page($id);
