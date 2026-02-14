@@ -1,0 +1,1217 @@
+/* =========================
+   BASE / BODY
+========================= */
+body{
+    background-color: #f4f6f9;
+}
+
+/* =========================
+   SIDEBAR / NAVEGAÇÃO
+========================= */
+.nav-sidebar .nav-item > .nav-link  {
+    position: relative;
+    color: #fff;
+}
+
+.nav-sidebar .nav-item > .nav-link:hover {
+    position: relative;
+    color: #fff;
+    background: #495057;
+}
+
+.nav-sidebar > .nav-item > .nav-link.active,
+.sidebar-light-primary .nav-sidebar > .nav-item > .nav-link.active {
+    background-color: #A020F0 !important;
+    color: #fff;
+}
+
+.nav-treeview > .nav-item > .nav-link.active,
+[class*="sidebar-dark-"] .nav-treeview > .nav-item > .nav-link.active:hover,
+[class*="sidebar-dark-"] .nav-treeview > .nav-item > .nav-link.active:focus {
+    color:  #A020F0;
+}
+/* =========================
+   CARD
+========================= */
+.card-footer-transparent {
+    overflow-x: auto;
+    background-color: transparent;
+}
+/* =========================
+   ÍCONES / LISTAS
+========================= */
+#list .table .nav-icon{
+    color:  #A020F0;
+}
+
+.nav-icon-color{
+    color: #A020F0;
+}
+
+/* =========================
+   PAGINAÇÃO
+========================= */
+.page-item.active .page-link {
+    border-color: #A020F0;
+    background: #A020F0;
+}
+
+/* =========================
+   MODAL
+========================= */
+.modal_title_img{
+    color: #000;
+}
+
+/* =========================
+   USER PAGE
+========================= */
+.user-page .nav-tabs.flex-column a{
+    color: #3c3c3c;
+}
+
+.user-page .nav-tabs.flex-column .nav-link.active{
+    background-color:#dcdcdc;
+    color: #4477bc;
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+}
+
+/* =========================
+   LOGO / BRAND
+========================= */
+.thetec .img-logo > img {
+    border: 3px solid #fff;
+}
+
+.thetec .img-logo .img-update{
+    border: 3px solid #fff;
+    background-color: #673de6;
+    color: #fff;
+}
+
+.main-sidebar .brand-link > .brand-text {
+    position: relative;
+    color: #fff;
+}
+
+.main-sidebar .brand-link > .brand-text:hover {
+    color: #f8f9fa;
+}
+.main-sidebar .brand-link  {
+    background-color: transparent;
+}
+
+/* =========================
+   USER PANEL
+========================= */
+.user-panel .nav-link,
+.user-panel .info,
+.user-panel .info a {
+    color: #fff;
+}
+
+.user-panel .nav-link:hover {
+    background-color: #A020F0;
+}
+/*---------------------------
+icheck-default color
+---------------------------*/
+/* Cores dinâmicas */
+/* Pega o bg da div e aplica no círculo */
+/* Estilo base do radio */
+/* Estilo base */
+.icheck-default input[type="radio"] + label::before {
+    border-radius: 50%;
+    border: 2px solid #d2d6de;
+}
+
+/* Quando marcado, aplica a cor vinda da classe color-bg-* */
+.icheck-default.color-bg-primary input[type="radio"]:checked + label::before {
+    background-color: var(--bs-primary);
+    border-color: var(--bs-primary);
+}
+
+.icheck-default.color-bg-success input[type="radio"]:checked + label::before {
+    background-color: var(--bs-success);
+    border-color: var(--bs-success);
+}
+
+.icheck-default.color-bg-warning input[type="radio"]:checked + label::before {
+    background-color: var(--bs-warning);
+    border-color: var(--bs-warning);
+}
+
+.icheck-default.color-bg-info input[type="radio"]:checked + label::before {
+    background-color: var(--bs-info);
+    border-color: var(--bs-info);
+}
+
+.icheck-default.color-bg-danger input[type="radio"]:checked + label::before {
+    background-color: var(--bs-danger);
+    border-color: var(--bs-danger);
+}
+
+.icheck-default.color-bg-purple input[type="radio"]:checked + label::before {
+    background-color: #6f42c1;
+    border-color: #6f42c1;
+}
+
+.icheck-default.color-bg-secondary input[type="radio"]:checked + label::before {
+    background-color: var(--bs-secondary);
+    border-color: var(--bs-secondary);
+}
+
+/* AdminLTE Orange */
+.icheck-default.color-bg-orange input[type="radio"]:checked + label::before {
+    background-color: #ff851b;
+    border-color: #ff851b;
+}
+.icheck-default.color-bg-teal input[type="radio"]:checked + label::before {
+    background-color: #20c997;
+    border-color: #20c997;
+}
+.icheck-default.color-bg-magenta input[type="radio"]:checked + label::before {
+    background-color: #d63384;
+    border-color: #d63384;
+}
+/* AQUI TROCA SOMENTE A COR DO "V" */
+.icheck-default input[type="radio"]:checked + label::after,
+.icheck-default input[type="checkbox"]:checked + label::after {
+    border-color: #fff !important;      /* cor do ✓ */
+    background-color: transparent !important; /* não altera fundo */
+}
+/* =========================
+   CORES CHANNELS
+========================= */
+
+/* Card adicionar canal */
+.add-channel-card {
+    border: 2px dashed #a7c2ff;
+}
+
+.add-channel-card:hover {
+    background: #f8faff;
+    border-color: #3d7eff;
+}
+
+/* Thumbnail */
+.channel-thumb {
+    border: 4px solid #fff;
+}
+
+/* Métricas */
+.metrics-box {
+    background: #f8f9fa;
+}
+
+.metric-label {
+    color: #6c757d;
+}
+
+/* Scroll */
+.ai-scroll::-webkit-scrollbar-thumb {
+    background: #bbb;
+}
+
+.ai-scroll::-webkit-scrollbar-thumb:hover {
+    background: #999;
+}
+
+/* Nav tabs */
+.nav-tabs-bordered .nav-link {
+    color: #555;
+}
+
+.nav-tabs-bordered .nav-link.active {
+    border-bottom: 3px solid #4F46E5 !important;
+    color: #4F46E5;
+}
+
+/* Modal body */
+#modalEditChannel .modal-body {
+    background: #fafbff;
+}
+
+/* Accordion */
+.accordion-button {
+    background: transparent !important;
+    border: none !important;
+    box-shadow: none !important;
+}
+
+.accordion-button:not(.collapsed) {
+    background: transparent !important;
+    box-shadow: none !important;
+}
+
+.accordion-item {
+    background: transparent !important;
+    border: none !important;
+}
+
+.accordion-body {
+    background: transparent !important;
+}
+
+.accordion-header h5 {
+    border-bottom: 2px solid #e0e0e0;
+}
+/* renew-plan */
+.main-sidebar .sidebar .renew-plan .nav-link {
+    background-color:  #fd9843 !important;
+    color: #fff;
+}
+
+.main-sidebar .sidebar .renew-plan .nav-link:hover {
+    background-color: #fd7e14 !important;
+}
+/* =========================
+   RENEW PLAN
+========================= */
+
+/* --- CORES E TEMA (CORRIGIDO) --- */
+
+#renewModal .modal-content {
+    background-color: #fff; /* Garante fundo branco geral */
+    box-shadow: 0 10px 40px rgba(0,0,0,0.4);
+}
+
+/* FORÇAR LADO ESQUERDO BRANCO (Corrige o problema da sua imagem) */
+.payment-form-area {
+    background-color: #ffffff !important;
+}
+
+/* Labels Escuros para contraste no fundo branco */
+.form-label {
+    color: #333333 !important;
+}
+
+.custom-input:focus {
+    border-color: #A020F0;
+    box-shadow: 0 0 0 3px rgba(0, 102, 255, 0.1);
+}
+
+/* LADO DIREITO */
+.payment-summary-area {
+    background-color: #f8f9fa !important; /* Cinza bem claro */
+    border-left: 1px solid #eee;
+}
+
+/* Cartão Visual - Estilo "Black Card" Profissional (ficou bonito na sua imagem) */
+.card-visual {
+    background: linear-gradient(135deg, #1a1a1a 0%, #000000 100%);
+    box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+    color: #fff; /* Texto Branco */
+}
+
+.card-chip {
+    background: linear-gradient(135deg, #ffd700 0%, #d4af37 100%); /* Chip Dourado */
+}
+
+.wifi-symbol {
+    color: rgba(255,255,255,0.6);
+}
+
+.card-number-display {
+    color: #fff;
+    text-shadow: 0 2px 4px rgba(0,0,0,0.5);
+}
+
+.card-details-display {
+    color: rgba(255,255,255,0.7);
+}
+
+.btn-pay {
+    background-color: #A020F0;
+    color: #fff;
+    box-shadow: 0 4px 15px rgba(0, 102, 255, 0.4);
+}
+.btn-pay:hover {
+    background-color: #750cb7;
+}
+
+.order-row {
+    color: #666;
+}
+.order-row span:last-child {
+    color: #000;
+    font-weight: 600;
+}
+
+.order-total {
+    color: #000;
+    border-top-color: #ccc;
+}
+
+.timer-badge {
+    background: #000;
+    color: #fff;
+}
+/* Modal plano */
+#subscriptionModal .modal-content {
+    background-color: #fff;
+}
+
+/* Plan info */
+.plan-title {
+    color: var(--primary-app-color);
+}
+
+.plan-price-period {
+    color: #495057;
+}
+
+/* Features */
+.plan-features-list li {
+    color: #495057;
+}
+
+/* Ícone ✔ */
+.plan-features-list li .feature-icon {
+    color: var(--primary-app-color);
+}
+
+/* Feature principal */
+.plan-features-list li.feature-main {
+    color: #212529;
+}
+
+/* =========================
+   CORES - PLANOS DE ASSINATURAS
+========================= */
+
+:root {
+    --primary-app-color: #A020F0;
+}
+
+/* TOGGLE */
+.plan-toggle .btn {
+    border-color: var(--primary-app-color);
+    color: var(--primary-app-color);
+}
+
+.plan-toggle .btn:hover {
+    background-color: rgba(160, 32, 240, .08);
+}
+
+.plan-toggle .btn.active {
+    background-color: var(--primary-app-color);
+    color: #fff;
+    border-color: var(--primary-app-color);
+}
+
+.plan-toggle .btn:not(.active) {
+    background-color: #fff;
+}
+
+/* CARD */
+.plan-card {
+    border-color: #e3e6ea;
+    background: #ffffff;
+}
+
+.plan-card:hover {
+    border-color: var(--primary-app-color);
+    box-shadow: 0 8px 24px rgba(160, 32, 240, .12);
+}
+
+.plan-card.recommended {
+    border-color: var(--primary-app-color);
+}
+
+/* LABELS */
+.plan-recommended-label {
+    background: var(--primary-app-color);
+    color: #fff;
+}
+
+.yearly-badge {
+    background: var(--primary-app-color);
+    color: #fff;
+}
+
+/* TEXTOS */
+.plan-title {
+    color: #212529;
+}
+
+.plan-price {
+    color: var(--primary-app-color);
+}
+
+.plan-period {
+    color: #6c757d;
+}
+
+.economy-label {
+    color: var(--primary-app-color);
+}
+
+.plan-features li {
+    color: #495057;
+}
+
+.plan-features .feature-icon {
+    color: var(--primary-app-color);
+}
+
+.plan-features .feature-main {
+    color: #212529;
+}
+
+/* BOTÕES */
+.btn-primary-plan {
+    background-color: var(--primary-app-color);
+    border-color: var(--primary-app-color);
+}
+
+.btn-primary-plan:hover,
+.btn-primary-plan:focus {
+    background-color: #8a1ad1;
+    border-color: #8a1ad1;
+}
+
+/* Esconder inicialmente todas as li além da terceira */
+.plan-features li:nth-child(n+4) {
+    display: none;
+}
+
+/* Estilo do botão mostrar mais */
+.btn-show-more {
+    color: var(--primary-app-color);
+    background: none;
+}
+
+/* Opcional: animação suave */
+.plan-features li {
+    transition: all 0.3s ease;
+}
+/* =========================
+   CORES - DARK
+========================= */
+
+[data-theme="dark"] body {
+    background-color: #1e1e1e !important;
+}
+
+[data-theme="dark"] .wrapper {
+    background-color: #1e1e1e !important;
+}
+
+[data-theme="dark"] .content-wrapper {
+    background: #2b2f33;
+}
+
+[data-theme="dark"] .main-footer {
+    background: transparent;
+}
+
+/* Nav ativo */
+[data-theme="dark"] .nav-sidebar > .nav-item > .nav-link.active,
+[data-theme="dark"] .sidebar-light-primary .nav-sidebar > .nav-item > .nav-link.active {
+    color: #ffffff;
+}
+
+[data-theme="dark"] .main-sidebar,
+[data-theme="dark"] .main-header{
+    background-color: #1e1e1e !important;
+}
+
+/* Brand */
+[data-theme="dark"] .main-sidebar .brand-link  {
+    background-color: #1e1e1e !important;
+}
+[data-theme="dark"] .main-sidebar .brand-link hr {
+    border-color: #444;
+}
+
+/* Logout */
+[data-theme="dark"] .main-sidebar .sidebar .logout-item .nav-link {
+    color: #ffffff;
+}
+
+[data-theme="dark"] .main-sidebar .sidebar .logout-item .nav-link:hover {
+    background-color: #a71d2a;
+    box-shadow: 0 6px 8px rgba(0,0,0,0.4);
+}
+
+/* User panel */
+[data-theme="dark"] .user-panel-item .nav-link {
+    background-color: #1e1e1e !important;
+    color: #ffffff !important;
+}
+
+[data-theme="dark"] .user-panel-item .nav-link:hover {
+    background-color: #6f2dbd !important;
+}
+
+[data-theme="dark"] .content-header .container-fluid h1,
+[data-theme="dark"] .content-header .container-fluid h2,
+[data-theme="dark"] .content-header .container-fluid h3,
+[data-theme="dark"] .content-header .container-fluid h4,
+[data-theme="dark"] .content-header .container-fluid h5,
+[data-theme="dark"] .content-header .container-fluid h6{
+    color: #fff;
+}
+
+[data-theme="dark"] .content-header .container-fluid .breadcrumb-item-color{
+    color: #A020F0;
+}
+[data-theme="dark"] .content-header .container-fluid .breadcrumb-item.active
+{
+    color: #dee2e6;
+}
+[data-theme="dark"] .wrapper .navbar-user button
+{
+    color: #fff;
+}
+[data-theme="dark"] .main-footer
+{
+    color: #fff;
+}
+/* Aplica dark mode aos cards */
+[data-theme="dark"] .content  .card{
+    background: transparent !important;
+}
+[data-theme="dark"] .content  .card .card-footer{
+    background: transparent !important;
+}
+/* Aplica dark mode aos cards */
+[data-theme="dark"] .content .card .card-title,
+[data-theme="dark"] .content .card .card-header .card-title{
+    color: #fff !important;
+}
+/* Aplica dark mode aos cards */
+[data-theme="dark"] .content .card .card-body,
+[data-theme="dark"] .content .card .card-body .list-group .list-group-item,
+[data-theme="dark"] .content .card .card-body .list-group .list-group-item i{
+    color: #fff !important;
+}
+[data-theme="dark"] #aiSuggestionsList .list-group-item:hover {
+    background-color: #343434 !important;
+}
+
+[data-theme="dark"] .content .card .card-body input,
+[data-theme="dark"] .content .card .card-body select,
+[data-theme="dark"] .content .card .card-body textarea {
+    background-color: #343434; /* fundo quando expandido */
+    color: #fff !important; /* mantém a seta branca */
+}
+/* Aplica dark mode aos cards */
+[data-theme="dark"] .content  .card .card{
+    box-shadow: 0 10px 25px rgba(255, 255, 255, 0.1); /* sombra profunda */
+    transition: all 0.3s ease-in-out;
+    margin-bottom: 1rem;
+}
+[data-theme="dark"] #ytChannelTitle,
+[data-theme="dark"] .metrics-box,
+[data-theme="dark"] .metrics-box .metric-label{
+    background: transparent;
+    color: #fff !important;
+}
+[data-theme="dark"] .modal-content{
+    background-color: #1e1e1e !important;
+    color: #fff !important;
+    border: none !important;
+}
+[data-theme="dark"] .modal-content .modal-header h5,
+[data-theme="dark"] .modal-content .modal-header{
+    border: none !important;
+    color: #fff !important;
+    background-color: #1e1e1e !important;
+}
+[data-theme="dark"] .modal-content .modal-header a{
+    color: #fff !important;
+}
+[data-theme="dark"] .modal-content .modal-header .btn-close,
+[data-theme="dark"] .modal-content .modal-header .close{
+    filter: invert(1) sepia(1) saturate(5) hue-rotate(180deg)   ; /* seta o X branco */
+}
+[data-theme="dark"] .modal-body{
+    background-color: #1e1e1e !important;
+    color: #fff !important;
+}
+[data-theme="dark"] .modal-body input,
+[data-theme="dark"] .modal-body select,
+[data-theme="dark"] .modal-body textarea {
+    background-color: #343434; /* fundo quando expandido */
+    color: #fff !important; /* mantém a seta branca */
+}
+
+[data-theme="dark"] .modal-body .card-body .table-borderless th,
+[data-theme="dark"] .table-borderless td,
+[data-theme="dark"] .table-borderless thead th,
+[data-theme="dark"] .table-borderless tbody + tbody {
+    background-color: #2b2f33 !important;
+    color: #fff !important;
+}
+[data-theme="dark"] .modal-body .text-color{
+    color: #fff !important;
+}
+[data-theme="dark"] .modal-footer{
+    background-color: #1e1e1e !important;
+    color: #fff !important;
+    border: none;
+}
+[data-theme="dark"] .modal-body #aiContent{
+    color: #fff !important;
+}
+[data-theme="dark"] .modal-body #aiContent h5{
+    color: #fff !important;
+}
+[data-theme="dark"] .modal-body #aiContent .card-header{
+    background: #1e1e1e !important;
+    color: #fff !important;
+}
+[data-theme="dark"] .modal-body #aiContent .card-header strong{
+    background: #1e1e1e !important;
+    color: #fff !important;
+}
+[data-theme="dark"] .modal-body #aiContent .card-header button{
+    color: #fff !important;
+    border: 1px solid #fff !important;
+}
+[data-theme="dark"] .modal-body #aiContent .card-body,
+[data-theme="dark"] .modal-body #aiContent .card-body p{
+    background: #1e1e1e !important;
+    color: #fff !important;
+}
+[data-theme="dark"] .nav-tabs > .nav-item > .nav-link.active{
+    color: #fff !important;
+    background-color: #4a4a4a !important;
+    border-bottom: 3px solid #A5A5A5 !important;
+}
+[data-theme="dark"] .nav-tabs > .nav-item > .nav-link{
+    color: #fff !important;
+}
+[data-theme="dark"] .nav-tabs{
+    border-bottom: 1px solid #4a4a4a;
+}
+[data-theme="dark"] .tab-content .tab-pane .accordion-item .accordion-header h5{
+    color: #fff !important;
+}
+[data-theme="dark"] .tab-content .tab-pane .form-label{
+    color: #fff;
+}
+/* Dark mode Accordion */
+[data-theme="dark"] .tab-content .ai-scroll .accordion .accordion-item .accordion-header .accordion-button::after {
+    filter: invert(100%); /* inverte cor da seta */
+    color: #fff !important; /* cor do texto e da seta */
+}
+
+[data-theme="dark"] .tab-content .ai-scroll .accordion .accordion-item .accordion-header .accordion-button:not(.collapsed) {
+    background-color: #3a3a50; /* fundo quando expandido */
+    color: #fff !important; /* mantém a seta branca */
+}
+
+[data-theme="dark"] .tab-content .ai-scroll .accordion .accordion-item input,
+[data-theme="dark"] .tab-content .ai-scroll .accordion .accordion-item select,
+[data-theme="dark"] .tab-content .ai-scroll .accordion .accordion-item textarea,
+[data-theme="dark"] .tab-content .tab-pane  textarea {
+    background-color: #343434; /* fundo quando expandido */
+    color: #fff !important; /* mantém a seta branca */
+}
+[data-theme="dark"] .btn-default {
+    background-color: transparent;
+    color: #fff;
+}
+[data-theme="dark"] .btn-filter,
+[data-theme="dark"] .btn-filter .btn-i-color{
+    background-color: transparent;
+    color: #fff !important;
+}
+[data-theme="dark"] .btn-filter:hover {
+    background-color: transparent;
+    color: #A020F0;
+    border: 1px solid #A020F0;
+}
+[data-theme="dark"] .btn-filter:hover i,
+[data-theme="dark"] .btn-filter:hover .btn-i-color:hover{
+    color: #A020F0 !important;
+}
+[data-theme="dark"] .tab-content .tab-pane .dropdown .dropdown-menu{
+    background-color: #1e1e1e;
+    color: #fff;
+}
+[data-theme="dark"] .tab-content .tab-pane .dropdown .dropdown-menu .dropdown-item{
+    color: #fff;
+}
+[data-theme="dark"] .tab-content .tab-pane .dropdown .dropdown-menu .dropdown-item:hover{
+    background-color: #343434;
+    color: #fff;
+}
+/* TABLE DARK MODE */
+[data-theme="dark"] .table {
+    color: #fff;
+    background-color: transparent;
+    border-color: #3a3a50;
+
+}
+
+/* Cabeçalho */
+[data-theme="dark"] .table thead th {
+    background-color: transparent;
+    color: #ffffff;
+    border-color: #3a3a50;
+}
+
+/* Corpo da tabela */
+[data-theme="dark"] .table tbody td {
+    background-color: transparent;
+    border-color: #3a3a50;
+    color: #fff;
+}
+[data-theme="dark"] .table .nav-icon {
+    color: #fff !important;
+}
+
+/* Listrado */
+[data-theme="dark"] .table-striped > tbody > tr:nth-of-type(odd) > * {
+    background-color: transparent;
+    opacity: 0.9;
+    color: #fff;
+}
+
+/* Hover */
+[data-theme="dark"] .table-hover > tbody > tr:hover > * {
+    opacity: 0.9;
+    color: #fff;
+}
+
+/* Bordas */
+[data-theme="dark"] .table-bordered > :not(caption) > * {
+    border-color: #3a3a50;
+}
+
+[data-theme="dark"] .accordion-custom .accordion-item{
+    box-shadow: 0 5px 15px rgba(255, 255, 255, 0.1);
+    transition: all 0.3s ease-in-out;
+    margin-bottom: 1rem;
+}
+[data-theme="dark"] .accordion .accordion-item .accordion-header button{
+    color: #fff;
+}
+
+/* Dark mode Accordion */
+[data-theme="dark"] .accordion .accordion-item .accordion-header button::after {
+    filter: invert(100%); /* inverte cor da seta */
+    color: #fff !important; /* cor do texto e da seta */
+}
+
+[data-theme="dark"] .accordion .accordion-item .accordion-header button:not(.collapsed) {
+    background-color: #3a3a50; /* fundo quando expandido */
+    color: #fff !important; /* mantém a seta branca */
+}
+[data-theme="dark"] .accordion .accordion-item .accordion-collapse .accordion-body label{
+    color: #fff;
+}
+[data-theme="dark"] .accordion .accordion-item .accordion-collapse .accordion-body input,
+[data-theme="dark"] .accordion .accordion-item .accordion-collapse .accordion-body textarea,
+[data-theme="dark"] .accordion .accordion-item .accordion-collapse .accordion-body select{
+    background-color: #343434;
+    color: #fff !important;
+}
+
+[data-theme="dark"] .yt-upload-box{
+    background-color: #343434;
+    color: #fff !important;
+}
+[data-theme="dark"] .main-footer{
+    background: #2b2f33 !important;
+}
+[data-theme="dark"] .card-custom{
+    box-shadow: 0 5px 15px rgba(255, 255, 255, 0.1) !important;
+    transition: all 0.3s ease-in-out !important;
+    margin-bottom: 1rem !important;
+}
+
+[data-theme="dark"] .yt-input-search input,
+[data-theme="dark"] .yt-input-search .input-group span,
+[data-theme="dark"] .yt-input-search .input-group span i{
+    background-color: #343434 !important;
+    color: #fff !important;
+}
+[data-theme="dark"] .yt-input-search .input-group button{
+    color: #fff !important;
+}
+[data-theme="dark"] .video-card{
+    box-shadow: 0 5px 15px rgba(255, 255, 255, 0.1) !important;
+    transition: all 0.3s ease-in-out !important;
+    margin-bottom: 1rem !important;
+    color: #fff;
+    background-color: transparent !important;
+}
+[data-theme="dark"] .video-card .card-body{
+    color: #fff;
+    background-color: transparent !important;
+}
+[data-theme="dark"] .video-card .card-body .card-title a,
+[data-theme="dark"] .video-card .card-body p{
+    color: #fff !Important;
+    background-color: transparent !important;
+}
+[data-theme="dark"] .channel-card,
+[data-theme="dark"] .channel-card p{
+    color: #fff !important;
+}
+[data-theme="dark"] .add-channel-card .text-center,
+[data-theme="dark"] .add-channel-card .text-center .icon-wrapper i,
+[data-theme="dark"] .add-channel-card .text-center p{
+    color: #fff !important;
+}
+
+[data-theme="dark"] .seo-feedback-wrapper {
+    background-color: transparent !important;
+    border: none !important;
+    box-shadow: none !important;
+}
+[data-theme="dark"] .seo-feedback-wrapper h6,
+[data-theme="dark"] .seo-feedback-wrapper .score-big-text,
+[data-theme="dark"] .seo-feedback-wrapper .score-title-big-text{
+    color: #fff !important;
+}
+[data-theme="dark"] .thumb-ratio-box {
+    background-color: transparent !important;
+}
+[data-theme="dark"] .thumb-ratio-box *,
+[data-theme="dark"] .thumb-result-card *{
+    color: #fff !important;
+}
+/* ================================================================= */
+/* TEMA DARK TINYMCE (#2b2f33) - CORRIGIDO */
+/* ================================================================= */
+
+/* 1. Definição das Variáveis no Escopo do Tema */
+[data-theme="dark"] {
+    --tox-dark-bg: #2b2f33;
+    --tox-dark-hover: #3a3f45;
+    --tox-dark-border: #161f29;
+    --tox-dark-text: #ffffff;
+    --tox-dark-input-bg: #1f2226;
+}
+
+/* 2. Reset Geral para a Interface do Editor (.tox-tinymce) */
+[data-theme="dark"] .tox-tinymce{
+    border: 1px solid #fff !important;
+}
+[data-theme="dark"] .tox-tinymce-aux, /* Menus flutuantes */
+[data-theme="dark"] .tox.tox-tinymce-inline .tox-editor-header {
+    border-color: var(--tox-dark-border) !important;
+}
+
+/* 3. Forçar Cores de Fundo e Texto em TODA a UI */
+[data-theme="dark"] .tox-editor-container,
+[data-theme="dark"] .tox-editor-header,
+[data-theme="dark"] .tox-toolbar,
+[data-theme="dark"] .tox-toolbar__primary,
+[data-theme="dark"] .tox-toolbar__overflow,
+[data-theme="dark"] .tox-menubar,
+[data-theme="dark"] .tox-statusbar {
+    border-color: var(--tox-dark-border) !important;
+}
+
+/* 3. Forçar Cores de Fundo e Texto em TODA a UI */
+[data-theme="dark"] .tox:not([dir=rtl]),
+[data-theme="dark"] .tox-editor-container,
+[data-theme="dark"] .tox-editor-header,
+[data-theme="dark"] .tox-toolbar,
+[data-theme="dark"] .tox-toolbar__primary,
+[data-theme="dark"] .tox-toolbar__overflow,
+[data-theme="dark"] .tox-menubar,
+[data-theme="dark"] .tox-statusbar {
+    background-color: var(--tox-dark-bg) !important;
+    background: var(--tox-dark-bg) !important; /* Remove gradientes */
+    color: var(--tox-dark-text) !important;
+}
+
+/* 4. Botões (Toolbar e Menubar) */
+[data-theme="dark"] .tox .tox-tbtn,
+[data-theme="dark"] .tox .tox-mbtn {
+    color: var(--tox-dark-text) !important;
+    background: transparent !important;
+}
+
+/* Ícones dos botões (SVG) - Regra crítica */
+[data-theme="dark"] .tox .tox-tbtn svg,
+[data-theme="dark"] .tox .tox-mbtn svg,
+[data-theme="dark"] .tox .tox-tbtn__select-chevron svg {
+    fill: var(--tox-dark-text) !important;
+}
+
+/* Estado Hover/Focus/Active dos botões */
+[data-theme="dark"] .tox .tox-tbtn:hover,
+[data-theme="dark"] .tox .tox-tbtn:focus,
+[data-theme="dark"] .tox .tox-tbtn--enabled,
+[data-theme="dark"] .tox .tox-mbtn:hover,
+[data-theme="dark"] .tox .tox-mbtn:focus,
+[data-theme="dark"] .tox .tox-mbtn--active,
+[data-theme="dark"] .tox .tox-collection__item--active {
+    background-color: var(--tox-dark-hover) !important;
+    color: #ffffff !important;
+}
+
+/* 5. Menus Suspensos (Dropdowns) e Popups */
+[data-theme="dark"] .tox .tox-menu,
+[data-theme="dark"] .tox .tox-pop__dialog {
+    background-color: var(--tox-dark-bg) !important;
+    border: 1px solid var(--tox-dark-border) !important;
+}
+
+/* Itens dentro do menu */
+[data-theme="dark"] .tox .tox-collection__item {
+    color: var(--tox-dark-text) !important;
+}
+
+[data-theme="dark"] .tox .tox-collection__item svg {
+    fill: var(--tox-dark-text) !important;
+}
+
+/* Separadores de menu */
+[data-theme="dark"] .tox .tox-menu__footer,
+[data-theme="dark"] .tox .tox-toolbar__group {
+    border-color: var(--tox-dark-border) !important;
+}
+
+/* 6. Modais / Janelas de Diálogo (Dialogs) */
+[data-theme="dark"] .tox .tox-dialog {
+    background-color: var(--tox-dark-bg) !important;
+    border: 1px solid var(--tox-dark-border) !important;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.4) !important;
+}
+
+[data-theme="dark"] .tox .tox-dialog__header,
+[data-theme="dark"] .tox .tox-dialog__footer,
+[data-theme="dark"] .tox .tox-dialog__body-content {
+    background-color: var(--tox-dark-bg) !important;
+    color: var(--tox-dark-text) !important;
+}
+
+[data-theme="dark"] .tox .tox-dialog__title {
+    color: var(--tox-dark-text) !important;
+}
+
+/* Botão de fechar do modal */
+[data-theme="dark"] .tox .tox-button--icon svg {
+    fill: var(--tox-dark-text) !important;
+}
+
+/* 7. Inputs, Selects e Textareas */
+[data-theme="dark"] .tox .tox-textfield,
+[data-theme="dark"] .tox .tox-textarea,
+[data-theme="dark"] .tox .tox-selectfield select,
+[data-theme="dark"] .tox .tox-listboxfield .tox-listbox--select {
+    background-color: var(--tox-dark-input-bg) !important;
+    color: var(--tox-dark-text) !important;
+    border-color: var(--tox-dark-border) !important;
+}
+
+[data-theme="dark"] .tox .tox-textfield:focus,
+[data-theme="dark"] .tox .tox-textarea:focus {
+    border-color: #006ce7 !important; /* Destaque azul no foco */
+}
+
+/* Labels */
+[data-theme="dark"] .tox .tox-label,
+[data-theme="dark"] .tox .tox-toolbar-label {
+    color: rgba(255, 255, 255, 0.7) !important;
+}
+/* =========================
+   RENEW PLAN
+========================= */
+
+/* --- CORES E TEMA (CORRIGIDO) --- */
+
+[data-theme="dark"] #renewModal .modal-content {
+    background-color: transparent !important;
+    box-shadow: 0 10px 40px rgba(0,0,0,0.4);
+}
+[data-theme="dark"] #renewModal .close {
+    color: #fff !important
+}
+
+/* FORÇAR LADO ESQUERDO BRANCO (Corrige o problema da sua imagem) */
+[data-theme="dark"] .payment-form-area {
+    background-color: transparent !important;
+}
+[data-theme="dark"] .payment-form-area .close{
+    color: #fff !important;
+}
+
+/* Labels Escuros para contraste no fundo branco */
+[data-theme="dark"] .form-label {
+    color: #fff !important;
+}
+[data-theme="dark"] .form-span {
+    background-color: #343434 !important; /* fundo quando expandido */
+    color: #fff !important; /* mantém a seta branca */
+    border: 1px solid #ced4da !important;
+}
+/* Inputs */
+
+[data-theme="dark"] .custom-input:focus {
+    border-color: #A020F0;
+    box-shadow: 0 0 0 3px rgba(0, 102, 255, 0.1);
+}
+
+/* LADO DIREITO */
+[data-theme="dark"] .payment-summary-area {
+    background-color: transparent !important;
+    border-left: 1px solid #eee;
+    color: #fff !important;
+}
+
+/* Cartão Visual - Estilo "Black Card" Profissional (ficou bonito na sua imagem) */
+[data-theme="dark"] .card-visual {
+    background: linear-gradient(135deg, #d580f0 0%, #A020F0 50%, #5c0080 100%);
+    ;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+    color: #fff; /* Texto Branco */
+}
+
+[data-theme="dark"] .card-chip {
+    background: linear-gradient(135deg, #ffd700 0%, #d4af37 100%); /* Chip Dourado */
+}
+
+[data-theme="dark"] .wifi-symbol {
+    color: rgba(255,255,255,0.6);
+}
+
+[data-theme="dark"] .card-number-display {
+    color: #fff;
+    text-shadow: 0 2px 4px rgba(0,0,0,0.5);
+}
+
+[data-theme="dark"] .card-details-display {
+    color: rgba(255,255,255,0.7);
+}
+
+[data-theme="dark"] .btn-pay {
+    background-color: #A020F0;
+    color: #fff;
+    box-shadow: 0 4px 15px rgba(0, 102, 255, 0.4);
+}
+[data-theme="dark"] .btn-pay:hover {
+    background-color: #750cb7;
+}
+
+[data-theme="dark"] .order-row {
+    color: #fff !important;
+}
+[data-theme="dark"] .order-row span:last-child {
+    color: #fff !important;
+    font-weight: 600;
+}
+
+[data-theme="dark"] .order-total {
+    color: #fff !important;
+    border-top-color: #ccc;
+}
+
+[data-theme="dark"] .timer-badge {
+    background: #000;
+    color: #fff;
+}
+/* =========================
+   CORES - PLANOS DE ASSINATURAS DARk
+========================= */
+/* =========================
+   PLANS / PRICING - DARK MODE
+========================= */
+
+[data-theme="dark"] .plan-toggle .btn {
+    border-color: var(--primary-app-color);
+    color: #fff;
+    background-color: transparent;
+}
+
+[data-theme="dark"] .plan-toggle .btn:hover {
+    background-color: rgba(160, 32, 240, .15);
+}
+
+[data-theme="dark"] .plan-toggle .btn.active {
+    background-color: var(--primary-app-color);
+    color: #fff;
+    border-color: var(--primary-app-color);
+}
+
+[data-theme="dark"] .plan-toggle .btn:not(.active) {
+    background-color: transparent;
+}
+
+/* CARD */
+[data-theme="dark"] .plan-card {
+    background: transparent;
+    border-color: #3a3a50;
+    box-shadow: 0 5px 15px rgba(255, 255, 255, 0.08);
+}
+
+[data-theme="dark"] .plan-card:hover {
+    border-color: var(--primary-app-color);
+    box-shadow: 0 8px 24px rgba(160, 32, 240, .25);
+}
+
+[data-theme="dark"] .plan-card.recommended {
+    border-color: var(--primary-app-color);
+}
+
+/* LABELS */
+[data-theme="dark"] .plan-recommended-label {
+    background: var(--primary-app-color);
+    color: #fff;
+}
+
+[data-theme="dark"] .yearly-badge {
+    background: var(--primary-app-color);
+    color: #fff;
+}
+
+/* TEXTOS */
+[data-theme="dark"] .plan-title {
+    color: #fff;
+}
+
+[data-theme="dark"] .plan-price {
+    color: var(--primary-app-color);
+}
+
+[data-theme="dark"] .plan-period {
+    color: #ced4da;
+}
+
+[data-theme="dark"] .economy-label {
+    color: var(--primary-app-color);
+}
+
+/* FEATURES */
+[data-theme="dark"] .plan-features li {
+    color: #dee2e6;
+}
+
+[data-theme="dark"] .plan-features .feature-icon {
+    color: var(--primary-app-color);
+}
+
+[data-theme="dark"] .plan-features .feature-main {
+    color: #fff;
+}
+
+/* BOTÕES */
+[data-theme="dark"] .btn-primary-plan {
+    background-color: var(--primary-app-color);
+    border-color: var(--primary-app-color);
+    color: #fff;
+}
+
+[data-theme="dark"] .btn-primary-plan:hover,
+[data-theme="dark"] .btn-primary-plan:focus {
+    background-color: #750cb7;
+    border-color: #750cb7;
+}
+
+/* LOADING */
+[data-theme="dark"] .btn-loading {
+    opacity: .7;
+}
+[data-theme="dark"] .btn-show-more {
+    color: #ffffff;
+}

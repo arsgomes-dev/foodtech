@@ -1,0 +1,157 @@
+.navbar{
+    border: none !important;
+    height: 30px;
+}
+.main-header .navbar-close{
+ margin-top: 10px !important;
+}
+.navbar .navbar-user{
+    display: none;
+}
+.main-sidebar{
+    box-shadow: none !important;
+}
+.main-sidebar .brand-link{
+    margin-top: 25px;
+}
+.main-sidebar .brand-link hr{
+    border-color: white;
+    margin-top: 30px;
+}
+.main-sidebar .brand-link .brand-image{
+    margin-left: 15px !important;
+}
+.layout-navbar-fixed.layout-fixed .wrapper .sidebar  {
+    margin-top: calc(8.5rem + 1px) !important;
+}
+.brand-link{
+    border-right: 0 !important;
+    border: 0 !important;
+}
+.user-panel{
+    border: none !important;
+}
+.sidebar{
+    border: none !important;
+}
+/* Sidebar flex vertical */
+.main-sidebar {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+}
+
+.main-sidebar .sidebar {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+}
+
+.main-sidebar .sidebar nav {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+}
+
+.main-sidebar .sidebar nav ul.nav-sidebar {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+}
+.nav-sidebar > .nav-item > .nav-link.active, .sidebar-light-primary .nav-sidebar > .nav-item > .nav-link.active
+{
+   /* background-color: rgba(255, 255, 255, .1) !important;*/
+    color: #fff;
+}
+/* Rodapé container */
+.menu-footer {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    margin-top: auto;
+    margin-bottom: 30px;
+}
+
+/*logout*/
+/* Estilo do logout */
+.main-sidebar .sidebar .logout-item .nav-link {
+    color: #fff;
+    border-radius: 50px;
+    padding: 0.6rem 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s ease-in-out;
+    width: inherit;
+    text-align: inherit;
+}
+
+.main-sidebar .sidebar .logout-item .nav-link i {
+    margin-right: 0.5rem;
+}
+
+.main-sidebar .sidebar .logout-item .nav-link:hover {
+    background-color: #c82333;
+    box-shadow: 0 6px 8px rgba(0,0,0,0.15);
+}
+
+.main-sidebar .sidebar .logout-item .nav-link p {
+    margin: 0;
+    font-weight: 500;
+}
+
+
+
+
+
+/*APARTIR DAQUI*/
+
+/* --- USER PANEL BASE --- */
+/* Estilo user-panel igual logout */
+
+.user-panel-item .nav-link {
+    color: #fff !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: flex-start !important;
+    padding: 10px 12px !important;
+    border-radius: 40px;
+    transition: all .2s ease;
+    overflow: hidden;
+}
+.user-panel-item .nav-link:hover {
+    background-color: #A020F0 !important;
+}
+
+.user-panel-item img {
+    width: 35px;
+    height: 35px;
+    flex-shrink: 0;
+}
+
+.user-panel-item .info {
+    width: inherit;
+    text-align: center;
+}
+
+/* --- QUANDO O SIDEBAR ESTÁ FECHADO --- */
+.sidebar-collapse .user-panel-item .nav-link {
+    justify-content: center !important;
+}
+
+.sidebar-collapse .user-panel-item img {
+    margin-right: 10px !important;
+}
+
+.sidebar-collapse .user-panel-item .info {
+    display: none;
+}
+
+/* --- NO HOVER DO ASIDE (quando o menu abre) --- */
+.sidebar-collapse .main-sidebar:hover .user-panel-item .nav-link {
+    justify-content: flex-start !important;
+}
+/* --- NO HOVER DO ASIDE (quando o menu abre) --- */
+.sidebar-collapse .main-sidebar:hover .user-panel-item .info {
+    display: block;
+}

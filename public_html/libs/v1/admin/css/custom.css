@@ -1,0 +1,98 @@
+body{
+    background-color: #343a40 !important;
+}
+.layout-fixed .wrapper,
+.layout-navbar-fixed .main-header,
+.layout-footer-fixed .main-footer {
+    position: static !important;
+}
+.navbar{
+    border: none !important;
+    height: 30px;
+}
+.navbar .navbar-user{
+    display: none;
+}
+.main-sidebar{
+    box-shadow: none !important;
+}
+.main-sidebar .brand-link{
+    margin-top: 70px;
+}
+.main-sidebar .brand-link .brand-image{
+    margin-left: 15px !important;
+}
+.layout-navbar-fixed.layout-fixed .wrapper .sidebar  {
+    margin-top: calc(8.5rem + 1px) !important;
+}
+.brand-link{
+    border-right: 0 !important;
+}
+.user-panel{
+    border: none !important;
+}
+.sidebar{
+    border: none !important;
+}
+.wrapper{
+    background-color: #343a40 !important;
+    margin-top: 10px;
+    margin-bottom: 20px;
+}
+.content-wrapper{
+    border-radius: 20px;
+    margin-top: 0px !important;
+    margin-right: 5px !important;
+    padding-top: 10px;
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-bottom: 1rem;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh; /* ocupa a altura total da tela */
+    background: #f8f9fa; /* opcional */
+    height: auto !important;
+    box-sizing: border-box;
+}
+/* Footer deve ficar preso ao final do content-wrapper */
+.main-footer {
+    margin-left: 0px !important;
+    margin-top: auto !important;
+    margin-bottom: 0 !important;
+    padding-bottom: 0 !important;
+    background: transparent;
+}
+/* Remove QUALQUER padding que o AdminLTE aplica antes do footer */
+.content-wrapper,
+.content-wrapper > .content,
+.content-wrapper > section.content {
+    flex: 1 0 auto !important;
+    padding-bottom: 20px !important;
+}
+
+/* Remove margem automática que AdminLTE coloca em cards e rows dentro da content */
+.content > .container-fluid,
+section.content > .container-fluid {
+    margin-bottom: 0 !important;
+}
+@media (max-width: 1100px) {
+    .main-sidebar .brand-link{
+        margin-top: 10px;
+    }
+    .layout-navbar-fixed.layout-fixed .wrapper .sidebar {
+        margin-top: calc(4.5rem + 1px) !important;
+    }
+    .navbar{
+        border: none !important;
+        height: 45px;
+    }
+    .content-wrapper{
+        margin-top: 20px !important;
+    }
+}
+
+@media (min-width: 1101px) {
+    .navbar .navbar-close{
+        display: none;
+    }
+}

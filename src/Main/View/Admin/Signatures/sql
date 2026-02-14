@@ -1,0 +1,66 @@
+CREATE TABLE notas_fiscais (
+    id SERIAL PRIMARY KEY,
+    numero VARCHAR(20) NOT NULL,
+    codigo_verificacao VARCHAR(50),
+    data_emissao TIMESTAMP NOT NULL,
+    natureza_operacao VARCHAR(100),
+    serie VARCHAR(10),
+    status VARCHAR(20), -- ex: emitida, cancelada, substituída
+    valor_total NUMERIC(15,2) NOT NULL,
+    valor_liquido NUMERIC(15,2),
+    descricao_servico TEXT NOT NULL,
+    prestador_id INTEGER REFERENCES prestadores(id),
+    tomador_id INTEGER REFERENCES tomadores(id),
+    forma_pagamento VARCHAR(50),
+    observacoes TEXT,
+    xml_nota TEXT, -- Armazena o XML completo da NFS-e (pode ser usado como backup legal)
+    url_consulta VARCHAR(255),
+    cancelada_em TIMESTAMP,
+    motivo_cancelamento TEXT,
+    nota_substituida_id INTEGER REFERENCES notas_fiscais(id)
+);
+
+
+CREATE TABLE service_invoices (
+    id SERIAL PRIMARY KEY,
+    number VARCHAR(20) NOT NULL,
+    verification_code VARCHAR(50),
+    issue_date TIMESTAMP NOT NULL,
+    operation_nature VARCHAR(100),
+    series VARCHAR(10),
+    status VARCHAR(20), -- e.g., issued, canceled, replaced
+    total_amount NUMERIC(15,2) NOT NULL,
+    net_amount NUMERIC(15,2),
+    service_description TEXT NOT NULL,
+    provider_id INTEGER REFERENCES providers(id),
+    customer_id INTEGER REFERENCES customers(id),
+    payment_method VARCHAR(50),
+    notes TEXT,
+    invoice_xml TEXT, -- Stores the full NFS-e XML (can be used as legal backup)
+    consultation_url VARCHAR(255),
+    canceled_at TIMESTAMP,
+    cancel_reason TEXT,
+    replaced_invoice_id INTEGER REFERENCES service_invoices(id)
+);
+
+
+🧩 Legenda da Tradução
+Português	Inglês
+numero	number
+codigo_verificacao	verification_code
+data_emissao	issue_date
+natureza_operacao	operation_nature
+serie	series
+status	status
+valor_total	total_amount
+valor_liquido	net_amount
+descricao_servico	service_description
+prestador_id	provider_id
+tomador_id	customer_id
+forma_pagamento	payment_method
+observacoes	notes
+xml_nota	invoice_xml
+url_consulta	consultation_url
+cancelada_em	canceled_at
+motivo_cancelamento	cancel_reason
+nota_substituida_id	replaced_invoice_id

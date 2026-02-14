@@ -1,0 +1,103 @@
+/* ===== INVOICE BASE ===== */
+.thetec .thetec-invoice {    
+  width: 100%;
+  box-sizing: border-box;
+}
+.thetec .thetec-invoice .thetec-invoice-date-order  {    
+  width: 100%;
+  font-size: 20px;
+  font-weight: bold;
+}
+.thetec .thetec-invoice .thetec-invoice-date-order .invoice-date  {    
+  width: 100%;
+  font-size: 20px;
+  font-weight: bold;
+  text-align: right;
+}
+.thetec .thetec-invoice .thetec-invoice-date-order .invoice-order{    
+  width: 100%;
+  font-size: 20px;
+  font-weight: bold;
+}
+
+/* Conteúdo */
+.thetec .thetec-invoice .content {
+  width: 98%;
+  background: #fff;
+  padding: 10px;
+}
+
+/* ===== HEADER ===== */
+.thetec .thetec-invoice .thetec-invoice-header {
+  background: #fff;
+  height: auto;
+  width: 100%;
+  border-top: 2px solid #000000;
+  border-bottom: 2px solid #000000;
+  padding-top: 10px;
+}
+
+/* Banner lateral vertical */
+
+/* Logo */
+.thetec .thetec-invoice .thetec-invoice-header  img {
+  width: 150px;
+  height: 150px;
+}
+
+.thetec .thetec-invoice .thetec-invoice-scope {
+  background: #fff;
+  height: 100%;
+  width: 100%;
+  border-bottom: 2px solid #000000;
+  padding-top: 10px;
+}
+
+/* Tabela de serviços */
+.thetec .thetec-invoice .table-invoice-services {
+  overflow-x: auto;
+  margin-top: 20px;
+}
+
+.thetec .thetec-invoice .table-invoice-services table {
+  min-width: 850px;
+  border-collapse: collapse;
+}
+
+.thetec .thetec-invoice .table-invoice-services table th,
+.thetec .thetec-invoice .table-invoice-services table td {
+  padding: 5px 10px;
+  border-top: 0;
+}
+
+/* Totais */
+.thetec .thetec-invoice table .table-warning {
+  border: 1px solid #F89406;
+}
+
+/* Texto e layout mobile */
+@media (max-width: 768px) {
+  .thetec .thetec-invoice .thetec-invoice-header {
+    height: auto;
+    flex-direction: column;
+  }
+
+  .thetec .thetec-invoice .thetec-invoice-header .thetec-invoice-header-banner {
+    width: 100%;
+    height: 80px;
+  }
+
+  .thetec .thetec-invoice .text-banner {
+    font-size: 30px;
+    letter-spacing: 8px;
+  }
+
+  .thetec .thetec-invoice .invoice-col img {
+    width: 150px;
+    height: 150px;
+  }
+}
+.invoice-col {
+    float: left;
+    width: 33.3333333%;
+  }

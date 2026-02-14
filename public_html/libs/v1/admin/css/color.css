@@ -1,0 +1,111 @@
+body{
+    background-color: #f4f6f9;
+}
+.btn-cancel{
+    border-color: #e74c3c !important;
+}
+.btn-cancel:hover{
+    background-color: #e74c3c !important;
+    color: #ffffff !important;
+}
+.btn-register{
+    border-color: #A020F0 !important;
+}
+.btn-register:hover{
+    background-color: #A020F0 !important;
+    color: #ffffff !important;
+}
+
+.btn-print{
+    border-color: #778899 !important;
+}
+.btn-print:hover{
+    background-color: #778899 !important;
+    color: #ffffff !important;
+}
+
+.btn-send{
+    margin-left: 10px;
+    border-color: #2E8B57 !important;
+}
+.btn-send:hover{
+    background-color: #2E8B57 !important;
+    color: #ffffff !important;
+}
+.btn-register-warning{
+    border-color: #17a2b8 !important;
+}
+.btn-register-warning:hover{
+    background-color: #17a2b8 !important;
+    color: #ffffff !important;
+}
+
+.btn-tec-infor{
+    border-color: #17a2b8 !important;
+}
+.btn-tec-infor:hover{
+    background-color: #17a2b8 !important;
+    color: #ffffff !important;
+}
+.btn-tec-success{
+    border-color: #28a745 !important;
+}
+.btn-tec-success:hover{
+    background-color: #28a745  !important;
+    color: #ffffff !important;
+}
+.nav-sidebar > .nav-item > .nav-link.active, .sidebar-light-primary .nav-sidebar > .nav-item > .nav-link.active {
+    background-color: #A020F0 !important;
+    color: #fff;
+}
+
+.nav-treeview > .nav-item > .nav-link.active, [class*="sidebar-dark-"] .nav-treeview > .nav-item > .nav-link.active:hover, [class*="sidebar-dark-"] .nav-treeview > .nav-item > .nav-link.active:focus
+{
+    color:  #A020F0 !important;
+}
+#list .table .nav-icon{
+    color:  #A020F0 !important;
+}
+.page-item.active .page-link {
+    border-color: #A020F0 !important;
+    background: #A020F0 !important;
+}
+.content .btn-i-color{
+    color:  #A020F0 !important;
+}
+
+.content .btn-i-color-danger{
+    color:  #e74c3c !important;
+}
+
+.content .btn-color{
+    border-color: #A020F0 !important;
+    background: #A020F0 !important;
+}
+.breadcrumb-item-color a{
+    color: #A020F0 !important;
+}
+
+.nav-icon-color{
+    color: #A020F0 !important;
+}
+.modal_title_img{
+    color: #000;
+}
+.user-page .nav-tabs.flex-column a{
+    color: #3c3c3c;
+}
+.user-page .nav-tabs.flex-column .nav-link.active{
+    background-color:#dcdcdc;
+    color: #4477bc;
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+}
+/*new user*/
+.thetec .img-logo > img {
+    border: 3px solid #fff;
+} 
+.thetec .img-logo .img-update{
+    border: 3px solid #fff;
+    background-color: #673de6 !important;
+    color: #fff;
+}

@@ -1,0 +1,62 @@
+/* =========================
+   CORES - LIGHT (PADRÃO)
+========================= */
+
+body {
+    background-color: #343a40 !important;
+}
+
+.wrapper {
+    background-color: #343a40 !important;
+}
+
+.content-wrapper {
+    background: #f8f9fa;
+}
+
+.main-footer {
+    background: transparent;
+}
+.nav-sidebar .nav-item > .nav-link  {
+    position: relative;
+    color: #fff !important;
+}
+.nav-sidebar .nav-item > .nav-link:hover {
+    position: relative;
+    color: #fff !important;
+    background: #495057;
+}
+.nav-sidebar > .nav-item > .nav-link.active,
+.sidebar-light-primary .nav-sidebar > .nav-item > .nav-link.active {
+    color: #fff;
+}
+
+.main-sidebar .brand-link > .brand-text {
+    position: relative;
+    color: #fff !important;
+}
+.main-sidebar .brand-link > .brand-text:hover {
+    color: #f8f9fa !important;
+}
+.main-sidebar .brand-link hr {
+    border-color: white;
+}
+
+/* Logout */
+.main-sidebar .sidebar .logout-item .nav-link {
+    color: #fff;
+}
+
+.main-sidebar .sidebar .logout-item .nav-link:hover {
+    background-color: #c82333;
+    box-shadow: 0 6px 8px rgba(0,0,0,0.15);
+}
+
+/* User panel */
+.user-panel-item .nav-link {
+    color: #fff !important;
+}
+
+.user-panel-item .nav-link:hover {
+    background-color: #A020F0 !important;
+}

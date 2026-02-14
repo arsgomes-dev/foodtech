@@ -1,0 +1,41 @@
+.description_elements{
+    border: 1px solid #ced4da !important;
+    min-height: 50px !important;
+    cursor: text !important;
+    border-radius: 0.25rem !important;
+}
+
+.description_elements .row{
+    padding: 5px !important;
+}
+
+.description_elements .row .description_element{
+    margin: 5px !important;
+    border: 1px solid #ced4da !important;
+    border-radius: 5px !important;
+    padding: 3px !important;
+}
+.description_elements .row .description_element:hover{
+    background-color: #c2c7d0 !important;
+    cursor: pointer !important;
+}
+.description_elements .row .description_element font{
+    vertical-align: inherit !important;
+}
+
+.description_elements .row .description_element a{
+    margin-right: 2px !important;
+    color: #ced4da !important;
+    text-decoration:none !important;
+}
+
+.description_elements .row .description_element a:hover{
+   color: red !important;
+}
+.description_elements .description_element_input{
+    max-width: 30% !important;
+    border: transparent !important;
+    color: #007bff !important;
+    margin: 2px !important;
+    padding: 0 !important;
+}

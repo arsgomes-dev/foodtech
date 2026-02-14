@@ -1,0 +1,491 @@
+.step-tabs .nav-link {
+    position: relative;
+    padding-left: 45px;
+    font-weight: 600;
+    color: #000;
+}
+
+.step-tabs .nav-link.active {
+    color: #A020F0;
+    font-weight: 700;
+}
+
+.step-number {
+    position: absolute;
+    left: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: #A020F0;
+    color: #fff;
+    width: 22px;
+    height: 22px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 13px;
+}
+
+.nav-tabs .nav-link {
+    border: none;
+    border-bottom: 3px solid transparent;
+}
+
+.nav-tabs .nav-link.active {
+    border-bottom: 3px solid #A020F0;
+}
+/* Aplica o estilo apenas para telas menores que 768px (celulares e tablets pequenos) */
+@media (max-width: 768px) {
+    #scriptTabs {
+        justify-content: center; /* Centraliza os itens na horizontal */
+    }
+
+    /* Opcional: Adiciona um pequeno espaçamento se as abas ficarem uma embaixo da outra */
+    #scriptTabs .nav-item {
+        margin-bottom: 5px;
+    }
+}
+/* Container para alinhar o gauge e o texto */
+/* Container Escuro Estilo Dashboard *//* Container Claro */
+.seo-feedback-wrapper {
+    background-color: #ffffff; /* Fundo branco */
+    border: 1px solid #dee2e6; /* Borda sutil do Bootstrap */
+    border-radius: 10px;
+    padding: 15px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05); /* Sombra suave */
+    /* Removemos o display: none para aparecer sempre */
+    display: block;
+}
+
+/* O "Palco" do Velocímetro */
+.gauge-container {
+    position: relative;
+    width: 200px;
+    height: 100px; /* Semicírculo */
+    overflow: hidden;
+    margin: 0 auto;
+}
+
+/* O Arco Colorido (Fixo) */
+.gauge-body {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    background: conic-gradient(
+        from 270deg,
+        #dc3545 0deg 60deg,   /* Vermelho */
+        #ffc107 60deg 120deg, /* Amarelo */
+        #28a745 120deg 180deg,/* Verde */
+        transparent 180deg
+        );
+    position: relative;
+}
+
+/* A MÁSCARA (Importante: Cor igual ao fundo do container) */
+.gauge-body::after {
+    content: '';
+    position: absolute;
+    top: 25px;    /* Espessura do arco (aumentei um pouco para ficar elegante) */
+    left: 25px;
+    right: 25px;
+    bottom: 25px;
+    background-color: #ffffff; /* Tinta branca para "furar" o meio */
+    border-radius: 50%;
+    z-index: 1;
+}
+
+/* Borda Externa (Opcional, para acabamento) */
+.gauge-rim {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    border: 1px solid #e9ecef; /* Cinza bem clarinho */
+    box-sizing: border-box;
+    clip-path: polygon(0 0, 100% 0, 100% 50%, 0 50%);
+    z-index: 0;
+}
+
+/* O Ponteiro (Agulha - Agora Escuro) */
+.gauge-needle {
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    width: 6px;
+    height: 85px; /* Tamanho da agulha */
+    background-color: #343a40; /* Cinza escuro (Dark) */
+    transform-origin: bottom center;
+    /* Começa girado para a esquerda (-90deg = 0%) */
+    transform: translateX(-50%) rotate(-90deg);
+    transition: transform 0.8s cubic-bezier(0.4, 0.0, 0.2, 1);
+    z-index: 2;
+    border-radius: 5px 5px 0 0;
+}
+
+/* A Bolinha central */
+.gauge-center-dot {
+    position: absolute;
+    bottom: -8px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 16px;
+    height: 16px;
+    background-color: #343a40; /* Mesma cor da agulha */
+    border-radius: 50%;
+    z-index: 3;
+}
+
+/* Texto de Score Grande */
+.score-big-text {
+    font-size: 2rem;
+    font-weight: 700;
+    text-align: center;
+    margin-top: 5px;
+    color: #343a40; /* Texto escuro */
+}
+/* Container semicircular MENOR */
+.gauge-final-container {
+    position: relative;
+    width: 120px;
+    height: 60px; /* metade */
+    overflow: hidden;
+    margin: 0 auto;
+}
+
+/* Círculo completo contendo o gradiente */
+.gauge-final-body {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    position: relative;
+
+    background: conic-gradient(
+        from 270deg,
+        #dc3545 0deg 72deg,    /* weak */
+        #ffc107 72deg 108deg,  /* average */
+        #0d6efd 108deg 144deg, /* good */
+        #28a745 144deg 180deg  /* excellent */
+        );
+}
+
+/* Máscara interna proporcional */
+.gauge-final-body::after {
+    content: '';
+    position: absolute;
+    top: 22px;
+    left: 22px;
+    right: 22px;
+    bottom: 22px;
+    background-color: #ffffff;
+    border-radius: 50%;
+    z-index: 1;
+}
+
+/* Borda superior */
+.gauge-final-rim {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    border: 2px solid #e9ecef;
+    box-sizing: border-box;
+    clip-path: inset(0 0 50% 0);
+    z-index: 3;
+}
+
+/* Agulha proporcional */
+.gauge-final-needle {
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    width: 4px;
+    height: 55px;
+    background-color: #343a40;
+    transform-origin: bottom center;
+    transform: translateX(-50%) rotate(-90deg);
+    transition: transform 0.6s ease;
+    z-index: 4;
+    border-radius: 5px 5px 0 0;
+}
+
+/* Bolinha central menor */
+.gauge-final-center-dot {
+    position: absolute;
+    bottom: -6px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 12px;
+    height: 12px;
+    background-color: #343a40;
+    border-radius: 50%;
+    z-index: 5;
+}
+
+/* Texto grande */
+.score-final-big-text {
+    font-size: 1.2rem;
+    font-weight: 700;
+    text-align: center;
+    margin-top: 6px;
+    color: #343a40;
+}
+/*AI SUGGESTIONS TITLES*/
+/* Estilização específica para a lista de sugestões */
+#aiSuggestionsList .list-group-item {
+    border: none; /* Remove bordas padrão */
+    border-left: 3px solid transparent; /* Prepara borda lateral */
+    padding: 15px 25px;
+    margin-bottom: 2px;
+    transition: all 0.2s ease;
+    background-color: transparent;
+    color: #555;
+    font-weight: 500;
+}
+
+/* Efeito ao passar o mouse */
+#aiSuggestionsList .list-group-item:hover {
+    background-color: #f8f9fa;
+    color: #0d6efd; /* Azul Bootstrap */
+    border-left: 3px solid #0d6efd; /* Borda azul na esquerda */
+    padding-left: 30px; /* Leve deslocamento para a direita */
+    cursor: pointer;
+}
+
+/* Animação suave no ícone de adicionar que está no seu PHP */
+#aiSuggestionsList .list-group-item i.fa-plus-circle {
+    opacity: 0;
+    transition: opacity 0.2s ease, transform 0.2s ease;
+}
+
+#aiSuggestionsList .list-group-item:hover i.fa-plus-circle {
+    opacity: 1 !important; /* Força aparecer no hover */
+    transform: scale(1.2);
+}
+/*thumb*/
+/* --- 1. PREVIEW THUMBNAIL (16:9) --- */
+.thumb-ratio-box {
+    position: relative;
+    width: 100%;
+    /* Truque do CSS para manter proporção 16:9 responsiva */
+    padding-top: 56.25%;
+    background-color: #f4f6f9;
+    border: 2px dashed #c9d1db;
+    border-radius: 12px;
+    cursor: pointer;
+    overflow: hidden;
+    transition: all 0.3s ease;
+}
+
+.thumb-ratio-box:hover {
+    border-color: #6c63ff; /* Cor de destaque no hover */
+    background-color: #eef0f7;
+}
+
+/* Centraliza o texto/ícone quando não tem imagem */
+.thumb-content-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    text-align: center;
+    z-index: 10;
+}
+
+/* A imagem em si */
+.thumb-preview-img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    /* 'contain' mostra a imagem inteira com bordas pretas se necessário (igual player do youtube) */
+    /* Use 'cover' se preferir que ela preencha tudo cortando as bordas */
+    object-fit: contain;
+    background-color: #000;
+    z-index: 20;
+}
+
+/* --- 2. CARD DE RESULTADOS --- */
+.thumb-result-card {
+    background: #ffffff;
+    border: 1px solid #e5e7eb;
+    border-radius: 12px;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+    height: 100%; /* Para alinhar altura com a caixa de upload */
+    min-height: 300px;
+}
+
+/* Score Gigante */
+.thumb-score-display {
+    font-size: 3.5rem;
+    font-weight: 800;
+    line-height: 1;
+    color: #343a40;
+}
+
+/* Títulos das Listas (Prós/Contras) */
+.thumb-list-title {
+    font-size: 0.85rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-bottom: 10px;
+    display: block;
+}
+
+/* Badges Personalizados */
+.badge-custom {
+    padding: 6px 10px;
+    font-size: 0.75rem;
+    border-radius: 6px;
+    font-weight: 600;
+    margin-right: 5px;
+}
+/*script*/
+.ytpro h2 {
+    font-size: 24px;
+    font-weight: 700;
+    margin-top: 25px;
+    margin-bottom: 15px;
+    color: #ff0033; /* Vermelho YouTube */
+}
+
+.ytpro h3, .ytpro h4 {
+    font-weight: 600;
+    margin-top: 20px;
+    margin-bottom: 10px;
+    color: #222;
+}
+
+.ytpro p {
+    line-height: 1.7;
+    font-size: 16px;
+    color: #333;
+    margin-bottom: 12px;
+}
+
+.ytpro b {
+    color: #111;
+}
+
+.ytpro hr {
+    border: none;
+    border-top: 2px dashed #ddd;
+    margin: 30px 0;
+}
+
+.ytpro .scene-block {
+    background: #fafafa;
+    padding: 15px 18px;
+    border-radius: 8px;
+    border-left: 4px solid #ff0033;
+    margin-bottom: 20px;
+}
+
+.ytpro .scene-block p {
+    margin: 6px 0;
+}
+
+/* Melhor leitura em dark mode do AdminLTE */
+body.dark-mode .ytpro p {
+    color: #ccc;
+}
+body.dark-mode .ytpro h2 {
+    color: #ff4d6a;
+}
+body.dark-mode .ytpro .scene-block {
+    background: #222;
+    border-left-color: #ff4d6a;
+}
+/*spinner*/
+.loading-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.65);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 99999;
+}
+
+.spinner-box {
+    text-align: center;
+}
+/* Overlay escuro com blur */
+.loading-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.55);
+    backdrop-filter: blur(4px);
+    z-index: 9999;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Box central */
+.spinner-box {
+    text-align: center;
+}
+
+/* Spinner moderno */
+.modern-spinner {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    border: 4px solid rgba(255,255,255,0.2);
+    border-top-color: #fff;
+    animation: spin 1s linear infinite, glow 1.5s ease-in-out infinite;
+    margin: 0 auto;
+}
+
+/* Animação de rotação */
+@keyframes spin {
+    to { transform: rotate(360deg); }
+}
+
+/* Brilho pulsante */
+@keyframes glow {
+    0% { box-shadow: 0 0 8px rgba(255,255,255,0.2); }
+    50% { box-shadow: 0 0 16px rgba(255,255,255,0.6); }
+    100% { box-shadow: 0 0 8px rgba(255,255,255,0.2); }
+}
+
+/* Texto animado (efeito digitando) */
+.loading-text {
+    margin-top: 12px;
+    font-weight: 700;
+    color: #fff;
+    font-size: 1.1rem;
+    letter-spacing: 1px;
+    overflow: hidden;
+    white-space: nowrap;
+    border-right: 2px solid #fff;
+    width: 0;
+    animation: typing 2s steps(20) forwards, blink .8s infinite;
+}
+
+@keyframes typing {
+    from { width: 0; }
+    to { width: 170px; } /* ajuste conforme seu texto */
+}
+
+@keyframes blink {
+    50% { border-color: transparent; }
+}

@@ -1,0 +1,236 @@
+/* Layout Split Screen */
+body {
+    background-color: var(--bg-body);
+    min-height: 100vh;
+    overflow-x: hidden;
+}
+
+.split-screen {
+    min-height: 100vh;
+    display: flex;
+}
+
+/* PAINEL ESQUERDO (Branding) */
+.left-panel {
+    background: radial-gradient(circle at center, #2a0a40 0%, #0f0c15 100%);
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 60px;
+}
+
+.testimonial-box {
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 20px;
+    padding: 30px;
+    margin-top: auto;
+}
+
+/* PAINEL DIREITO (Wizard Form) */
+.right-panel {
+    background: var(--bg-body);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 40px;
+    position: relative;
+}
+
+.auth-container {
+    width: 100%;
+    max-width: 650px;
+    margin: 0 auto;
+}
+
+/* Barra de Progresso do Wizard */
+.step-indicator {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 40px;
+    position: relative;
+}
+
+.step-indicator::before {
+    content: '';
+    position: absolute;
+    top: 14px;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: rgba(255,255,255,0.1);
+    z-index: 0;
+}
+
+.step-item {
+    position: relative;
+    z-index: 1;
+    text-align: center;
+    width: 60px;
+}
+
+.step-circle {
+    width: 30px;
+    height: 30px;
+    background: var(--bg-body); /* Fundo igual ao painel para cobrir a linha */
+    border: 2px solid rgba(255,255,255,0.2);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 8px;
+    color: var(--text-muted);
+    font-weight: 700;
+    font-size: 0.9rem;
+    transition: all 0.3s;
+}
+
+.step-item.active .step-circle {
+    border-color: var(--primary-color);
+    background: var(--primary-color);
+    color: white;
+    box-shadow: 0 0 10px var(--primary-glow);
+}
+
+.step-item.completed .step-circle {
+    background: #00b894;
+    border-color: #00b894;
+    color: white;
+}
+
+.step-label {
+    font-size: 0.7rem;
+    color: var(--text-muted);
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.step-item.active .step-label {
+    color: #fff;
+}
+
+/* Conteúdo das Etapas */
+.step-content {
+    display: none;
+    animation: fadeIn 0.5s ease;
+}
+.step-content.active {
+    display: block;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Cards de Seleção de Plano (Estilo Botão) */
+.selectable-plan {
+    background: rgba(255,255,255,0.03);
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
+    padding: 15px;
+    cursor: pointer;
+    transition: all 0.2s;
+    height: 100%;
+}
+
+.selectable-plan:hover {
+    background: rgba(255,255,255,0.06);
+}
+
+.plan-radio:checked + .selectable-plan {
+    border: 2px solid var(--primary-color);
+    background: rgba(160, 32, 240, 0.08);
+}
+
+/* Inputs */
+.form-label {
+    font-size: 0.85rem;
+    color: var(--text-muted);
+}
+.form-control {
+    background: #161221;
+    border: 1px solid rgba(255,255,255,0.1);
+    color: white;
+    padding: 12px;
+}
+.form-control:focus {
+    background: #1e192d;
+    border-color: var(--primary-color);
+    box-shadow: none;
+    color: white;
+}
+
+/* Botões Navegação */
+.wizard-buttons {
+    margin-top: 30px;
+    display: flex;
+    justify-content: space-between;
+    padding-top: 20px;
+    border-top: 1px solid rgba(255,255,255,0.1);
+}
+/* --- CORREÇÃO DE ALINHAMENTO DOS CARDS --- */
+
+/* 1. Garante que o Label ocupe 100% da altura da coluna */
+.selectable-plan {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; /* Empurra conteúdo para extremidades se sobrar espaço */
+}
+
+/* 2. Wrapper do Topo (Badge + Título + Preço) */
+.plan-header-wrapper {
+    flex-grow: 0; /* Não estica */
+    display: flex;
+    flex-direction: column;
+    /* Se quiser forçar uma altura mínima para alinhar preços caso os títulos tenham 2 linhas: */
+    /* min-height: 120px; */
+}
+
+/* 3. Lista de Features */
+.plan-features {
+    flex-grow: 1; /* Ocupa o espaço restante */
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+}
+
+/* Ajuste fino no badge para garantir que o invisível ocupe espaço */
+.selectable-plan .badge.invisible {
+    display: inline-block; /* Garante que o elemento seja renderizado na árvore DOM */
+    visibility: hidden;    /* Apenas esconde visualmente */
+}
+@keyframes shake {
+    0% {
+        transform: translateX(0);
+    }
+    25% {
+        transform: translateX(-5px);
+    }
+    50% {
+        transform: translateX(5px);
+    }
+    75% {
+        transform: translateX(-5px);
+    }
+    100% {
+        transform: translateX(0);
+    }
+}
+
+.shake {
+    animation: shake 0.3s ease-in-out;
+    border-color: #dc3545 !important; /* Vermelho erro */
+    box-shadow: 0 0 0 0.25rem rgba(220, 53, 69, 0.25) !important;
+}

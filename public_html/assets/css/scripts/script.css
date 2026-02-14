@@ -1,0 +1,181 @@
+  /* Remove o fundo padrão e bordas do accordion pai */
+                            .accordion-custom .accordion-item {
+                                border: none;
+                                background: #fff;
+                                border-radius: 12px !important;
+                                box-shadow: 0 4px 12px rgba(0,0,0,0.05); /* Sombra suave */
+                                margin-bottom: 15px; /* Espaço entre os cards */
+                                overflow: hidden;
+                            }
+
+                            /* Estilo do botão (cabeçalho) */
+                            .accordion-custom .accordion-button {
+                                background-color: #fff;
+                                color: #444;
+                                font-weight: 600;
+                                padding: 1.25rem;
+                                box-shadow: none !important; /* Remove o glow azul do bootstrap */
+                            }
+
+                            .accordion-custom .accordion-button:not(.collapsed) {
+                                background-color: #fff; /* Mantém branco mesmo aberto */
+                                color: #A020F0; /* Cor do texto quando ativo */
+                            }
+
+                            /* A bolinha do número */
+                            .step-indicator {
+                                width: 32px;
+                                height: 32px;
+                                background-color: #e9ecef;
+                                color: #6c757d;
+                                border-radius: 50%;
+                                display: flex;
+                                align-items: center;
+                                justify-content: center;
+                                font-size: 14px;
+                                font-weight: bold;
+                                margin-right: 15px;
+                                transition: all 0.3s ease;
+                            }
+
+                            /* Estado Ativo (Aberto) */
+                            .accordion-button:not(.collapsed) .step-indicator {
+                                background-color: #A020F0;
+                                color: #fff;
+                                box-shadow: 0 0 0 4px rgba(13, 110, 253, 0.2); /* Anel de foco */
+                            }
+
+                            /* Estado Concluído (Adicionado via JS) */
+                            .step-indicator.completed {
+                                background-color: #198754 !important; /* Verde */
+                                color: #fff !important;
+                            }
+
+                            /* Área de conteúdo */
+                            .accordion-body {
+                                padding: 0 1.5rem 1.5rem 1.5rem; /* Ajuste de padding */
+                                border-top: 1px solid #f0f0f0;
+                            }
+                            /* Estado Concluído (Verde com Check) */
+                            .step-indicator.completed {
+                                background-color: #198754 !important; /* Verde Bootstrap Success */
+                                color: #fff !important;
+                                border-color: #198754;
+                            }
+
+                            /* Transição suave */
+                            .step-indicator {
+                                transition: all 0.3s ease;
+                            }
+                            
+                            /*thumb*/
+                            :root {
+    --yt-blue: #065fd4;
+    --yt-gray-border: #cccccc;
+    --yt-gray-bg: #f9f9f9;
+    --yt-text: #0d0d0d;
+    --yt-subtext: #606060;
+}
+
+/* --- Container da Thumbnail (Estilo YouTube Studio) --- */
+.yt-thumbnail-container {
+    width: 100%;
+    max-width: 320px; /* Tamanho máximo ideal no desktop */
+    aspect-ratio: 16 / 9; /* FORÇA O FORMATO DE VÍDEO */
+    position: relative;
+    margin: 0 auto;
+}
+
+.yt-upload-box {
+    width: 100%;
+    height: 100%;
+    border: 2px dashed #909090;
+    background-color: #f1f1f1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+    border-radius: 2px; /* YouTube usa bordas mais quadradas */
+    overflow: hidden;
+    position: relative;
+}
+
+.yt-upload-box:hover {
+    border-color: var(--yt-text);
+    background-color: #e5e5e5;
+}
+
+/* Quando tem imagem */
+.yt-preview-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Garante que preencha 16:9 sem distorcer */
+    display: block;
+}
+
+/* Overlay de "Alterar" ao passar o mouse na imagem já carregada */
+.yt-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.6);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    opacity: 0;
+    transition: opacity 0.2s;
+}
+
+.yt-upload-box:hover .yt-overlay {
+    opacity: 1;
+}
+
+/* Tipografia e Ícones */
+.yt-icon {
+    color: #909090;
+    margin-bottom: 8px;
+    font-size: 24px;
+}
+
+.yt-text {
+    font-size: 13px;
+    color: var(--yt-text);
+    font-weight: 500;
+}
+
+.yt-subtext {
+    font-size: 12px;
+    color: var(--yt-subtext);
+    margin-top: 4px;
+}
+
+/* --- Inputs estilo Material Design (YouTube) --- */
+.form-control {
+    border: 1px solid var(--yt-gray-border);
+    border-radius: 4px;
+    padding: 10px 12px;
+    font-size: 15px;
+    color: var(--yt-text);
+}
+
+.form-control:focus {
+    border-color: var(--yt-blue);
+    box-shadow: inset 0 0 0 1px var(--yt-blue); /* Borda dupla azul */
+}
+
+/* --- RESPONSIVIDADE (Mobile vs Desktop) --- */
+@media (max-width: 768px) {
+    /* No celular, a thumbnail ocupa a largura disponível mantendo 16:9 */
+    .yt-thumbnail-container {
+        max-width: 100%; 
+    }
+    
+    .yt-text { font-size: 12px; }
+    .yt-subtext { font-size: 10px; }
+}
+                            

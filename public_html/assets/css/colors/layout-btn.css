@@ -1,0 +1,78 @@
+/* =========================
+   BOTÕES – AÇÕES
+========================= */
+.btn-cancel{
+    border-color: #e74c3c;
+}
+.btn-cancel:hover{
+    background-color: #e74c3c;
+    color: #ffffff;
+}
+
+.btn-register{
+    border-color: #A020F0;
+}
+.btn-register:hover{
+    background-color: #A020F0;
+    color: #ffffff;
+}
+
+.btn-print{
+    border-color: #778899;
+}
+.btn-print:hover{
+    background-color: #778899;
+    color: #ffffff;
+}
+
+.btn-send{
+    margin-left: 10px;
+    border-color: #2E8B57;
+}
+.btn-send:hover{
+    background-color: #2E8B57;
+    color: #ffffff;
+}
+
+.btn-register-warning{
+    border-color: #17a2b8;
+}
+.btn-register-warning:hover{
+    background-color: #17a2b8;
+    color: #ffffff;
+}
+
+.btn-tec-infor{
+    border-color: #17a2b8;
+}
+.btn-tec-infor:hover{
+    background-color: #17a2b8;
+    color: #ffffff;
+}
+
+.btn-tec-success{
+    border-color: #28a745;
+}
+.btn-tec-success:hover{
+    background-color: #28a745 ;
+    color: #ffffff;
+}
+/* =========================
+   CONTEÚDO / UTILITÁRIOS
+========================= */
+.content .btn-i-color{
+    color:  #A020F0;
+}
+
+.content .btn-i-color-danger{
+    color:  #e74c3c;
+}
+
+.content .btn-color{
+    border-color: #A020F0;
+    background: #A020F0;
+}
+
+.breadcrumb-item-color a{
+    color: #A020F0;
+}

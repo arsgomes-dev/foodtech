@@ -1,0 +1,31 @@
+.modal_title_img{
+    color: #000;
+}
+.profile-page .nav-tabs.flex-column a{
+    color: #3c3c3c;
+}
+.profile-page .nav-tabs.flex-column .nav-link.active{
+    background-color:#dcdcdc;
+    color: #4477bc;
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+}
+/*new profile*/
+.profile .img-user-new-profile > img {
+    border: 3px solid #fff;
+} 
+.profile .img-user-new-profile .img-update{
+    border: 3px solid #fff;
+    background-color: #673de6 !important;
+    color: #fff;
+}
+/*end new profile*/
+@media (max-width: 991px) {
+    .profile-page .nav-tabs.flex-column{
+        border-bottom: 1px solid #dee2e6;
+    }
+}
+.nav-pills .nav-link.active, .nav-pills .show>.nav-link {
+    color: #1553a3;
+    background-color: transparent;
+    border-bottom: 3px solid #4477bc;
+}

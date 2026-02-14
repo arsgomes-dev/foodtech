@@ -1,0 +1,45 @@
+.modal_title_img{
+    color: #000;
+}
+.user-page .nav-tabs.flex-column a{
+    color: #3c3c3c;
+}
+.user-page .nav-tabs.flex-column .nav-link.active{
+    background-color:#dcdcdc;
+    color: #4477bc;
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+}
+/*new user*/
+.user .img-user > img {
+    border: 3px solid #fff;
+} 
+.user .img-user .img-update{
+    border: 3px solid #fff;
+    background-color: #673de6 !important;
+    color: #fff;
+}
+/*end new user*/
+@media (max-width: 991px) {
+    .user-page .nav-tabs.flex-column{
+        border-bottom: 1px solid #dee2e6;
+    }
+}
+
+.custom-nav-pills{
+}
+.custom-nav-pills .nav-link {
+  border: none; /* remove bordas padrão */
+  border-bottom: 2px solid transparent; /* borda invisível por padrão */
+  border-radius: 0; /* remove o arredondamento */
+  color: #555;
+}
+.custom-nav-pills .nav-link.active {
+  border-bottom: 2px solid #673de6; /* cor da borda inferior para ativo */
+  background-color: transparent; /* remove o fundo do "active" */
+  color: #673de6;
+  font-weight: bold;
+}
+.custom-nav-pills .nav-link:hover {
+  border-bottom: 1px solid #673de6; /* cor da borda inferior para ativo */
+  color: #673de6 !important;
+}

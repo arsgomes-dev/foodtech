@@ -1,0 +1,14 @@
+QUando for criar a conta do cliente criar a pasta do cliente:
+files/general/customers/GCID DO CLIENTE
+files/general/customers/GCID DO CLIENTE/photo
+
+
+caso o cliente assine um plano premium 
+files/general/customers/GCID DO CLIENTE/signatures
+files/general/customers/GCID DO CLIENTE/signatures/GCID da Assinatura
+files/general/customers/GCID DO CLIENTE/signatures/GCID da Assinatura/Invoice/GCID DO PAGAMENTO (Onde ficará o XML e NFS-e PDF do pagamento)
+
+Caso o cliente abra um ticket
+files/general/customers/GCID DO CLIENTE/tickets
+files/general/customers/GCID DO CLIENTE/tickets/GCID do Ticket (Onde ficará as imagens e arquivos enviados em anexo no ticket)
+

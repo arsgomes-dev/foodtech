@@ -1,0 +1,119 @@
+.dropdown-icon::after {
+    margin-left: 0;
+    color: #fff;
+}
+.btn-profile-photo {
+    background-color: transparent !important;
+    border: 0 !important;
+}
+
+.btn-profile-photo .dropdown-icon::after {
+    margin-left: 3px !important;
+}
+
+.thetec .image_photo_profile_base {
+    width: 191px !important;
+    height: 191px !important;
+    border-radius: 50% !important;
+    margin: 0 auto !important;
+    margin-top: 20px !important;
+}
+
+.thetec .image_photo_profile_base img {
+    width: 191px !important;
+    height: 191px !important;
+    cursor: pointer !important;
+    border: 3px solid #fff !important;
+}
+
+.thetec .update_photo_css {
+    width: 191px;
+    height: 191px;
+    border-radius: 50%;
+    margin: 0 auto;
+    position: absolute;
+    background: #000;
+    opacity: 75%;
+    cursor: pointer;
+    display: none;
+    border: 3px solid #fff
+}
+
+.thetec .update_photo_css i {
+    text-align: center;
+    font-size: 30px;
+    color: #fff;
+    vertical-align: middle;
+    margin: 0 auto;
+    margin-top: 30%;
+}
+
+.thetec .update_photo_css .update_photo_css_text {
+    text-align: center;
+    text-size: 12px;
+    color: #fff;
+}
+
+.thetec .modal_title_photo {
+    font-size: 20px;
+    color: #FF4500;
+}
+
+.thetec .div_modal_perfil {
+    margin: 0 auto;
+    text-align: center;
+    cursor: pointer;
+}
+
+.thetec .div_modal_perfil_i {
+    font-size: 50px;
+}
+
+.thetec .div_modal_perfil_text {
+    font-size: 16px;
+    font-weight: bold;
+    margin-top: 10px;
+}
+
+.thetec .div_modal_perfil_img {
+    width: 120px;
+    height: 120px;
+    display: none;
+    margin: 0 auto;
+}
+@media only screen
+and (min-width: 1920px){
+
+    .tecDepartment{
+        width: 80% !important;
+        margin-left: 10% !important;
+    }
+}
+@media only screen
+and (max-width: 991px){
+    .tecDepartment .btn_filter_new{
+        margin-top: 10px !important;
+        float: left;
+    }
+}
+
+@media only screen
+and (min-width: 950px)
+and (max-width: 1919px){
+    .tecDepartment{
+        width: 80% !important;
+        margin-left: 10% !important;
+    }
+}
+.table-user-list ul{
+    margin-bottom: 0 !important;
+}
+
+.card-border-radius{
+    border-radius: 10px;
+}
+.card-footer-transparent{
+    overflow-x: auto;
+    background-color: transparent;
+}
+

@@ -1,0 +1,151 @@
+.dashboard-card {
+    background: #ffffff;
+    padding: 22px;
+    border-radius: 16px;
+    position: relative;
+    overflow: hidden;
+    color: #fff;
+    box-shadow: 0 4px 18px rgba(0,0,0,0.08);
+}
+
+.dashboard-card .value {
+    font-size: 2rem;
+    font-weight: 700;
+}
+
+.dashboard-card .label {
+    font-size: 0.95rem;
+    opacity: 0.9;
+}
+
+.dashboard-card .icon {
+    position: absolute;
+    right: 20px;
+    bottom: 15px;
+    font-size: 2.4rem;
+    opacity: 0.2;
+}
+
+.gradient-blue {
+    background: linear-gradient(135deg, #007bff, #65a1ff);
+}
+.gradient-green {
+    background: linear-gradient(135deg, #28a745, #7cd78a);
+}
+.gradient-orange {
+    background: linear-gradient(135deg, #ff9800, #ffc46b);
+}
+.gradient-red {
+    background: linear-gradient(135deg, #e53935, #ff7979);
+}
+/* BLUE */
+.gradient-blue {
+    background: linear-gradient(135deg, #007bff, #65a1ff);
+}
+.gradient-blue-dark {
+    background: linear-gradient(135deg, #0056b3, #2d8cff);
+}
+.gradient-blue-neon {
+    background: linear-gradient(135deg, #00c6ff, #0072ff);
+}
+.gradient-ice {
+    background: linear-gradient(135deg, #4facfe, #00f2fe);
+}
+
+/* GREEN */
+.gradient-green {
+    background: linear-gradient(135deg, #28a745, #7cd78a);
+}
+.gradient-green-neon {
+    background: linear-gradient(135deg, #00e676, #66ffa6);
+}
+.gradient-teal {
+    background: linear-gradient(135deg, #009688, #4dd0e1);
+}
+
+/* YELLOW / GOLD */
+.gradient-yellow {
+    background: linear-gradient(135deg, #f7b500, #ffe15d);
+}
+.gradient-gold {
+    background: linear-gradient(135deg, #d4a017, #ffea8c);
+}
+
+/* ORANGE */
+.gradient-orange {
+    background: linear-gradient(135deg, #ff9800, #ffc46b);
+}
+.gradient-orange-dark {
+    background: linear-gradient(135deg, #ff6a00, #ffb56b);
+}
+
+/* RED */
+.gradient-red {
+    background: linear-gradient(135deg, #e53935, #ff7979);
+}
+.gradient-red-neon {
+    background: linear-gradient(135deg, #ff003c, #ff6b81);
+}
+
+/* PURPLE */
+.gradient-purple {
+    background: linear-gradient(135deg, #6f42c1, #b084ff);
+}
+.gradient-purple-dark {
+    background: linear-gradient(135deg, #4b0082, #9d4edd);
+}
+.gradient-lilac {
+    background: linear-gradient(135deg, #b57aff, #e0c3ff);
+}
+
+/* DARK */
+.gradient-dark {
+    background: linear-gradient(135deg, #1f1f1f, #3c3c3c);
+}
+.gradient-black-premium {
+    background: linear-gradient(135deg, #000000, #434343);
+}
+
+/* MIX / SPECIAL */
+.gradient-galaxy {
+    background: linear-gradient(135deg, #3a1c71, #d76d77, #ffaf7b);
+}
+.gradient-rainbow {
+    background: linear-gradient(135deg, #ff6ec4, #7873f5);
+}
+
+/* Atividades */
+.activity-list {
+    list-style: none;
+    padding: 0;
+}
+.activity-list li {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 15px;
+}
+.activity-list i {
+    font-size: 1.3rem;
+    margin-right: 10px;
+}
+.activity-list span {
+    font-weight: 500;
+}
+.activity-list small {
+    font-size: 0.8rem;
+    color: #888;
+}
+
+/* Ações rápidas */
+.action-btn {
+    width: 100%;
+    padding: 16px;
+    border-radius: 12px;
+    background: #f7f7f7;
+    border: 1px solid #eaeaea;
+    transition: 0.2s;
+    font-weight: 600;
+}
+.action-btn:hover {
+    background: #eaeaea;
+}

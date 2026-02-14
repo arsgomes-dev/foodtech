@@ -1,0 +1,302 @@
+body {
+    min-height: 100vh;
+    min-height: -webkit-fill-available;
+}
+
+html {
+    height: -webkit-fill-available;
+}
+
+html,
+body {
+    height: 100%;
+    background-color: #ccc;
+}
+
+@media only screen and (max-width: 767px) {
+
+    html,
+    body {
+        height: 100%;
+        background-color: #fff;
+    }
+}
+
+main {
+    height: 100vh;
+    height: -webkit-fill-available;
+    max-height: 100vh;
+    overflow-x: auto;
+    overflow-y: hidden;
+    width: 100%;
+}
+
+.thetec-border-0 {
+    border: none !important;
+}
+
+.thetec-border-1 {
+    border: 1px solid #ccc !important;
+}
+
+.thetec-border-1-top {
+    border-top: 1px solid #ccc !important;
+}
+
+.thetec-border-1-bottom {
+    border-bottom: 1px solid #ccc !important;
+}
+
+.thetec-border-1-left {
+    border-left: 1px solid #ccc !important;
+}
+
+.thetec-border-1-right {
+    border-right: 1px solid #ccc !important;
+}
+
+.thetec-border-shadow-0 {
+    box-shadow: none !important;
+}
+
+.thetec-border-shadow-1 {
+    box-shadow: rgba(0, 0, 0, 0.1) 1px 0px 15px 2px !important;
+}
+
+.thetec-padding-0 {
+    padding: 0 !important;
+}
+
+.thetec-padding-1 {
+    padding: 1rem !important;
+}
+
+.thetec-padding-2 {
+    padding: 2rem !important;
+}
+
+.thetec-padding-3 {
+    padding: 3rem !important;
+}
+
+.thetec-padding-0-top {
+    padding-top: 0 !important;
+}
+
+.thetec-padding-0-bottom {
+    padding-bottom: 0 !important;
+}
+
+.thetec-padding-0-left {
+    padding-left: 0 !important;
+}
+
+.thetec-padding-0-right {
+    padding-right: 0 !important;
+}
+
+.thetec-padding-1-top {
+    padding-top: 1rem !important;
+}
+
+.thetec-padding-1-bottom {
+    padding-bottom: 1rem !important;
+}
+
+.thetec-padding-1-left {
+    padding-left: 1rem !important;
+}
+
+.thetec-padding-1-right {
+    padding-right: 1rem !important;
+}
+
+.thetec-padding-2-top {
+    padding-top: 2rem !important;
+}
+
+.thetec-padding-2-bottom {
+    padding-bottom: 2rem !important;
+}
+
+.thetec-padding-2-left {
+    padding-left: 2rem !important;
+}
+
+.thetec-padding-2-right {
+    padding-right: 2rem !important;
+}
+
+.thetec-div-form-signin {
+    max-width: 45% !important;
+    padding: 1rem !important;
+    position: relative !important;
+    top: 50% !important;
+    transform: translateY(-50%) !important;
+}
+
+@media only screen and (min-width: 1100px) and (max-width: 1500px) {
+    .thetec-div-form-signin {
+        max-width: 70%;
+        padding: 1rem;
+    }
+}
+
+@media only screen and (max-width: 1099px) {
+    .thetec-div-form-signin {
+        max-width: 95% !important;
+    }
+}
+
+@media only screen and (min-width: 1900px) {
+    .thetec-div-form-signin {
+        max-width: 50%;
+    }
+}
+
+@media only screen and (max-width: 767px) {
+    .thetec-div-form-signin .card {
+        border: none !important;
+    }
+
+    .thetec-div-form-signin .shadow {
+        box-shadow: none !important;
+    }
+}
+
+.thetec-div-form-signin-img img {
+    width: 100%;
+    min-height: 450px;
+}
+
+@media only screen and (max-width: 1280px) {
+    .thetec-div-form-signin-img img {
+        min-height: 300px;
+    }
+}
+@media only screen and (max-width: 767px) {
+    .thetec-div-form-signin-img img {
+        min-height: 0px;
+        max-height: 250px;
+        border-radius: 10px;
+    }
+}
+
+@media only screen and (max-width: 450px) {
+    .thetec-div-form-signin-img {
+        display: none;
+    }
+}
+
+@media only screen and (max-width: 767px) {
+    .thetec-div-form-signin-img img {
+        min-height: 0px;
+        max-height: 250px;
+        border-radius: 10px;
+    }
+}
+
+@media only screen and (max-width: 1500px) {
+    .thetec-div-form-signin-img img {
+        width: 100%;
+    }
+}
+
+.thetec-form-signin img {
+    width: 60% !important;
+    margin-left: 20%;
+}
+
+.thetec-menu-side {
+    width: 280px;
+    height: 100%;
+    background: #343a40 !important;
+    position: fixed;
+    z-index: 1010 !important;
+}
+
+.thetec-menu-side .menu-logo {
+    border-bottom: 1px solid #fff;
+    margin-bottom: 10px;
+}
+
+.thetec-menu-side .menu-logo {
+    border-bottom: 1px solid #fff;
+    margin-bottom: 10px;
+}
+
+.thetec-menu-side .menu-logo i {
+    padding-left: 1rem;
+}
+
+.thetec-menu-side .menu-i {
+    font-size: 25px;
+}
+
+.thetec-menu-side .menu-logo-tag {
+    display: inline-block;
+    margin-left: 5px;
+}
+
+.thetec-menu-side .menu-tag {
+    display: inline-block;
+    margin-left: 5px;
+    margin-bottom: 0 !important;
+    transition: display 0.1s ease-in-out;
+}
+
+.thetec-menu-side .menu-tag-hide {
+    pointer-events: none;
+    display: none !important;
+}
+
+.thetec-menu-side ul li a {
+    font-size: 18px;
+    padding-bottom: 0.9rem !important;
+}
+
+.thetec-menu-side ul li a:hover {
+    background-color: #4f565e;
+}
+
+.thetec-menu-side-hide {
+    width: 75px !important;
+    z-index: 1000;
+}
+
+.thetec-menu-side-hide .menu-logo {
+    height: 54px;
+}
+
+@media only screen and (max-width: 990px) {
+    .thetec-menu-side {
+        display: none !important;
+    }
+
+}
+
+.thetec-menu-side-show {
+    display: flex !important;
+    z-index: 9999 !important;
+    width: 280px !important;
+}
+
+.thetec-menu-top {
+    height: 60px;
+    width: 100%;
+    position: fixed;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+    margin-left: 280px !important;
+}
+
+@media only screen and (max-width: 990px) {
+    .thetec-menu-top {
+        margin-left: 0 !important;
+    }
+}
+
+.thetec-menu-top-hide {
+    margin-left: 75px !important;
+}

@@ -1,0 +1,120 @@
+.modal_title_img{
+    font-size: 20px;
+}
+.div_modal_img{
+    margin: 0 auto;
+    text-align: center;
+    cursor: pointer;
+}
+.div_modal_img_i{
+    font-size: 50px;
+}
+.div_modal_img_text{
+    font-size: 16px;
+    font-weight: bold;
+    margin-top: 10px;
+}
+#div_modal_profile_img{
+    width: 120px;
+    height: 120px;
+    display: none;
+    margin: 0 auto;
+}
+.profile-page{
+    margin-bottom: 60px;
+}
+.profile-page .nav-tabs.flex-column{
+    text-align: center;
+    padding: 10px;
+}
+.profile-page .nav-tabs .nav-link {
+    border: 0;
+}
+.profile-page .nav-tabs.flex-column .nav-link.active{
+    border-radius: 30px;
+    border: 0 !important;
+    text-align: center;
+    font-weight: bold;
+}
+/*new profile*/
+
+
+.profile .img-user-new-profile{
+    margin-left: auto;
+    margin-right: auto;
+}
+.profile .img-user-new-profile > img {
+    height: auto;
+    width: 130px;
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+}
+.profile .img-user-new-profile .img-update{
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    z-index: 5;
+    position: absolute;
+    top: 95px;
+    margin-left: 5%;
+    cursor: pointer;
+}
+
+.profile .img-user-new-profile .img-update > i{
+    margin-top: auto;
+    margin-bottom: auto;
+}
+/*end new profile*/
+
+
+@media (max-width: 991px) {
+    .profile-page .nav-tabs.flex-column{
+        border-right: 0;
+        flex-direction: row !important;
+    }
+    .profile-page .tab-content{
+        margin-top: 20px;
+    }
+}
+.nav-pills .nav-link.active, .nav-pills .show>.nav-link {
+    border-radius: 0;
+}
+@media (min-width: 991px) and (max-width: 1630px){
+    .profile .img-user-new-profile > img {
+        height: auto;
+        width: 90px;
+    }
+    .profile .img-user-new-profile .img-update{
+        width: 30px;
+        height: 30px;
+        top: 65px;
+    }
+}
+@media (min-width: 768px) and (max-width: 960px){
+    .profile .img-user-new-profile > img {
+        height: auto;
+        width: 90px;
+    }
+    .profile .img-user-new-profile .img-update{
+        width: 30px;
+        height: 30px;
+        top: 65px;
+    }
+}
+
+@media (max-width: 767px){
+    .profile .img-user-new-profile .img-update{
+        width: 45px;
+        height: 45px;
+        top: -15px;
+        margin-left: auto;
+        margin-right: auto;
+        position: relative;
+    }
+}
+.table-profile:hover{
+    cursor: pointer;
+}

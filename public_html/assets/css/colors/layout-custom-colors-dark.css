@@ -1,0 +1,54 @@
+/* =========================
+   CORES - DARK
+========================= */
+
+[data-theme="dark"] body {
+    background-color: #1e1e1e !important;
+}
+
+[data-theme="dark"] .wrapper {
+    background-color: #1e1e1e !important;
+}
+
+[data-theme="dark"] .content-wrapper {
+    background: #2b2f33;
+}
+
+[data-theme="dark"] .main-footer {
+    background: transparent;
+}
+
+/* Nav ativo */
+[data-theme="dark"] .nav-sidebar > .nav-item > .nav-link.active,
+[data-theme="dark"] .sidebar-light-primary .nav-sidebar > .nav-item > .nav-link.active {
+    color: #ffffff;
+}
+
+[data-theme="dark"] .main-sidebar, 
+[data-theme="dark"] .main-header{
+    background-color: #1e1e1e !important;
+}
+
+/* Brand */
+[data-theme="dark"] .main-sidebar .brand-link hr {
+    border-color: #444;
+}
+
+/* Logout */
+[data-theme="dark"] .main-sidebar .sidebar .logout-item .nav-link {
+    color: #ffffff;
+}
+
+[data-theme="dark"] .main-sidebar .sidebar .logout-item .nav-link:hover {
+    background-color: #a71d2a;
+    box-shadow: 0 6px 8px rgba(0,0,0,0.4);
+}
+
+/* User panel */
+[data-theme="dark"] .user-panel-item .nav-link {
+    color: #ffffff !important;
+}
+
+[data-theme="dark"] .user-panel-item .nav-link:hover {
+    background-color: #6f2dbd !important;
+}

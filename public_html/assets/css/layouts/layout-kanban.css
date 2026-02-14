@@ -1,0 +1,183 @@
+/*---------------------------
+KANBAN — LIMPO E ORGANIZADO
+---------------------------*/
+
+/* WRAPPER HORIZONTAL */
+.kanban-wrapper {
+    display: flex;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    overflow-y: hidden;
+    gap: 20px;
+    padding-bottom: 10px;
+    scroll-behavior: smooth;
+    scrollbar-width: thin;
+    align-items: flex-start !important; /* impede colunas de crescer */
+    cursor: grab;
+}
+
+/* Scrollbar */
+.kanban-wrapper::-webkit-scrollbar {
+    height: 8px;
+}
+.kanban-wrapper::-webkit-scrollbar-thumb {
+    background: #bbb;
+    border-radius: 4px;
+}
+.kanban-wrapper::-webkit-scrollbar-track {
+    background: #eee;
+}
+
+/* === COLUNA COMPLETA === */
+.kanban-column-container {
+    min-width: 320px;
+    flex-shrink: 0;
+    flex-grow: 0 !important;
+    display: flex;
+    flex-direction: column;
+    border-radius: 12px;
+    background: var(--col-bg, #f8f9fa);
+    color: var(--text-color, #fff);
+    opacity: 0.97;
+    backdrop-filter: blur(3px);
+    border: 1px solid rgba(0,0,0,0.12);
+    overflow: hidden;
+}
+
+/* HEADER */
+.kanban-column-header {
+    padding: 16px 18px;
+    font-weight: bold;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: inherit !important;
+    color: inherit !important;
+    border-bottom: none !important;
+}
+
+/* TÍTULO + BADGE */
+.kanban-column-header h3,
+.kanban-column-header .card-title {
+    color: #ffffff !important;
+    font-weight: 700;
+}
+
+/* ÁREA DOS CARDS — SCROLL INTERNO */
+.kanban-column {
+    padding: 16px;
+    min-height: 10px;
+    max-height: 600px;
+    overflow-y: auto;
+    overflow-x: hidden;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    flex-grow: 0 !important;
+}
+
+/* HOVER DA COLUNA */
+.kanban-hover {
+    background: rgba(255, 255, 255, 0.22) !important;
+    transition: 0.2s ease-in-out;
+}
+
+/* === ITENS === */
+.kanban-item {
+    cursor: grab;
+    transition: 0.2s ease;
+    border-radius: 10px;
+    opacity: 1;
+    padding: 14px 15px;
+    min-height: 75px;
+    background: #ffffff;
+    width: 100%;
+    box-shadow: 0 3px 8px rgba(0,0,0,0.12);
+    border: 1px solid rgba(255,255,255,0.25);
+    display: flex;
+    align-items: center;
+    font-size: 0.95rem;
+    line-height: 1.3;
+}
+.kanban-item:hover {
+    transform: scale(1.03);
+}
+
+/* Item arrastado */
+.dragging {
+    opacity: 0.35 !important;
+    transform: rotate(2deg);
+}
+
+/* Fade-in */
+.kanban-item.fade-in {
+    animation: fadeInCard 0.25s ease;
+}
+@keyframes fadeInCard {
+    from {
+        opacity: 0;
+        transform: scale(0.92);
+    }
+    to   {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+/* GHOST-CARD */
+.ghost-card {
+    background: rgba(255,255,255,0.35);
+    border: 2px dashed rgba(0,0,0,0.30);
+    height: 65px;
+    border-radius: 8px;
+    transition: all 0.20s ease-in-out;
+}
+
+/* === CARD BOOTSTRAP FUNDIDO === */
+.kanban-card {
+    border: none !important;
+    box-shadow: none !important;
+}
+.kanban-card .card-header {
+    border-bottom: none !important;
+    border-radius: 0 !important;
+    background: inherit !important;
+    padding: 16px;
+}
+.kanban-card .card-body {
+    background: inherit !important;
+    border-top: none !important;
+    padding: 16px;
+}
+
+/* MOBILE */
+@media (max-width: 768px) {
+    .kanban-column-container {
+        min-width: 92%;
+    }
+}
+
+/* Cursor de arrasto */
+.drag-scroll {
+    cursor: grabbing !important;
+}
+
+/* Card externo que contém o kanban-wrapper */
+.kanban-wrapper {
+    cursor: grab;
+    flex: 1;
+    overflow-x: auto;
+    overflow-y: hidden;
+    display: flex;
+    gap: 20px;
+}
+.card-kanban {
+    min-height: 75vh; /* ocupa a tela inteira */
+    display: flex;
+    flex-direction: column;
+}
+.card-kanban .card-body {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}

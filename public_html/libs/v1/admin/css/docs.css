@@ -1,0 +1,402 @@
+body {
+    min-height: 100vh;
+    min-height: -webkit-fill-available;
+}
+
+html {
+    height: -webkit-fill-available;
+}
+
+html,
+body {
+    height: 100%;
+    background-color: #ccc;
+}
+
+@media only screen and (max-width: 767px) {
+
+    html,
+    body {
+        height: 100%;
+        background-color: #fff;
+    }
+}
+
+main {
+    height: 100vh;
+    height: -webkit-fill-available;
+    max-height: 100vh;
+    overflow-x: auto;
+    overflow-y: hidden;
+    width: 100%;
+}
+
+.form-control-dark {
+    border-color: var(--bs-gray);
+}
+
+.form-control-dark:focus {
+    border-color: #fff;
+    box-shadow: 0 0 0 .25rem rgba(255, 255, 255, .25);
+}
+
+.text-small {
+    font-size: 85%;
+}
+
+.dropdown-toggle:not(:focus) {
+    outline: 0;
+}
+
+.bd-placeholder-img {
+    font-size: 1.125rem;
+    text-anchor: middle;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    user-select: none;
+}
+
+@media (min-width: 768px) {
+    .bd-placeholder-img-lg {
+        font-size: 3.5rem;
+    }
+}
+
+.b-example-divider {
+    width: 100%;
+    height: 3rem;
+    background-color: rgba(0, 0, 0, .1);
+    border: solid rgba(0, 0, 0, .15);
+    border-width: 1px 0;
+    box-shadow: inset 0 .5em 1.5em rgba(0, 0, 0, .1), inset 0 .125em .5em rgba(0, 0, 0, .15);
+}
+
+.b-example-vr {
+    flex-shrink: 0;
+    width: 1.5rem;
+    height: 100vh;
+}
+
+.bi {
+    vertical-align: -.125em;
+    fill: currentColor;
+}
+
+.nav-scroller {
+    position: relative;
+    z-index: 2;
+    height: 2.75rem;
+    overflow-y: hidden;
+}
+
+.nav-scroller .nav {
+    display: flex;
+    flex-wrap: nowrap;
+    padding-bottom: 1rem;
+    margin-top: -1px;
+    overflow-x: auto;
+    text-align: center;
+    white-space: nowrap;
+    -webkit-overflow-scrolling: touch;
+}
+
+.btn-bd-primary {
+    --bd-violet-bg: #712cf9;
+    --bd-violet-rgb: 112.520718, 44.062154, 249.437846;
+
+    --bs-btn-font-weight: 600;
+    --bs-btn-color: var(--bs-white);
+    --bs-btn-bg: var(--bd-violet-bg);
+    --bs-btn-border-color: var(--bd-violet-bg);
+    --bs-btn-hover-color: var(--bs-white);
+    --bs-btn-hover-bg: #6528e0;
+    --bs-btn-hover-border-color: #6528e0;
+    --bs-btn-focus-shadow-rgb: var(--bd-violet-rgb);
+    --bs-btn-active-color: var(--bs-btn-hover-color);
+    --bs-btn-active-bg: #5a23c8;
+    --bs-btn-active-border-color: #5a23c8;
+}
+
+.bd-mode-toggle {
+    z-index: 1500;
+}
+
+.bd-mode-toggle .dropdown-menu .active .bi {
+    display: block !important;
+}
+
+.thetec-border-0 {
+    border: none !important;
+}
+
+.thetec-border-1 {
+    border: 1px solid #ccc !important;
+}
+
+.thetec-border-1-top {
+    border-top: 1px solid #ccc !important;
+}
+
+.thetec-border-1-bottom {
+    border-bottom: 1px solid #ccc !important;
+}
+
+.thetec-border-1-left {
+    border-left: 1px solid #ccc !important;
+}
+
+.thetec-border-1-right {
+    border-right: 1px solid #ccc !important;
+}
+
+.thetec-border-shadow-0 {
+    box-shadow: none !important;
+}
+
+.thetec-border-shadow-1 {
+    box-shadow: rgba(0, 0, 0, 0.1) 1px 0px 15px 2px !important;
+}
+
+.thetec-padding-0 {
+    padding: 0 !important;
+}
+
+.thetec-padding-1 {
+    padding: 1rem !important;
+}
+
+.thetec-padding-2 {
+    padding: 2rem !important;
+}
+
+.thetec-padding-3 {
+    padding: 3rem !important;
+}
+
+.thetec-padding-0-top {
+    padding-top: 0 !important;
+}
+
+.thetec-padding-0-bottom {
+    padding-bottom: 0 !important;
+}
+
+.thetec-padding-0-left {
+    padding-left: 0 !important;
+}
+
+.thetec-padding-0-right {
+    padding-right: 0 !important;
+}
+
+.thetec-padding-1-top {
+    padding-top: 1rem !important;
+}
+
+.thetec-padding-1-bottom {
+    padding-bottom: 1rem !important;
+}
+
+.thetec-padding-1-left {
+    padding-left: 1rem !important;
+}
+
+.thetec-padding-1-right {
+    padding-right: 1rem !important;
+}
+
+.thetec-padding-2-top {
+    padding-top: 2rem !important;
+}
+
+.thetec-padding-2-bottom {
+    padding-bottom: 2rem !important;
+}
+
+.thetec-padding-2-left {
+    padding-left: 2rem !important;
+}
+
+.thetec-padding-2-right {
+    padding-right: 2rem !important;
+}
+
+.thetec-div-form-signin {
+    max-width: 45% !important;
+    padding: 1rem !important;
+    position: relative !important;
+    top: 50% !important;
+    transform: translateY(-50%) !important;
+}
+
+@media only screen and (min-width: 1100px) and (max-width: 1500px) {
+    .thetec-div-form-signin {
+        max-width: 70%;
+        padding: 1rem;
+    }
+}
+
+@media only screen and (max-width: 1099px) {
+    .thetec-div-form-signin {
+        max-width: 95% !important;
+    }
+}
+
+@media only screen and (min-width: 1900px) {
+    .thetec-div-form-signin {
+        max-width: 50%;
+    }
+}
+
+@media only screen and (max-width: 767px) {
+    .thetec-div-form-signin .card {
+        border: none !important;
+    }
+
+    .thetec-div-form-signin .shadow {
+        box-shadow: none !important;
+    }
+}
+
+.thetec-div-form-signin-img img {
+    width: 100%;
+    min-height: 450px;
+}
+
+@media only screen and (max-width: 767px) {
+    .thetec-div-form-signin-img img {
+        min-height: 0px;
+        max-height: 250px;
+        border-radius: 10px;
+    }
+}
+
+@media only screen and (max-width: 450px) {
+    .thetec-div-form-signin-img {
+        display: none;
+    }
+}
+
+@media only screen and (max-width: 767px) {
+    .thetec-div-form-signin-img img {
+        min-height: 0px;
+        max-height: 250px;
+        border-radius: 10px;
+    }
+}
+
+@media only screen and (max-width: 1500px) {
+    .thetec-div-form-signin-img img {
+        width: 100%;
+    }
+}
+
+.thetec-form-signin img {
+    width: 60% !important;
+    margin-left: 20%;
+}
+
+.thetec-bar .thetec-menu-side {
+    display: flex !important;
+    position: fixed;
+    width: 280px;
+    height: 100%;
+    background: #343a40 !important;
+    z-index: 1010 !important;
+}
+
+.thetec-bar .thetec-menu-side .menu-logo {
+    border-bottom: 1px solid #fff;
+    margin-bottom: 10px;
+}
+
+.thetec-bar .thetec-menu-side .menu-logo a i {
+    padding-left: 1rem;
+    font-size: 25px;
+}
+
+.thetec-bar .thetec-menu-side .menu-logo a p {
+    display: inline-block;
+    margin-left: 5px;
+}
+
+.thetec-bar .thetec-menu-side ul li a i {
+    font-size: 25px;
+}
+
+.thetec-bar .thetec-menu-side ul li a p {
+    display: inline-block;
+    margin-left: 5px;
+    margin-bottom: 0 !important;
+    transition: display 0.1s ease-in-out;
+}
+
+.thetec-bar .thetec-menu-side ul li a {
+    font-size: 18px;
+    padding-bottom: 0.9rem !important;
+}
+
+.thetec-bar .thetec-menu-side ul li a:hover {
+    background-color: #4f565e;
+}
+
+@media only screen and (max-width: 990px) {
+    .thetec-bar .thetec-menu-side {
+        display: none !important;
+    }
+}
+
+.thetec-bar .thetec-menu-top {
+    height: 60px;
+    width: auto;
+    position: fixed;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+    margin-left: 280px;
+}
+
+@media only screen and (max-width: 990px) {
+    .thetec-bar .thetec-menu-top {
+        margin-left: 0 !important;
+    }
+}
+
+.thetec-bar-hide .thetec-menu-side .menu-logo a p {
+    pointer-events: none !important;
+    display: none !important;
+}
+
+.thetec-bar-hide .thetec-menu-side ul li a p {
+    pointer-events: none !important;
+    display: none !important;
+}
+
+.thetec-bar-hide .thetec-menu-side {
+    width: 75px !important;
+    z-index: 1000;
+}
+
+.thetec-bar-hide .thetec-menu-side .menu-logo {
+    height: 54px;
+}
+
+.thetec-bar-hide .thetec-menu-top {
+    margin-left: 75px;
+}
+
+@media only screen and (max-width: 990px) {
+
+    .thetec-bar-show .thetec-menu-side {
+        width: 280px !important;
+        display: block !important;
+    }
+
+    .thetec-bar-show .thetec-menu-side .menu-logo a p {
+        display: inline !important;
+    }
+
+    .thetec-bar-show .thetec-menu-side ul li a p {
+        display: inline-block !important;
+    }
+}

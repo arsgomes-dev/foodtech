@@ -1,0 +1,9 @@
+/nbproject/private/
+nbproject/project.properties
+nbproject/project.xml
+
+sync_config.jsonc
+/.env
+public_html/uploads/cert/producao-137325-creatorOS.p12
+/.tmp.driveupload/
+/.idx/

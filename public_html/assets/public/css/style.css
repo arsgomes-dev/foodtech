@@ -1,0 +1,851 @@
+:root {
+    /* Cor Base Solicitada */
+    --primary-color: #A020F0;
+    
+    /* Variações da Cor Base */
+    --primary-light: #bc52ff;
+    --primary-dark: #6e0bfa;
+    --primary-gradient: linear-gradient(135deg, var(--primary-color) 0%, var(--primary-light) 100%);
+    --primary-glow: rgba(160, 32, 240, 0.5);
+
+    /* Paleta Deep Dark (Fundo) */
+    --bg-body: #0f0c15;       /* Roxo quase preto */
+    --bg-card: #1e1b29;       /* Cards ligeiramente mais claros */
+    --bg-card-hover: #2a253a; /* Hover */
+    
+    /* Paleta de Texto (Alto Contraste) */
+    --text-main: #ffffff;     /* Branco Puro */
+    --text-secondary: #e2e8f0; /* Cinza Prata Claro (Para parágrafos) */
+    --border-color: rgba(255, 255, 255, 0.15);
+}
+
+/* --- Reset Geral de Texto --- */
+body {
+    background-color: var(--bg-body);
+    color: var(--text-main); /* Garante que tudo comece branco */
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    overflow-x: hidden;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    color: #ffffff !important; /* Força títulos a serem brancos */
+    font-weight: 700;
+}
+
+p {
+    color: var(--text-secondary); /* Parágrafos em cinza claro */
+    line-height: 1.6;
+}
+
+/* Corrige a classe do Bootstrap que deixa o texto escuro */
+.text-muted {
+    color: #b0b3c5 !important; 
+}
+
+/* --- Navbar --- */
+.navbar {
+    background-color: rgba(15, 12, 21, 0.9);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid var(--border-color);
+    padding: 16px 0;
+}
+
+.nav-link {
+    color: #e0e0e0 !important; /* Links do menu quase brancos */
+    font-weight: 500;
+    transition: color 0.3s;
+}
+
+.nav-link:hover {
+    color: var(--primary-light) !important;
+}
+
+.btn-login {
+    border: 1px solid rgba(255,255,255,0.3);
+    color: #fff !important;
+    border-radius: 8px;
+    padding: 8px 24px;
+    font-weight: 600;
+    background: transparent;
+    transition: all 0.3s;
+}
+
+.btn-login:hover {
+    border-color: var(--primary-color);
+    background: rgba(160, 32, 240, 0.2);
+    box-shadow: 0 0 15px var(--primary-glow);
+}
+
+/* --- Hero Section --- */
+.hero-section {
+    padding: 160px 0 100px;
+    position: relative;
+    background: radial-gradient(circle at 50% -20%, #2a0a40 0%, var(--bg-body) 70%);
+}
+
+.hero-title {
+    color: #ffffff;
+    font-size: 3.5rem;
+    font-weight: 800;
+    letter-spacing: -1px;
+}
+
+.text-gradient {
+    background: var(--primary-gradient);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    /* Fallback para navegadores antigos */
+    color: var(--primary-light); 
+}
+
+.badge-tech {
+    display: inline-block;
+    background: rgba(160, 32, 240, 0.15);
+    border: 1px solid rgba(160, 32, 240, 0.5);
+    color: #dfafff; /* Roxo bem claro para leitura */
+    padding: 6px 16px;
+    border-radius: 50px;
+    font-size: 0.85rem;
+    font-weight: 600;
+}
+
+.btn-cta {
+    background: var(--primary-gradient);
+    color: white !important;
+    font-weight: 700;
+    padding: 14px 40px;
+    border-radius: 50px;
+    border: none;
+    box-shadow: 0 0 30px rgba(160, 32, 240, 0.4);
+    transition: all 0.3s;
+    text-decoration: none;
+}
+
+.btn-cta:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 0 50px rgba(160, 32, 240, 0.7);
+}
+
+/* Mockup Container */
+.mockup-container {
+    border-radius: 16px;
+    border: 1px solid var(--border-color);
+    overflow: hidden;
+    box-shadow: 0 20px 80px rgba(0,0,0,0.6);
+}
+
+/* --- Cards (Features) --- */
+.feature-card {
+    background: var(--bg-card);
+    border: 1px solid var(--border-color);
+    border-radius: 20px;
+    padding: 40px 30px;
+    transition: all 0.3s;
+}
+
+.feature-card:hover {
+    background: var(--bg-card-hover);
+    border-color: var(--primary-color);
+    transform: translateY(-8px);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+}
+
+.feature-card h5 {
+    color: #fff !important;
+}
+
+.feature-card p {
+    color: #ced4da !important; /* Cinza bem claro */
+}
+
+.icon-wrapper {
+    width: 56px;
+    height: 56px;
+    background: rgba(160, 32, 240, 0.15);
+    border-radius: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--primary-light);
+    font-size: 1.4rem;
+    margin-bottom: 24px;
+    transition: all 0.3s;
+}
+
+.feature-card:hover .icon-wrapper {
+    background: var(--primary-color);
+    color: #fff;
+    box-shadow: 0 0 20px var(--primary-glow);
+}
+
+/* --- Testimonial --- */
+.testimonial-card {
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid var(--border-color);
+    padding: 40px;
+    border-radius: 20px;
+}
+
+.testimonial-card p {
+    color: #fff !important;
+    font-size: 1.1rem;
+}
+
+.avatar-placeholder {
+    width: 48px;
+    height: 48px;
+    background: var(--primary-gradient);
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+}
+
+/* --- Pricing --- */
+.pricing-card {
+    background: var(--bg-card);
+    border: 1px solid var(--border-color);
+    border-radius: 24px;
+    padding: 40px;
+    position: relative;
+    transition: all 0.3s;
+}
+
+.pricing-card h4 {
+    color: #fff !important;
+}
+
+.pricing-card.recommended {
+    background: linear-gradient(160deg, rgba(160, 32, 240, 0.08) 0%, var(--bg-card) 100%);
+    border: 2px solid var(--primary-color);
+    transform: scale(1.05);
+    z-index: 2;
+    box-shadow: 0 0 50px rgba(0,0,0,0.5);
+}
+
+.badge-recommended {
+    position: absolute;
+    top: -15px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: var(--primary-color);
+    color: white;
+    padding: 6px 16px;
+    border-radius: 20px;
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 1px;
+    box-shadow: 0 0 10px var(--primary-glow);
+}
+
+.price-tag {
+    font-size: 3rem;
+    font-weight: 800;
+    color: #fff !important;
+}
+
+.check-list li {
+    margin-bottom: 16px;
+    color: #d1d5db !important; /* Texto da lista bem claro */
+    font-size: 0.95rem;
+    display: flex;
+    align-items: center;
+}
+
+.check-list i {
+    color: var(--primary-light);
+    margin-right: 12px;
+}
+
+/* --- Footer --- */
+footer {
+    background: #050407; /* Preto quase absoluto para separar */
+    border-top: 1px solid var(--border-color);
+    padding: 80px 0 40px;
+}
+
+footer h5, footer h6 {
+    color: #fff !important;
+}
+
+footer a {
+    color: #a0a0a0 !important;
+    text-decoration: none;
+    transition: 0.3s;
+}
+
+footer a:hover {
+    color: var(--primary-light) !important;
+}
+
+footer .text-muted {
+    color: #888 !important;
+}
+
+/* Responsividade */
+@media (max-width: 991px) {
+    .hero-title {
+        font-size: 2.5rem;
+    }
+    
+    .pricing-card.recommended {
+        transform: scale(1);
+        margin-top: 20px;
+        margin-bottom: 20px;
+    }
+}
+:root {
+    --primary-color: #A020F0;
+    --primary-glow: rgba(160, 32, 240, 0.4);
+    --bg-card: #161221;       /* Fundo do card (Hostinger style) */
+    --bg-card-hover: #1e192d;
+    --border-color: rgba(255, 255, 255, 0.1);
+    --text-white: #ffffff;
+    --text-muted: #b0b3c5;
+    --green-neon: #00b894;    /* Para o badge de economia */
+}
+
+/* Container do Toggle (Mensal/Anual) */
+.plan-toggle {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid var(--border-color);
+    border-radius: 50px;
+    padding: 5px;
+    display: inline-flex;
+    position: relative;
+}
+
+.plan-toggle .btn {
+    color: var(--text-muted);
+    font-weight: 600;
+    border-radius: 40px;
+    padding: 10px 30px;
+    border: none;
+    transition: all 0.3s ease;
+}
+
+.plan-toggle .btn:hover {
+    color: #fff;
+}
+
+.plan-toggle .btn.active {
+    background-color: var(--primary-color);
+    color: #fff;
+    box-shadow: 0 0 15px var(--primary-glow);
+}
+
+/* Badge "2 meses grátis" */
+.yearly-badge {
+    position: absolute;
+    top: -12px;
+    right: -10px;
+    background-color: var(--green-neon);
+    color: #000;
+    font-size: 0.7rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    padding: 3px 8px;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 184, 148, 0.4);
+    animation: floatBadge 2s infinite ease-in-out;
+}
+
+@keyframes floatBadge {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-4px); }
+}
+
+/* Card do Plano */
+.plan-card {
+    background-color: var(--bg-card);
+    border: 1px solid var(--border-color);
+    border-radius: 24px;
+    padding: 40px 30px;
+    height: 100%;
+    position: relative;
+    transition: transform 0.3s, border-color 0.3s, background-color 0.3s;
+    display: flex;
+    flex-direction: column;
+}
+
+.plan-card:hover {
+    transform: translateY(-10px);
+    background-color: var(--bg-card-hover);
+    border-color: var(--primary-color);
+}
+
+/* Plano Recomendado */
+.plan-card.recommended {
+    border: 2px solid var(--primary-color);
+    background: linear-gradient(180deg, rgba(160, 32, 240, 0.08) 0%, var(--bg-card) 100%);
+    box-shadow: 0 0 30px rgba(0, 0, 0, 0.5);
+    z-index: 2;
+}
+
+.plan-ribbon {
+    position: absolute;
+    top: -16px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: var(--primary-color);
+    color: white;
+    font-size: 0.8rem;
+    font-weight: 700;
+    padding: 6px 20px;
+    border-radius: 20px;
+    box-shadow: 0 4px 15px var(--primary-glow);
+}
+
+/* Tipografia */
+.plan-title {
+    color: var(--text-white);
+    font-weight: 700;
+    font-size: 1.5rem;
+}
+
+.plan-obs {
+    color: var(--text-muted);
+    font-size: 0.9rem;
+    margin: 0;
+}
+
+/* Preço */
+.price-wrapper {
+    color: var(--text-white);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+}
+
+.price-wrapper .currency {
+    font-size: 1.5rem;
+    font-weight: 600;
+    align-self: flex-start;
+    margin-top: 10px;
+}
+
+.price-wrapper .price-value {
+    font-size: 3.5rem;
+    font-weight: 800;
+    letter-spacing: -2px;
+}
+
+.price-wrapper .period-label {
+    color: var(--text-muted);
+    align-self: flex-end;
+    margin-bottom: 15px;
+    font-weight: 500;
+}
+
+/* Label de Economia (Destaque) */
+.economy-label {
+    display: inline-block;
+    background: rgba(0, 184, 148, 0.15);
+    color: var(--green-neon);
+    font-size: 0.9rem;
+    font-weight: 700;
+    padding: 6px 12px;
+    border-radius: 8px;
+    border: 1px solid rgba(0, 184, 148, 0.3);
+}
+
+/* Botão Assinar */
+.btn-subscribe {
+    background: transparent;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    color: white;
+    border-radius: 50px;
+    padding: 12px;
+    font-weight: 700;
+    transition: all 0.3s;
+}
+
+.plan-card.recommended .btn-subscribe {
+    background: var(--primary-color);
+    border-color: var(--primary-color);
+    box-shadow: 0 0 15px var(--primary-glow);
+}
+
+.btn-subscribe:hover {
+    background: white;
+    color: var(--primary-color);
+    border-color: white;
+}
+
+/* Lista de Features */
+.plan-features .feature-item {
+    color: #d1d5db;
+    margin-bottom: 12px;
+    font-size: 0.95rem;
+    align-items: start;
+    text-align: left;
+}
+
+.feature-icon {
+    color: var(--primary-color);
+    margin-right: 12px;
+    margin-top: 4px;
+    font-size: 1rem;
+}
+
+/* Botão Ver Tudo */
+.btn-show-more {
+    background: none;
+    border: none;
+    color: var(--text-muted);
+    font-size: 0.9rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: color 0.3s;
+}
+
+.btn-show-more:hover {
+    color: var(--primary-color);
+}
+/* --- FEATURES SECTION (Bento Grid) --- */
+
+/* --- FEATURES SECTION (Bento Grid) --- */
+
+/* Gradientes dos Ícones */
+.bg-danger-gradient { background: linear-gradient(135deg, #ff4b4b, #ff0000); box-shadow: 0 0 20px rgba(255, 0, 0, 0.4); }
+.bg-purple-gradient { background: linear-gradient(135deg, #a020f0, #6a00ff); box-shadow: 0 0 20px rgba(160, 32, 240, 0.4); }
+.bg-telegram-gradient { background: linear-gradient(135deg, #29a9eb, #0088cc); box-shadow: 0 0 20px rgba(41, 169, 235, 0.4); }
+.bg-blue-gradient { background: linear-gradient(135deg, #00d2ff, #3a7bd5); box-shadow: 0 0 20px rgba(0, 210, 255, 0.4); }
+.bg-green-gradient { background: linear-gradient(135deg, #00b09b, #96c93d); box-shadow: 0 0 20px rgba(150, 201, 61, 0.4); }
+.bg-orange-gradient { background: linear-gradient(135deg, #f83600, #fe8c00); box-shadow: 0 0 20px rgba(254, 140, 0, 0.4); }
+.bg-pink-gradient { background: linear-gradient(135deg, #ff00cc, #333399); box-shadow: 0 0 20px rgba(255, 0, 204, 0.4); }
+
+/* Caixa Principal da Feature (Glassmorphism) */
+.feature-box {
+    background: rgba(22, 18, 33, 0.6); /* Fundo semi-transparente */
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 24px;
+    padding: 35px;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    position: relative;
+    overflow: hidden;
+    backdrop-filter: blur(12px);
+    height: 100%;
+}
+
+/* Efeito de borda brilhante suave */
+.feature-box::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    border-radius: 24px;
+    padding: 1px;
+    background: linear-gradient(180deg, rgba(255,255,255,0.1), rgba(255,255,255,0));
+    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    pointer-events: none;
+}
+
+.feature-box:hover {
+    transform: translateY(-8px);
+    background: rgba(30, 25, 45, 0.8);
+    border-color: var(--primary-color);
+    box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+}
+
+/* Estilo Específico Card Telegram */
+.telegram-box {
+    background: linear-gradient(180deg, rgba(41, 169, 235, 0.05) 0%, rgba(22, 18, 33, 0.6) 100%);
+    border-color: rgba(41, 169, 235, 0.2);
+}
+.telegram-box:hover {
+    border-color: #29a9eb;
+}
+
+/* Ícone Brilhante */
+.icon-glow {
+    width: 60px;
+    height: 60px;
+    border-radius: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 1.5rem;
+}
+
+.icon-small {
+    width: 45px;
+    height: 45px;
+    font-size: 1.2rem;
+    border-radius: 12px;
+}
+
+/* --- MOCKUPS VISUAIS (ELEMENTOS DENTRO DOS CARDS) --- */
+
+/* 1. Viral Spy Mockup */
+.viral-mockup {
+    background: rgba(0,0,0,0.3);
+    border-radius: 12px;
+    padding: 15px;
+    border: 1px solid rgba(255,255,255,0.05);
+}
+.viral-card { display: flex; align-items: center; gap: 15px; }
+.skeleton-thumb { width: 80px; height: 50px; background: #333; border-radius: 6px; }
+.skeleton-lines { flex: 1; display: flex; flex-direction: column; gap: 6px; }
+.line { height: 6px; background: #444; border-radius: 4px; display: block; }
+.skeleton-stats { font-size: 0.8rem; font-weight: bold; }
+
+/* 2. Kanban Preview */
+.kanban-col {
+    background: rgba(255,255,255,0.05);
+    border: 1px dashed rgba(255,255,255,0.1);
+    padding: 10px 15px;
+    border-radius: 8px;
+    color: #888;
+    font-size: 0.85rem;
+    font-weight: 500;
+    flex: 1;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+}
+.kanban-col .dot {
+    width: 8px; height: 8px; border-radius: 50%;
+}
+.kanban-col.active {
+    background: rgba(160, 32, 240, 0.15);
+    border-style: solid;
+    border-color: var(--primary-color);
+    color: white;
+}
+
+/* 3. Telegram Notification Bubble */
+.notification-bubble {
+    background: rgba(41, 169, 235, 0.15);
+    border: 1px solid rgba(41, 169, 235, 0.3);
+    border-radius: 12px;
+    padding: 12px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    color: #fff;
+    font-size: 0.85rem;
+    margin-top: auto; /* Empurra para baixo se flex column */
+    transition: transform 0.3s;
+}
+.notification-bubble:hover {
+    transform: translateX(5px);
+    background: rgba(41, 169, 235, 0.25);
+}
+.notification-bubble i { font-size: 1.5rem; color: #29a9eb; }
+.notification-bubble div { display: flex; flex-direction: column; }
+.notification-bubble strong { color: #29a9eb; font-size: 0.75rem; margin-bottom: 2px; }
+
+/* 4. Mini Calendar Strip */
+.calendar-strip {
+    display: flex;
+    gap: 8px;
+    opacity: 0.6;
+}
+.cal-dot {
+    width: 100%;
+    height: 8px;
+    background: rgba(255,255,255,0.1);
+    border-radius: 4px;
+}
+.cal-dot.active {
+    background: #ff00cc;
+    box-shadow: 0 0 10px #ff00cc;
+}
+/* --- QUEM SOMOS (Vision Card) --- */
+
+.vision-card {
+    background: linear-gradient(145deg, rgba(22, 18, 33, 0.9), rgba(22, 18, 33, 0.6));
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 24px;
+    padding: 40px;
+    position: relative;
+    backdrop-filter: blur(10px);
+    box-shadow: 0 20px 50px rgba(0,0,0,0.3);
+}
+
+/* Efeito de brilho no topo do card */
+.vision-card::before {
+    content: '';
+    position: absolute;
+    top: -1px; left: 20px; right: 20px;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--primary-color), transparent);
+    opacity: 0.5;
+}
+
+.vision-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid rgba(255,255,255,0.05);
+    padding-bottom: 20px;
+}
+
+/* Item Individual (Pilar) */
+.pillar-item {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    margin-bottom: 25px;
+    padding: 15px;
+    border-radius: 16px;
+    background: rgba(255,255,255,0.02);
+    transition: transform 0.3s, background 0.3s;
+    border: 1px solid transparent;
+}
+
+.pillar-item:last-child {
+    margin-bottom: 0;
+}
+
+.pillar-item:hover {
+    background: rgba(255,255,255,0.05);
+    transform: translateX(5px);
+    border-color: rgba(255,255,255,0.1);
+}
+
+/* Ícones dos Pilares */
+.pillar-icon {
+    width: 45px;
+    height: 45px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.1rem;
+    color: white;
+    flex-shrink: 0;
+}
+
+/* Reutilizando os gradientes que já criamos, mas garantindo que existam */
+.bg-blue-gradient { background: linear-gradient(135deg, #00d2ff, #3a7bd5); }
+.bg-purple-gradient { background: linear-gradient(135deg, #a020f0, #6a00ff); }
+.bg-green-gradient { background: linear-gradient(135deg, #00b09b, #96c93d); }
+
+/* --- COOKIE CONSENT SYSTEM --- */
+
+/* 1. Banner Flutuante */
+.cookie-banner {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    width: 400px;
+    max-width: 90vw;
+    background: rgba(22, 18, 33, 0.95); /* Fundo muito escuro */
+    backdrop-filter: blur(12px);
+    border: 1px solid rgba(160, 32, 240, 0.3); /* Borda Roxa Sutil */
+    border-radius: 16px;
+    padding: 24px;
+    z-index: 9999;
+    box-shadow: 0 10px 40px rgba(0,0,0,0.6);
+    animation: slideInUp 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.cookie-icon-box {
+    width: 40px;
+    height: 40px;
+    background: rgba(160, 32, 240, 0.1);
+    color: var(--primary-color);
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.2rem;
+    flex-shrink: 0;
+}
+
+/* Botão com Gradiente (Reutilizável) */
+.btn-primary-gradient {
+    background: linear-gradient(135deg, #A020F0 0%, #6e0bfa 100%);
+    color: white;
+    border: none;
+    transition: all 0.3s;
+}
+
+.btn-primary-gradient:hover {
+    box-shadow: 0 0 15px rgba(160, 32, 240, 0.5);
+    color: white;
+    transform: translateY(-1px);
+}
+
+/* 2. Modal de Preferências */
+.cookie-modal-content {
+    background: #161221;
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 20px;
+}
+
+.cookie-option {
+    background: rgba(255,255,255,0.03);
+    padding: 15px;
+    border-radius: 12px;
+    margin-bottom: 12px;
+    border: 1px solid transparent;
+}
+
+.cookie-option:hover {
+    border-color: rgba(255,255,255,0.1);
+    background: rgba(255,255,255,0.05);
+}
+
+/* Checkbox Switch Customizado (Roxo) */
+.form-switch .form-check-input {
+    background-color: #333;
+    border-color: #555;
+    cursor: pointer;
+}
+
+.form-switch .form-check-input:checked {
+    background-color: var(--primary-color);
+    border-color: var(--primary-color);
+}
+
+/* 3. Botão Reabrir Flutuante */
+.cookie-reopen-btn {
+    position: fixed;
+    bottom: 20px;
+    left: 20px; /* Canto esquerdo para não atrapalhar chat */
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    background: rgba(22, 18, 33, 0.8);
+    border: 1px solid rgba(255,255,255,0.1);
+    color: var(--text-muted);
+    z-index: 9990;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s;
+    backdrop-filter: blur(5px);
+}
+
+.cookie-reopen-btn:hover {
+    background: var(--primary-color);
+    color: white;
+    transform: rotate(15deg) scale(1.1);
+}
+
+/* Animação de Entrada */
+@keyframes slideInUp {
+    from { opacity: 0; transform: translateY(50px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Responsividade */
+@media (max-width: 576px) {
+    .cookie-banner {
+        width: auto;
+        left: 20px;
+        bottom: 20px;
+        flex-direction: column;
+    }
+}
