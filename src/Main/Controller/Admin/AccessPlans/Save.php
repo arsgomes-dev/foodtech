@@ -71,23 +71,31 @@ if (in_array("access_plans_create", $privilege_types) || in_array("access_plans_
         if (!empty($_POST['observ']) && isset($_POST['observ'])) {
             $accessPlan->setObservation($_POST['observ']);
         }
-        //consulta a variável POST tokens, se existe insere o valor correspondente, caso não coloca como 0
-        if ($_POST['nTokens'] === "" || $_POST['nTokens'] === null || empty($_POST['nTokens']) || !isset($_POST['nTokens'])) {
-            $accessPlan->setNumber_tokens(0);
+        //consulta a variável POST nFoods, se existe insere o valor correspondente, caso não coloca como 0
+        if ($_POST['nFoods'] === "" || $_POST['nFoods'] === null || empty($_POST['nFoods']) || !isset($_POST['nFoods'])) {
+            $accessPlan->setMax_foods(0);
         } else {
-            $accessPlan->setNumber_tokens($_POST['nTokens']);
+            $accessPlan->setMax_foods($_POST['nFoods']);
         }
-        //consulta a variável POST scripts, se existe insere o valor correspondente, caso não coloca como 0
-        if ($_POST['nScripts'] === "" || $_POST['nScripts'] === null || empty($_POST['nScripts']) || !isset($_POST['nScripts'])) {
-            $accessPlan->setNumber_scripts(0);
+        //consulta a variável POST nMeals, se existe insere o valor correspondente, caso não coloca como 0
+        if ($_POST['nMeals'] === "" || $_POST['nMeals'] === null || empty($_POST['nMeals']) || !isset($_POST['nMeals'])) {
+            $accessPlan->setMax_meals_daily(0);
         } else {
-            $accessPlan->setNumber_scripts($_POST['nScripts']);
+            $accessPlan->setMax_meals_daily($_POST['nMeals']);
         }
-        //consulta a variável POST channels, se existe insere o valor correspondente, caso não coloca como 0
-        if ($_POST['nChannels'] === "" || $_POST['nChannels'] === null || empty($_POST['nChannels']) || !isset($_POST['nChannels'])) {
-            $accessPlan->setNumber_channels(0);
+
+        //consulta a variável POST nReports, se existe insere o valor correspondente, caso não coloca como 0 (false)
+        if ($_POST['nReports'] === "" || $_POST['nReports'] === null || empty($_POST['nReports']) || !isset($_POST['nReports'])) {
+            $accessPlan->setReports_enabled(0);
         } else {
-            $accessPlan->setNumber_channels($_POST['nChannels']);
+            $accessPlan->setsetReports_enabled($_POST['nReports']);
+        }
+
+        //consulta a variável POST nExport, se existe insere o valor correspondente, caso não coloca como 0 (false)
+        if ($_POST['nExport'] === "" || $_POST['nExport'] === null || empty($_POST['nExport']) || !isset($_POST['nExport'])) {
+            $accessPlan->setExport_enabled(0);
+        } else {
+            $accessPlan->setExport_enabled($_POST['nExport']);
         }
 
         //consulta a variável POST Status, se existe insere o valor correspondente, caso não coloca como 0 (false)

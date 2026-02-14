@@ -16,9 +16,10 @@ class AccessPlan extends ModelClass {
     private string $title;
     private string $description;
     private string $observation;
-    private $number_tokens;
-    private $number_scripts;
-    private $number_channels;
+    private $max_foods;
+    private $max_meals_daily;
+    private int $reports_enabled;
+    private int $export_enabled;
     private string $ribbon_tag;
     private int $recommended;
     private $price;
@@ -101,40 +102,52 @@ class AccessPlan extends ModelClass {
         $this->observation = $observation;
     }
 
-    public function getNumber_tokens() {
-        if (isset($this->number_tokens)) {
-            return $this->number_tokens;
+    public function getMax_foods() {
+        if (isset($this->max_foods)) {
+            return $this->max_foods;
         } else {
             return null;
         }
     }
 
-    public function setNumber_tokens(int $number_tokens) {
-        $this->number_tokens = $number_tokens;
+    public function setMax_foods(int $max_foods) {
+        $this->max_foods = $max_foods;
     }
 
-    public function getNumber_scripts() {
-        if (isset($this->number_scripts)) {
-            return $this->number_scripts;
+    public function getMax_meals_daily() {
+        if (isset($this->max_meals_daily)) {
+            return $this->max_meals_daily;
         } else {
             return null;
         }
     }
 
-    public function setNumber_scripts(int $number_scripts) {
-        $this->number_scripts = $number_scripts;
+    public function setMax_meals_daily(int $max_meals_daily) {
+        $this->max_meals_daily = $max_meals_daily;
     }
 
-    public function getNumber_channels() {
-        if (isset($this->number_channels)) {
-            return $this->number_channels;
+    public function getReports_enabled() {
+        if (isset($this->reports_enabled)) {
+            return $this->reports_enabled;
         } else {
             return null;
         }
     }
 
-    public function setNumber_channels(int $number_channels) {
-        $this->number_channels = $number_channels;
+    public function setReports_enabled(int $reports_enabled) {
+        $this->reports_enabled = $reports_enabled;
+    }
+
+    public function getExport_enabled() {
+        if (isset($this->export_enabled)) {
+            return $this->export_enabled;
+        } else {
+            return null;
+        }
+    }
+
+    public function setExport_enabled(int $export_enabled) {
+        $this->export_enabled = $export_enabled;
     }
 
     public function getRibbon_tag() {
