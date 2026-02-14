@@ -41,13 +41,13 @@ class BaseHtml {
         $css .= "<link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&amp;display=fallback'>";
         $css .= "<link rel='stylesheet' href='/assets/fonts/css/all.min.css'>";
         $css .= "<link rel='stylesheet' href='/assets/vendor/bootstrap/css/bootstrap.min.css'>";
-        $css .= "<link rel='stylesheet' href='/assets/vendor/lte/css/adminlte.css?v=3.2.0'>";
-        $css .= "<link rel='stylesheet' href='/assets/css/component.css'>";
-        $css .= "<link rel='stylesheet' href='/assets/css/color.css'>";
-        $css .= "<link rel='stylesheet' href='/assets/css/colors/layout-btn.css'>";
-        $css .= ($config->getTheme_custom_client()) ? "<link rel='stylesheet' href='/assets/css/layouts/layout-custom.css'>" : "";
-        $css .= ($config->getTheme_custom_client()) ? "<link rel='stylesheet' href='/assets/css/colors/layout-custom-colors.css'>" : "";
-      return $css;
+        $css .= "<link rel='stylesheet' href='/assets/vendor/lte/css/adminlte.css?v=3.2.0'>"; 
+        $css .= "<link rel='stylesheet' href='/assets/css/custom/nutrition-theme-light.css'>";
+        $css .= "<link rel='stylesheet' href='/assets/css/custom/nutrition-theme-dark.css'>";
+        $css .= "<link rel='stylesheet' href='/assets/css/custom/nutrition-components.css'>";
+       // $css .= "<link rel='stylesheet' href='/assets/css/custom2/additional_components.css'>";
+       // $css .= "<link rel='stylesheet' href='/assets/css/custom2/custom_theme.css'>";
+        return $css;
     }
 
     function baseCSSDate() {
@@ -79,6 +79,7 @@ class BaseHtml {
         $js .= "<script src='/assets/vendor/jquery/jquery.min.js'></script>";
         $js .= "<script src='/assets/vendor/bootstrap/js/bootstrap.bundle.min.js'></script>";
         $js .= "<script src='/assets/vendor/lte/js/adminlte.min.js?v=3.2.0'></script>";
+        $js .= "<script src='/assets/js/custom/theme-switcher.js'></script>";
         return $js;
     }
 
@@ -96,11 +97,8 @@ class BaseHtml {
         // menu topo
         require_once trim($_SERVER['DOCUMENT_ROOT'] . "/src/Main/View/" . $config->getFolderPublic() . "/topbar.php");
         // menu lateral
-        if ($config->getTheme_custom_client()) {
-            require_once trim($_SERVER['DOCUMENT_ROOT'] . "/src/Main/View/" . $config->getFolderPublic() . "/slidebar_custom.php");
-        } else {
             require_once trim($_SERVER['DOCUMENT_ROOT'] . "/src/Main/View/" . $config->getFolderPublic() . "/slidebar_base.php");
-        }
+       
     }
 
     function baseBreadcrumb(String $title, $dir, String $active) {

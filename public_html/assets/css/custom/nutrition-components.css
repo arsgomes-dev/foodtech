@@ -1,0 +1,514 @@
+/* ================================================
+   NUTRITION COMPONENTS - MODERN STYLE
+   Cards, Progress Bars e Widgets
+   ================================================ */
+
+/* =========================
+   NUTRITION CARDS - LIGHT
+========================= */
+/* Quando ela está totalmente recolhida e o mouse não está em cima */
+.sidebar-mini.sidebar-collapse .main-sidebar .nav-sidebar .nav-link.active {
+    width: calc(67px - 1rem) !important;
+}
+.sidebar-mini.sidebar-collapse .main-sidebar .nav-sidebar .nav-link i {
+   margin: 0;
+}
+/* Quando a sidebar está recolhida MAS o mouse está em cima dela (expandindo) */
+.sidebar-mini.sidebar-collapse .main-sidebar:hover .nav-sidebar .nav-link.active {
+    width: calc(240px - 1rem) !important;
+    transition: width 0.3s ease;
+}
+/* Quando a sidebar está ABERTA (padrão) */
+/* Estado Normal (Aberto) */
+.nav-sidebar .nav-link.active {
+    width: calc(240px - 1rem) !important;
+    transition: all 0.3s ease;
+}
+
+/* Estado Recolhido (O AdminLTE coloca .sidebar-collapse no body) */
+.sidebar-collapse .nav-sidebar .nav-link.active {
+    width: 3.6rem !important; /* Tamanho padrão do ícone no AdminLTE */
+    margin-left: 0;
+    margin-right: 0;
+}
+
+/* Quando a sidebar está FECHADA (apenas ícones) */
+.sidebar-collapse .nav-sidebar .nav-link.active {
+    width: 100% !important; /* Ou o tamanho do mini-menu, ex: 4.6rem */
+}
+html[data-theme="light"] .nutrition-card {
+    background: #ffffff;
+    padding: 24px;
+    border-radius: 16px;
+    border: 1px solid #e9ecef;
+    transition: all 0.2s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+html[data-theme="light"] .nutrition-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+}
+
+html[data-theme="light"] .nutrition-card .card-icon {
+    width: 48px;
+    height: 48px;
+    background: linear-gradient(135deg, #2ecc71, #27ae60);
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 22px;
+    color: white;
+    margin-bottom: 16px;
+}
+
+html[data-theme="light"] .nutrition-card .card-value {
+    font-size: 32px;
+    font-weight: 700;
+    color: #1a1a1a;
+    margin-bottom: 4px;
+    line-height: 1.2;
+}
+
+html[data-theme="light"] .nutrition-card .card-label {
+    font-size: 14px;
+    color: #6c757d;
+    font-weight: 500;
+}
+
+html[data-theme="light"] .nutrition-card .card-trend {
+    font-size: 13px;
+    margin-top: 12px;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    font-weight: 500;
+}
+
+html[data-theme="light"] .nutrition-card .card-trend.positive {
+    color: #2ecc71;
+}
+
+html[data-theme="light"] .nutrition-card .card-trend.negative {
+    color: #e74c3c;
+}
+
+/* Card Variants - Light */
+html[data-theme="light"] .nutrition-card.calories .card-icon {
+    background: linear-gradient(135deg, #f39c12, #e67e22);
+}
+
+html[data-theme="light"] .nutrition-card.protein .card-icon {
+    background: linear-gradient(135deg, #3498db, #2980b9);
+}
+
+html[data-theme="light"] .nutrition-card.water .card-icon {
+    background: linear-gradient(135deg, #1abc9c, #16a085);
+}
+
+/* =========================
+   NUTRITION CARDS - DARK
+========================= */
+html[data-theme="dark"] .nutrition-card {
+    background: #161b22;
+    padding: 24px;
+    border-radius: 16px;
+    border: 1px solid #21262d;
+    transition: all 0.2s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+html[data-theme="dark"] .nutrition-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
+    border-color: #30363d;
+}
+
+html[data-theme="dark"] .nutrition-card .card-icon {
+    width: 48px;
+    height: 48px;
+    background: linear-gradient(135deg, #2ecc71, #27ae60);
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 22px;
+    color: white;
+    margin-bottom: 16px;
+}
+
+html[data-theme="dark"] .nutrition-card .card-value {
+    font-size: 32px;
+    font-weight: 700;
+    color: #e6edf3;
+    margin-bottom: 4px;
+    line-height: 1.2;
+}
+
+html[data-theme="dark"] .nutrition-card .card-label {
+    font-size: 14px;
+    color: #8b949e;
+    font-weight: 500;
+}
+
+html[data-theme="dark"] .nutrition-card .card-trend {
+    font-size: 13px;
+    margin-top: 12px;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    font-weight: 500;
+}
+
+html[data-theme="dark"] .nutrition-card .card-trend.positive {
+    color: #34d176;
+}
+
+html[data-theme="dark"] .nutrition-card .card-trend.negative {
+    color: #e74c3c;
+}
+
+/* Card Variants - Dark */
+html[data-theme="dark"] .nutrition-card.calories .card-icon {
+    background: linear-gradient(135deg, #f39c12, #e67e22);
+}
+
+html[data-theme="dark"] .nutrition-card.protein .card-icon {
+    background: linear-gradient(135deg, #3498db, #2980b9);
+}
+
+html[data-theme="dark"] .nutrition-card.water .card-icon {
+    background: linear-gradient(135deg, #1abc9c, #16a085);
+}
+
+/* =========================
+   PROGRESS BARS - LIGHT
+========================= */
+html[data-theme="light"] .progress {
+    height: 8px;
+    border-radius: 10px;
+    background-color: #f1f3f5;
+    overflow: hidden;
+}
+
+html[data-theme="light"] .progress-bar {
+    border-radius: 10px;
+    background: linear-gradient(90deg, #2ecc71, #27ae60);
+    transition: width 0.6s ease;
+}
+
+html[data-theme="light"] .progress-bar.calories {
+    background: linear-gradient(90deg, #f39c12, #e67e22);
+}
+
+html[data-theme="light"] .progress-bar.protein {
+    background: linear-gradient(90deg, #3498db, #2980b9);
+}
+
+html[data-theme="light"] .progress-bar.water {
+    background: linear-gradient(90deg, #1abc9c, #16a085);
+}
+
+/* =========================
+   PROGRESS BARS - DARK
+========================= */
+html[data-theme="dark"] .progress {
+    height: 8px;
+    border-radius: 10px;
+    background-color: #21262d;
+    overflow: hidden;
+}
+
+html[data-theme="dark"] .progress-bar {
+    border-radius: 10px;
+    background: linear-gradient(90deg, #2ecc71, #27ae60);
+    transition: width 0.6s ease;
+}
+
+html[data-theme="dark"] .progress-bar.calories {
+    background: linear-gradient(90deg, #f39c12, #e67e22);
+}
+
+html[data-theme="dark"] .progress-bar.protein {
+    background: linear-gradient(90deg, #3498db, #2980b9);
+}
+
+html[data-theme="dark"] .progress-bar.water {
+    background: linear-gradient(90deg, #1abc9c, #16a085);
+}
+
+/* =========================
+   QUICK ACTION BUTTONS - LIGHT
+========================= */
+html[data-theme="light"] .quick-action-btn {
+    background-color: #ffffff;
+    border: 2px solid #e9ecef;
+    color: #1a1a1a;
+    padding: 20px;
+    border-radius: 16px;
+    transition: all 0.2s ease;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    min-height: 140px;
+}
+
+html[data-theme="light"] .quick-action-btn:hover {
+    border-color: #2ecc71;
+    background-color: rgba(46, 204, 113, 0.05);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+}
+
+html[data-theme="light"] .quick-action-btn i {
+    color: #2ecc71;
+    font-size: 32px;
+    margin-bottom: 12px;
+}
+
+html[data-theme="light"] .quick-action-btn strong {
+    color: #1a1a1a;
+    font-size: 14px;
+    font-weight: 600;
+}
+
+/* =========================
+   QUICK ACTION BUTTONS - DARK
+========================= */
+html[data-theme="dark"] .quick-action-btn {
+    background-color: #161b22;
+    border: 2px solid #21262d;
+    color: #e6edf3;
+    padding: 20px;
+    border-radius: 16px;
+    transition: all 0.2s ease;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    min-height: 140px;
+}
+
+html[data-theme="dark"] .quick-action-btn:hover {
+    border-color: #2ecc71;
+    background-color: rgba(46, 204, 113, 0.1);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.4);
+}
+
+html[data-theme="dark"] .quick-action-btn i {
+    color: #2ecc71;
+    font-size: 32px;
+    margin-bottom: 12px;
+}
+
+html[data-theme="dark"] .quick-action-btn strong {
+    color: #e6edf3;
+    font-size: 14px;
+    font-weight: 600;
+}
+
+/* =========================
+   ACTIVITY LIST - LIGHT
+========================= */
+html[data-theme="light"] .activity-item {
+    padding: 16px;
+    border-bottom: 1px solid #f1f3f5;
+    transition: all 0.2s ease;
+    border-radius: 12px;
+    margin-bottom: 8px;
+}
+
+html[data-theme="light"] .activity-item:last-child {
+    border-bottom: none;
+}
+
+html[data-theme="light"] .activity-item:hover {
+    background-color: #f8f9fa;
+}
+
+html[data-theme="light"] .activity-icon-wrapper {
+    width: 44px;
+    height: 44px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+    color: white;
+    flex-shrink: 0;
+}
+
+/* =========================
+   ACTIVITY LIST - DARK
+========================= */
+html[data-theme="dark"] .activity-item {
+    padding: 16px;
+    border-bottom: 1px solid #21262d;
+    transition: all 0.2s ease;
+    border-radius: 12px;
+    margin-bottom: 8px;
+}
+
+html[data-theme="dark"] .activity-item:last-child {
+    border-bottom: none;
+}
+
+html[data-theme="dark"] .activity-item:hover {
+    background-color: rgba(255, 255, 255, 0.03);
+}
+
+html[data-theme="dark"] .activity-icon-wrapper {
+    width: 44px;
+    height: 44px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+    color: white;
+    flex-shrink: 0;
+}
+
+/* =========================
+   MACRO NUTRIENTS - LIGHT
+========================= */
+html[data-theme="light"] .macro-item {
+    margin-bottom: 20px;
+}
+
+html[data-theme="light"] .macro-label {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+    font-size: 14px;
+}
+
+html[data-theme="light"] .macro-label span:first-child {
+    color: #6c757d;
+    font-weight: 500;
+}
+
+html[data-theme="light"] .macro-label strong {
+    color: #1a1a1a;
+    font-weight: 600;
+}
+
+/* =========================
+   MACRO NUTRIENTS - DARK
+========================= */
+html[data-theme="dark"] .macro-item {
+    margin-bottom: 20px;
+}
+
+html[data-theme="dark"] .macro-label {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+    font-size: 14px;
+}
+
+html[data-theme="dark"] .macro-label span:first-child {
+    color: #8b949e;
+    font-weight: 500;
+}
+
+html[data-theme="dark"] .macro-label strong {
+    color: #e6edf3;
+    font-weight: 600;
+}
+
+/* =========================
+   GRADIENT BACKGROUNDS
+========================= */
+.gradient-success {
+    background: linear-gradient(135deg, #2ecc71, #27ae60);
+}
+
+.gradient-energy {
+    background: linear-gradient(135deg, #f39c12, #e67e22);
+}
+
+.gradient-protein {
+    background: linear-gradient(135deg, #3498db, #2980b9);
+}
+
+.gradient-hydration {
+    background: linear-gradient(135deg, #1abc9c, #16a085);
+}
+
+/* =========================
+   ANIMATIONS
+========================= */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.fade-in {
+    animation: fadeInUp 0.4s ease-out;
+}
+
+.fade-in-delay-1 {
+    animation: fadeInUp 0.4s ease-out 0.1s forwards;
+    opacity: 0;
+}
+
+.fade-in-delay-2 {
+    animation: fadeInUp 0.4s ease-out 0.2s forwards;
+    opacity: 0;
+}
+
+.fade-in-delay-3 {
+    animation: fadeInUp 0.4s ease-out 0.3s forwards;
+    opacity: 0;
+}
+
+/* =========================
+   RESPONSIVE
+========================= */
+@media (max-width: 768px) {
+    html[data-theme="light"] .nutrition-card,
+    html[data-theme="dark"] .nutrition-card {
+        padding: 20px;
+    }
+
+    html[data-theme="light"] .nutrition-card .card-value,
+    html[data-theme="dark"] .nutrition-card .card-value {
+        font-size: 28px;
+    }
+
+    html[data-theme="light"] .nutrition-card .card-icon,
+    html[data-theme="dark"] .nutrition-card .card-icon {
+        width: 44px;
+        height: 44px;
+        font-size: 20px;
+    }
+
+    html[data-theme="light"] .quick-action-btn,
+    html[data-theme="dark"] .quick-action-btn {
+        min-height: 120px;
+        padding: 16px;
+    }
+
+    html[data-theme="light"] .quick-action-btn i,
+    html[data-theme="dark"] .quick-action-btn i {
+        font-size: 28px;
+    }
+}

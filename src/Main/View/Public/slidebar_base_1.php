@@ -30,19 +30,13 @@ $website_ico = (isset($stCompany) ? "/logo/" . $stCompany->getLogo() : $website_
 <script src="/assets/js/home/slidebar.js"></script>
 <aside class="main-sidebar sidebar-dark-primary elevation-4">
 
+    <a href="<?php echo $config->getDomain() . "/" . $config->getUrlPublic(); ?>/" class="brand-link" style="border-right: 2px solid #A020F0;">
+        <img src="<?php echo $config->getDomain() . $config->getBaseFile() . $website_ico; ?>" alt="<?php echo $website_title; ?>" class="brand-image image img-circle elevation-3" style="opacity: .8;">
+        <span class="brand-text font-weight-light"><?php echo $website_title; ?></span>
+    </a>
 
-    <div class="sidebar">
-        <div class="user-panel mt-3 pb-3 mb-3 d-flex">
-            <div class="image">
-                <a href="<?php echo $config->getDomain() . "/" . $config->getUrlPublic(); ?>/">
-                    <img src="<?php echo $config->getDomain() . $config->getBaseFile() . $website_ico; ?>" alt="<?php echo $website_title; ?>" class="img-circle elevation-2" style="opacity: .8;">
-                </a> 
-            </div>
-            <div class="info">
-                <span class="brand-text font-weight-light"><?php echo $website_title; ?></span>
-            </div>
-        </div>
-        <br>
+    <div class="sidebar" style="border-right: 2px solid #A020F0;">
+
         <div class="user-panel mt-3 pb-3 mb-3 d-flex">
             <div class="image">
                 <?php

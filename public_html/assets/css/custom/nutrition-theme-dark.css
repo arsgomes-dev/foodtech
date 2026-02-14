@@ -1,0 +1,533 @@
+/* ================================================
+   NUTRITION THEME DARK - MODERN DESIGN (FIXED)
+   Mantém funcionalidade do AdminLTE
+   ================================================ */
+
+:root {
+    /* Cores Primárias */
+    --nutrition-primary-dark: #2ecc71;
+    --nutrition-primary-hover-dark: #27ae60;
+    --nutrition-primary-active-dark: #34d176;
+    
+    /* Backgrounds */
+    --nutrition-bg-main-dark: #0d1117;
+    --nutrition-bg-sidebar-dark: #161b22;
+    --nutrition-bg-topbar-dark: #161b22;
+    --nutrition-bg-card-dark: #161b22;
+    
+    /* Textos */
+    --nutrition-text-primary-dark: #e6edf3;
+    --nutrition-text-secondary-dark: #8b949e;
+    --nutrition-text-light-dark: #6e7681;
+    
+    /* Bordas */
+    --nutrition-border-dark: #21262d;
+    --nutrition-border-light-dark: #30363d;
+    
+    /* Sombras */
+    --nutrition-shadow-sm-dark: 0 1px 3px rgba(0, 0, 0, 0.3);
+    --nutrition-shadow-md-dark: 0 4px 12px rgba(0, 0, 0, 0.4);
+}
+
+html[data-theme="dark"] {
+    color-scheme: dark;
+}
+
+/* =========================
+   BODY & LAYOUT
+========================= */
+html[data-theme="dark"] body {
+    background-color: var(--nutrition-bg-main-dark) !important;
+    color: var(--nutrition-text-primary-dark) !important;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif !important;
+}
+
+/* =========================
+   SIDEBAR - MENU LATERAL
+========================= */
+html[data-theme="dark"] .main-sidebar {
+    background-color: var(--nutrition-bg-sidebar-dark) !important;
+    border-right: 1px solid var(--nutrition-border-dark) !important;
+    box-shadow: none !important;
+}
+
+/* Remove borda roxa antiga */
+html[data-theme="dark"] .main-sidebar .brand-link,
+html[data-theme="dark"] .main-sidebar .sidebar {
+    border-right: none !important;
+}
+
+/* Brand/Logo Area */
+html[data-theme="dark"] .main-sidebar .brand-link {
+    background-color: var(--nutrition-bg-sidebar-dark) !important;
+    border-bottom: 1px solid var(--nutrition-border-dark) !important;
+    padding: 20px 24px !important;
+}
+
+html[data-theme="dark"] .main-sidebar .brand-text {
+    color: var(--nutrition-text-primary-dark) !important;
+    font-weight: 700 !important;
+    font-size: 18px !important;
+}
+
+html[data-theme="dark"] .main-sidebar .brand-image {
+    opacity: 1 !important;
+    max-height: 36px !important;
+}
+
+/* User Panel - Redesenhado */
+html[data-theme="dark"] .sidebar .user-panel {
+    border-bottom: 1px solid var(--nutrition-border-dark) !important;
+    margin: 0 !important;
+    background-color: var(--nutrition-bg-sidebar-dark) !important;
+}
+
+html[data-theme="dark"] .sidebar .user-panel .image img {
+    width: 30px !important;
+    height: 30px !important;
+    border: 2px solid var(--nutrition-border-light-dark) !important;
+}
+
+html[data-theme="dark"] .sidebar .user-panel .info a {
+    color: var(--nutrition-text-primary-dark) !important;
+    font-weight: 600 !important;
+    font-size: 14px !important;
+    padding: 0 !important;
+}
+
+html[data-theme="dark"] .sidebar .user-panel .info a:hover {
+    color: var(--nutrition-primary-dark) !important;
+}
+
+/* Navigation - Estilo Pills Moderno */
+html[data-theme="dark"] .sidebar {
+    padding: 12px 12px !important;
+}
+
+html[data-theme="dark"] .nav-sidebar {
+    padding: 0 !important;
+}
+
+html[data-theme="dark"] .nav-sidebar .nav-item {
+    margin-bottom: 4px !important;
+}
+
+html[data-theme="dark"] .nav-sidebar .nav-item > .nav-link {
+    color: var(--nutrition-text-secondary-dark) !important;
+    background-color: transparent !important;
+    border-radius: 12px !important;
+    padding: 12px 16px !important;
+    margin: 0 !important;
+    font-weight: 500 !important;
+    font-size: 14px !important;
+    transition: all 0.2s ease !important;
+    border: none !important;
+}
+
+html[data-theme="dark"] .nav-sidebar .nav-item > .nav-link:hover {
+    background-color: rgba(255, 255, 255, 0.05) !important;
+    color: var(--nutrition-text-primary-dark) !important;
+    transform: none !important;
+}
+
+/* Active Menu - Estilo Pill Verde */
+html[data-theme="dark"] .nav-sidebar > .nav-item > .nav-link.active {
+    background-color: var(--nutrition-primary-dark) !important;
+    color: #ffffff !important;
+    font-weight: 600 !important;
+    box-shadow: 0 2px 8px rgba(46, 204, 113, 0.3) !important;
+}
+
+html[data-theme="dark"] .nav-sidebar > .nav-item > .nav-link.active:hover {
+    background-color: var(--nutrition-primary-hover-dark) !important;
+    color: #ffffff !important;
+}
+
+/* Menu Icons */
+html[data-theme="dark"] .nav-sidebar .nav-icon {
+    font-size: 18px !important;
+    margin-right: 12px !important;
+    width: 20px !important;
+    text-align: center !important;
+    color: inherit !important;
+}
+
+/* Treeview */
+html[data-theme="dark"] .nav-treeview {
+    padding-left: 0 !important;
+    margin-top: 4px !important;
+}
+
+html[data-theme="dark"] .nav-treeview > .nav-item > .nav-link {
+    padding-left: 52px !important;
+    font-size: 13px !important;
+}
+
+html[data-theme="dark"] .nav-treeview > .nav-item > .nav-link.active {
+    background-color: rgba(46, 204, 113, 0.15) !important;
+    color: var(--nutrition-primary-dark) !important;
+}
+
+/* =========================
+   TOPBAR - MENU SUPERIOR
+========================= */
+html[data-theme="dark"] .main-header.navbar {
+    background-color: var(--nutrition-bg-topbar-dark) !important;
+    border-bottom: 1px solid var(--nutrition-border-dark) !important;
+    box-shadow: none !important;
+    padding: 8px 24px !important;
+}
+
+/* Pushmenu Button - CORRIGIDO */
+html[data-theme="dark"] .navbar-nav .nav-link[data-widget="pushmenu"] {
+    color: var(--nutrition-text-primary-dark) !important;
+    padding: 8px 12px !important;
+    border-radius: 8px !important;
+    transition: all 0.2s ease !important;
+    cursor: pointer !important;
+    display: flex !important;
+    align-items: center !important;
+}
+
+html[data-theme="dark"] .navbar-nav .nav-link[data-widget="pushmenu"]:hover {
+    background-color: rgba(255, 255, 255, 0.05) !important;
+    color: var(--nutrition-primary-dark) !important;
+}
+
+html[data-theme="dark"] .navbar-nav .nav-link[data-widget="pushmenu"] i {
+    font-size: 20px !important;
+}
+
+/* Plan Badge */
+html[data-theme="dark"] .description-plan {
+    display: flex !important;
+    align-items: center !important;
+    margin-left: 16px !important;
+}
+
+html[data-theme="dark"] .description-plan .badge {
+    background: linear-gradient(135deg, var(--nutrition-primary-dark), var(--nutrition-primary-hover-dark)) !important;
+    color: white !important;
+    padding: 8px 16px !important;
+    border-radius: 20px !important;
+    font-weight: 500 !important;
+    font-size: 13px !important;
+    box-shadow: 0 2px 8px rgba(46, 204, 113, 0.3) !important;
+    border: none !important;
+}
+
+/* User Profile Button */
+html[data-theme="dark"] .navbar-user {
+    display: flex !important;
+    align-items: center !important;
+}
+
+html[data-theme="dark"] .btn-profile-photo {
+    background-color: transparent !important;
+    border: none !important;
+    padding: 4px !important;
+    border-radius: 50% !important;
+    transition: all 0.2s ease !important;
+}
+
+html[data-theme="dark"] .btn-profile-photo:hover {
+    background-color: rgba(255, 255, 255, 0.05) !important;
+}
+
+html[data-theme="dark"] .btn-profile-photo img {
+    border: 2px solid var(--nutrition-border-light-dark) !important;
+    transition: all 0.2s ease !important;
+}
+
+html[data-theme="dark"] .btn-profile-photo:hover img {
+    border-color: var(--nutrition-primary-dark) !important;
+}
+
+/* Dropdown Menu */
+html[data-theme="dark"] .dropdown-menu {
+    background-color: var(--nutrition-bg-card-dark) !important;
+    border: 1px solid var(--nutrition-border-light-dark) !important;
+    border-radius: 12px !important;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.5) !important;
+    padding: 8px !important;
+    margin-top: 8px !important;
+}
+
+html[data-theme="dark"] .dropdown-item {
+    color: var(--nutrition-text-primary-dark) !important;
+    padding: 10px 16px !important;
+    border-radius: 8px !important;
+    font-size: 14px !important;
+    transition: all 0.2s ease !important;
+}
+
+html[data-theme="dark"] .dropdown-item:hover {
+    background-color: rgba(255, 255, 255, 0.05) !important;
+    color: var(--nutrition-primary-dark) !important;
+}
+
+html[data-theme="dark"] .dropdown-divider {
+    border-top-color: var(--nutrition-border-dark) !important;
+    margin: 4px 0 !important;
+}
+
+/* =========================
+   CONTENT WRAPPER
+========================= */
+html[data-theme="dark"] .content-wrapper {
+    background-color: var(--nutrition-bg-main-dark) !important;
+    padding: 24px !important;
+}
+
+/* =========================
+   BREADCRUMB
+========================= */
+html[data-theme="dark"] .content-header {
+    padding: 0 0 24px 0 !important;
+}
+
+html[data-theme="dark"] .content-header h1 {
+    color: var(--nutrition-text-primary-dark) !important;
+    font-weight: 700 !important;
+    font-size: 28px !important;
+    margin-bottom: 8px !important;
+}
+
+html[data-theme="dark"] .breadcrumb {
+    background-color: transparent !important;
+    padding: 0 !important;
+    margin: 0 !important;
+}
+
+html[data-theme="dark"] .breadcrumb-item {
+    color: var(--nutrition-text-secondary-dark) !important;
+    font-size: 14px !important;
+}
+
+html[data-theme="dark"] .breadcrumb-item.active {
+    color: var(--nutrition-primary-dark) !important;
+    font-weight: 500 !important;
+}
+
+html[data-theme="dark"] .breadcrumb-item a {
+    color: var(--nutrition-text-secondary-dark) !important;
+}
+
+html[data-theme="dark"] .breadcrumb-item a:hover {
+    color: var(--nutrition-primary-dark) !important;
+}
+
+html[data-theme="dark"] .breadcrumb-item + .breadcrumb-item::before {
+    color: var(--nutrition-text-light-dark) !important;
+}
+
+/* =========================
+   CARDS
+========================= */
+html[data-theme="dark"] .card {
+    background-color: var(--nutrition-bg-card-dark) !important;
+    border: 1px solid var(--nutrition-border-dark) !important;
+    border-radius: 16px !important;
+    box-shadow: none !important;
+    transition: all 0.2s ease !important;
+}
+
+html[data-theme="dark"] .card:hover {
+    box-shadow: var(--nutrition-shadow-md-dark) !important;
+    border-color: var(--nutrition-border-light-dark) !important;
+}
+
+html[data-theme="dark"] .card-header {
+    background-color: transparent !important;
+    border-bottom: 1px solid var(--nutrition-border-dark) !important;
+    padding: 20px 24px !important;
+}
+
+html[data-theme="dark"] .card-title {
+    color: var(--nutrition-text-primary-dark) !important;
+    font-weight: 600 !important;
+    font-size: 18px !important;
+    margin: 0 !important;
+}
+
+html[data-theme="dark"] .card-body {
+    padding: 24px !important;
+}
+
+html[data-theme="dark"] .card-footer {
+    background-color: transparent !important;
+    border-top: 1px solid var(--nutrition-border-dark) !important;
+    padding: 20px 24px !important;
+}
+
+/* =========================
+   BUTTONS
+========================= */
+html[data-theme="dark"] .btn-primary {
+    background: linear-gradient(135deg, var(--nutrition-primary-dark), var(--nutrition-primary-hover-dark)) !important;
+    border: none !important;
+    color: white !important;
+    font-weight: 600 !important;
+    padding: 10px 24px !important;
+    border-radius: 10px !important;
+    font-size: 14px !important;
+    transition: all 0.2s ease !important;
+    box-shadow: 0 2px 8px rgba(46, 204, 113, 0.3) !important;
+}
+
+html[data-theme="dark"] .btn-primary:hover {
+    transform: translateY(-1px) !important;
+    box-shadow: 0 4px 12px rgba(46, 204, 113, 0.4) !important;
+}
+
+html[data-theme="dark"] .btn-outline-primary {
+    border: 2px solid var(--nutrition-primary-dark) !important;
+    color: var(--nutrition-primary-dark) !important;
+    background: transparent !important;
+    font-weight: 600 !important;
+    padding: 10px 24px !important;
+    border-radius: 10px !important;
+}
+
+html[data-theme="dark"] .btn-outline-primary:hover {
+    background: var(--nutrition-primary-dark) !important;
+    color: white !important;
+}
+
+/* =========================
+   FORMS
+========================= */
+html[data-theme="dark"] .form-control {
+    background-color: var(--nutrition-bg-main-dark) !important;
+    border: 1px solid var(--nutrition-border-light-dark) !important;
+    color: var(--nutrition-text-primary-dark) !important;
+    border-radius: 10px !important;
+    padding: 10px 16px !important;
+    font-size: 14px !important;
+    transition: all 0.2s ease !important;
+}
+
+html[data-theme="dark"] .form-control:focus {
+    border-color: var(--nutrition-primary-dark) !important;
+    box-shadow: 0 0 0 3px rgba(46, 204, 113, 0.15) !important;
+    background-color: var(--nutrition-bg-card-dark) !important;
+}
+
+html[data-theme="dark"] .form-control::placeholder {
+    color: var(--nutrition-text-light-dark) !important;
+}
+
+html[data-theme="dark"] .form-label {
+    color: var(--nutrition-text-primary-dark) !important;
+    font-weight: 500 !important;
+    font-size: 14px !important;
+    margin-bottom: 8px !important;
+}
+
+/* =========================
+   TABLES
+========================= */
+html[data-theme="dark"] .table {
+    --bs-table-bg: var(--nutrition-bg-card-dark) !important;
+    --bs-table-striped-bg: rgba(255, 255, 255, 0.02) !important;
+    --bs-table-hover-bg: rgba(255, 255, 255, 0.05) !important;
+    --bs-table-border-color: var(--nutrition-border-dark) !important;
+    color: var(--nutrition-text-primary-dark) !important;
+}
+
+html[data-theme="dark"] .table thead th {
+    background-color: transparent !important;
+    color: var(--nutrition-text-secondary-dark) !important;
+    font-weight: 600 !important;
+    font-size: 13px !important;
+    text-transform: uppercase !important;
+    letter-spacing: 0.5px !important;
+    border-bottom: 2px solid var(--nutrition-border-dark) !important;
+    padding: 16px !important;
+}
+
+html[data-theme="dark"] .table tbody td {
+    color: var(--nutrition-text-primary-dark) !important;
+    font-size: 14px !important;
+    padding: 16px !important;
+    border-bottom: 1px solid var(--nutrition-border-dark) !important;
+}
+
+html[data-theme="dark"] .table tbody tr:hover {
+    background-color: rgba(255, 255, 255, 0.05) !important;
+}
+
+/* =========================
+   ALERTS
+========================= */
+html[data-theme="dark"] .alert {
+    border-radius: 12px !important;
+    border: none !important;
+    padding: 16px 20px !important;
+}
+
+html[data-theme="dark"] .alert-success {
+    background-color: rgba(46, 204, 113, 0.15) !important;
+    color: var(--nutrition-primary-active-dark) !important;
+    border-left: 4px solid var(--nutrition-primary-dark) !important;
+}
+
+/* =========================
+   BADGES
+========================= */
+html[data-theme="dark"] .badge {
+    padding: 6px 12px !important;
+    border-radius: 8px !important;
+    font-weight: 500 !important;
+    font-size: 12px !important;
+}
+
+/* =========================
+   FOOTER
+========================= */
+html[data-theme="dark"] .main-footer {
+    background-color: var(--nutrition-bg-card-dark) !important;
+    border-top: 1px solid var(--nutrition-border-dark) !important;
+    color: var(--nutrition-text-secondary-dark) !important;
+    padding: 16px 24px !important;
+}
+
+/* =========================
+   SCROLLBAR
+========================= */
+html[data-theme="dark"] ::-webkit-scrollbar {
+    width: 8px !important;
+    height: 8px !important;
+}
+
+html[data-theme="dark"] ::-webkit-scrollbar-track {
+    background: transparent !important;
+}
+
+html[data-theme="dark"] ::-webkit-scrollbar-thumb {
+    background: var(--nutrition-border-light-dark) !important;
+    border-radius: 4px !important;
+}
+
+html[data-theme="dark"] ::-webkit-scrollbar-thumb:hover {
+    background: var(--nutrition-text-light-dark) !important;
+}
+
+/* =========================
+   SIDEBAR COLLAPSE - MANTÉM FUNCIONALIDADE
+========================= */
+/* Não sobrescrever estilos de transição do AdminLTE */
+html[data-theme="dark"] .sidebar-collapse .main-sidebar,
+html[data-theme="dark"] .sidebar-collapse .main-sidebar .brand-link,
+html[data-theme="dark"] .sidebar-collapse .main-sidebar .sidebar {
+    transition: margin-left 0.3s ease-in-out, width 0.3s ease-in-out !important;
+}
+
+/* =========================
+   RESPONSIVE
+========================= */
+@media (max-width: 768px) {
+    html[data-theme="dark"] .content-wrapper {
+        padding: 16px !important;
+    }
+}

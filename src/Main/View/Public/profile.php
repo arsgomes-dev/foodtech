@@ -62,7 +62,8 @@ $bar_home_active = "active";
                         <div class="card-header">
                             <h3 class="card-title"><i class="nav-icon-color nav-icon fas fa-id-card"></i> &nbsp; <b><?php echo $translate->translate('Informações pessoais', $_SESSION['client_lang']); ?></b></h3>
                         </div>
-                        <div class="card-body row">  
+                        <div class="card-body">  
+                        <div class="row">  
                             <div class="col-lg-2 col-md-2 col-sm profile">
                                 <div class="img-user-new-profile">
                                     <img class="img-circle elevation-2" src="<?php echo $config->getFolderPublicHtml() . $config->getBaseFileClient() . "/client" . $imgProfile; ?>" alt="User Avatar">
@@ -74,14 +75,14 @@ $bar_home_active = "active";
                             <div class="col-lg-10 col-md-10 col-sm-12">
                                 <form name="edit_profile" id="edit_profile" autocomplete="off">
                                     <div class="form-group to_validation to_validation_name">
-                                        <label for="name"><?php echo $translate->translate('Nome', $_SESSION['client_lang']); ?> *</label>
+                                        <label class="form-label" for="name"><?php echo $translate->translate('Nome', $_SESSION['client_lang']); ?> *</label>
                                         <input type="text" class="form-control to_validations" id="name" name="name" placeholder="<?php echo $translate->translate('Nome', $_SESSION['client_lang']); ?>" value="<?php echo $client->getName(); ?>">
                                         <div id="to_validation_blank_name" style="display: none;" class="to_blank"><span><?php echo $translate->translate('Não é permitido campo em branco', $_SESSION['client_lang']); ?>!</span></div>
                                     </div>
                                     <div class="row">
                                         <div class="col-lg-6 col-sm-12 to_validation">
                                             <div class="form-group">
-                                                <label for="cpf"><?php echo $translate->translate('CPF', $_SESSION['client_lang']); ?> *</label>
+                                                <label class="form-label" for="cpf"><?php echo $translate->translate('CPF', $_SESSION['client_lang']); ?> *</label>
                                                 <input type="text" class="form-control to_validations" id="cpf" name="cpf" oninput="cpfFormat(this)" onblur="cpfSearchProfile(this);" placeholder="<?php echo $translate->translate('CPF', $_SESSION['client_lang']); ?>" value="<?php echo $client->getCpf(); ?>">
                                                 <div id="to_validation_invalid_cpf" style="display: none;" class="to_invalid"><span><?php echo $translate->translate('CPF inválido', $_SESSION['client_lang']); ?>!</span></div>
                                                 <div id="to_validation_blank_cpf" style="display: none;" class="to_blank"><span><?php echo $translate->translate('Não é permitido campo em branco', $_SESSION['client_lang']); ?>!</span></div>
@@ -90,21 +91,21 @@ $bar_home_active = "active";
                                         </div>
                                         <div class="col-lg-6 col-sm-12 to_validation">                                                        
                                             <div class="form-group">
-                                                <label for="birth"><?php echo $translate->translate('Nascimento', $_SESSION['client_lang']); ?> *</label>
+                                                <label class="form-label" for="birth"><?php echo $translate->translate('Nascimento', $_SESSION['client_lang']); ?> *</label>
                                                 <input placeholder="dd/mm/yyyy" data-role="date" type="text" class="data form-control to_validations" id="birth" name="birth" data-inputmask-alias="datetime" data-inputmask-inputformat="dd/mm/yyyy" data-mask="" inputmode="numeric" placeholder="dd/mm/yyyy" value="<?php echo $client->getFormatDateToBrazil($client->getBirth()); ?>">
                                                 <div id="to_validation_blank_birth" style="display: none;" class="to_blank"><span><?php echo $translate->translate('Não é permitido campo em branco', $_SESSION['client_lang']); ?>!</span></div>
                                             </div>
                                         </div>
                                         <div class="col-lg-6 col-sm-12 to_validation">                                                        
                                             <div class="form-group">
-                                                <label for="contact"><?php echo $translate->translate('Contato', $_SESSION['client_lang']); ?> *</label>
+                                                <label class="form-label" for="contact"><?php echo $translate->translate('Contato', $_SESSION['client_lang']); ?> *</label>
                                                 <input type="text" class="form-control to_validations" id="contact" name="contact" data-inputmask=""mask":(99) 99999-9999"" data-mask="" inputmode="numeric" placeholder="(##) #####-####" value="<?php echo $client->getContact(); ?>">
                                                 <div id="to_validation_blank_contact" style="display: none;" class="to_blank"><span><?php echo $translate->translate('Não é permitido campo em branco', $_SESSION['client_lang']); ?>!</span></div>
                                             </div>
                                         </div>
                                         <div class="col-lg-6 col-sm-12 to_validation">                                                        
                                             <div class="form-group">
-                                                <label for="email"><?php echo $translate->translate('E-mail', $_SESSION['client_lang']); ?> *</label>
+                                                <label class="form-label" for="email"><?php echo $translate->translate('E-mail', $_SESSION['client_lang']); ?> *</label>
                                                 <input type="text" class="form-control to_validations" id="email" name="email"  data-mask="" inputmode="text" onblur="emailSearchProfile(this);" value="<?php echo $client->getEmail(); ?>">
                                                 <div id="to_validation_invalid_email" style="display: none;" class="to_invalid"><span><?php echo $translate->translate('E-mail inválido', $_SESSION['client_lang']); ?>!</span></div>
                                                 <div id="to_validation_blank_email" style="display: none;" class="to_blank"><span><?php echo $translate->translate('Não é permitido campo em branco', $_SESSION['client_lang']); ?>!</span></div>
@@ -113,8 +114,9 @@ $bar_home_active = "active";
                                         </div>                                                                   
                                     </div>
                                 </form>
-                                <span style="font-size: 13px;"><b><?php echo $translate->translate('Campos Obrigatórios', $_SESSION['client_lang']); ?> *</b></span>
+                                <span class="form-label" style="font-size: 13px;"><b><?php echo $translate->translate('Campos Obrigatórios', $_SESSION['client_lang']); ?> *</b></span>
                             </div>
+                               </div>
                         </div>
                         <div class="card-footer card-footer-transparent justify-content-between border-top">
                             <button type="button" class="btn btn-default btn-register float-left" onclick="update(edit_profile);"><?php echo $translate->translate('Salvar', $_SESSION['client_lang']); ?></button>
