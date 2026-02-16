@@ -1,0 +1,96 @@
+/* Nutrition wizard theming and improved UI */
+:root{
+  /* try theme tokens first (sliderbar_base / nutrition-components / common tokens), then fallbacks */
+  --primary-gradient-start: var(--sliderbar-primary, var(--nutrition-primary, var(--primary, #6b5bff)));
+  --primary-gradient-end: var(--sliderbar-primary-end, var(--nutrition-primary-end, var(--primary-dark, #9b6bff)));
+  --primary-color: var(--primary-gradient-start);
+  --muted-bg: var(--card-muted-bg, #f6f7fb);
+  --card-bg: var(--card-bg, #ffffff);
+  --border-color: var(--card-border, #e6e7f3);
+  --muted-text: var(--muted-text, #8892a6);
+  --text-color: var(--text-color, #222222);
+  --stepper-connector: var(--stepper-connector, #eef0fb);
+  --stepper-bg: var(--stepper-bg, #f1f1fb);
+  --stepper-text: var(--stepper-text, #556);
+  --success-start: var(--success-color, #06b76d);
+  --success-end: var(--success-color-end, #2bc77f);
+  --hydration-start: var(--hydration-color, #3498db);
+  --energy-start: var(--energy-color, #6b5bff);
+  --result-border: var(--result-border, #f0f2fb);
+  --gradient-success: linear-gradient(90deg,var(--success-start,#06b76d),var(--success-end,#2bc77f));
+  --gradient-hydration: linear-gradient(90deg,var(--hydration-start,#3498db),#5aa3ff);
+  --gradient-energy: linear-gradient(90deg,var(--energy-start,#6b5bff),#9b6bff);
+}
+
+/* Modal backdrop and centering */
+.modal.show-backdrop { position: fixed; inset: 0; display: flex; align-items: center; justify-content: center; background: rgba(16,24,40,0.55); z-index: 1050; padding: 20px; }
+.nutri-modal .modal-content { /* fixed width but responsive fallback */
+    width: var(--nutri-modal-width, 900px);
+    max-width: calc(90vw);
+    border-radius: 12px; box-shadow: 0 18px 50px rgba(12,20,50,0.22); overflow: hidden; height: 640px; max-height: 90vh; display: flex; flex-direction: column; }
+
+/* Header */
+.nutri-modal .modal-header { background: var(--sidebar-bg, var(--primary-gradient-start)); color: var(--nt-text-primary, var(--sidebar-foreground, #fff)); padding: 18px 24px; border-bottom: none; border-top-left-radius: 12px; border-top-right-radius: 12px; }
+.nutri-modal .modal-title { font-weight: 800; margin: 0; font-size: 1.05rem; color: var(--nt-text-primary, var(--sidebar-foreground, #fff)); text-shadow: 0 1px 0 rgba(0,0,0,0.18); }
+.nutri-modal .modal-subtitle { color: var(--nt-text-secondary, rgba(255,255,255,0.92)); }
+.nutri-modal #nutriClose { border: none; background: rgba(255,255,255,0.1); color: #fff; }
+.nutri-modal #nutriClose:hover { background: rgba(255,255,255,0.15); }
+
+/* Body and footer */
+.nutri-modal .modal-body { padding: 22px; background: var(--card-bg); flex: 1 1 auto; overflow: auto; }
+.nutri-modal .modal-footer { padding: 14px 22px; background: var(--card-bg); border-top: none; flex-shrink: 0; }
+
+/* Stepper */
+.nutri-stepper { display:flex; align-items:center; gap:12px; margin-bottom:18px; padding: 8px 6px; }
+.nutri-stepper .step-dot { display:flex; flex-direction:column; align-items:center; width:110px }
+.nutri-stepper .connector { flex:1; height:3px; background:var(--stepper-connector); border-radius:3px }
+.nutri-stepper .dot { width:44px; height:44px; border-radius:50%; background:var(--stepper-bg); display:flex; align-items:center; justify-content:center; color:var(--stepper-text); font-weight:700; box-shadow: none; transition: all .18s; border: 2px solid transparent }
+.nutri-stepper .dot .step-num{ display:inline-block; font-weight:800 }
+.nutri-stepper .dot.active { background: var(--sidebar-bg, var(--primary-gradient-start)); color: var(--sidebar-foreground, #fff); box-shadow: 0 10px 30px rgba(11,12,40,0.12); transform: translateY(-6px); }
+.nutri-stepper .step-title { margin-top:8px; font-size:13px; color:var(--muted-text); text-align:center }
+
+/* Steps visibility */
+.nutri-modal .step { display:none }
+.nutri-modal .step.active { display:block }
+
+/* Options grid - more polished card look */
+.nutri-options { display:grid; gap:14px; grid-template-columns: 1fr }
+@media (min-width:768px){ .nutri-options { grid-template-columns: repeat(2,1fr); } }
+@media (min-width:1200px){ .nutri-options { grid-template-columns: repeat(3,1fr); } }
+
+.nutri-option { background:var(--card-bg); border:1px solid var(--border-color); padding:16px 18px; border-radius:10px; cursor:pointer; min-width:190px; box-shadow:0 6px 18px rgba(16,24,40,0.03); transition: transform .12s ease, box-shadow .18s ease, border-color .12s ease; display:flex; gap:12px; align-items:center }
+.nutri-option .icon-box { width:64px; height:64px; min-width:64px; border-radius:10px; background:var(--muted-bg); display:flex; align-items:center; justify-content:center; color:var(--primary-color); font-size:22px }
+.nutri-option .content { flex:1 }
+.nutri-option .content h5 { margin:0; font-size:16px; font-weight:700; color:var(--text-color) }
+.nutri-option small { color:var(--muted-text); display:block; margin-top:6px }
+.nutri-option:hover { transform: translateY(-4px); box-shadow:0 14px 40px rgba(16,24,40,0.06); border-color: rgba(0,0,0,0.06) }
+.nutri-option.selected { border-color: rgba(0,0,0,0.08); box-shadow: 0 16px 50px rgba(16,24,40,0.08); transform: translateY(-6px); background: linear-gradient(180deg, var(--card-bg), #fbfbff) }
+
+/* Tooltip */
+.nutri-tooltip { margin-left:6px; color:var(--primary-color); cursor:help }
+
+/* Buttons */
+.btn-primary { background: linear-gradient(90deg,var(--primary-gradient-start),var(--primary-gradient-end)); border: none; color:#fff }
+.btn-success { background: linear-gradient(90deg,var(--success-start),var(--success-end)); border: none; color:#fff }
+.btn-secondary { background:var(--secondary,#6c757d); color:#fff }
+
+/* Results cards minor tweaks */
+#nutriResults .card { border-radius:10px; box-shadow:none; border:1px solid var(--result-border) }
+#nutriResults .card h5{ margin-bottom:6px; font-weight:600 }
+#nutriWeightNote { color:var(--muted-text); font-size:13px; margin-bottom:12px }
+
+/* Responsive small tweaks */
+@media (max-width:768px){
+    .nutri-options { grid-template-columns: 1fr }
+    .nutri-option { padding:12px }
+    .nutri-option .icon-box { width:48px; height:48px; min-width:48px }
+    .nutri-option .content h5 { font-size:15px }
+    .nutri-stepper .step-dot { width: auto }
+    .nutri-stepper .step-title { font-size:12px }
+}
+
+/* Theme class mappings: allow host to apply theme classes on body or sliderbar_base/nutrition-components */
+.sliderbar_base.nutrition-theme-light, .nutrition-components.nutrition-theme-light, body.nutrition-theme-light{ /* light overrides if necessary */ }
+.sliderbar_base.nutrition-theme-dark, .nutrition-components.nutrition-theme-dark, body.nutrition-theme-dark{ /* dark overrides if necessary - keep defaults defined earlier */ }
+
+/* End of nutrition-wizard styles */

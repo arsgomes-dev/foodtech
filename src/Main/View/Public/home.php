@@ -5,6 +5,10 @@ use Microfw\Src\Main\Common\Entity\Public\McClientConfig;
 use Microfw\Src\Main\Common\Settings\Public\BaseHtml;
 use Microfw\Src\Main\Common\Entity\Public\Language;
 use Microfw\Src\Main\Controller\Public\AccessPlans\CheckPlan;
+use Microfw\Src\Main\Common\Entity\Public\ClientNutritionalProfile;
+use Microfw\Src\Main\Common\Entity\Public\Client;
+use Microfw\Src\Main\Common\Entity\Public\ClientPhysicalActivityLevel;
+use Microfw\Src\Main\Common\Entity\Public\ClientNutritionalGoal;
 
 $language = new Language;
 $translate = new Translate();
@@ -13,6 +17,26 @@ $baseHtml = new BaseHtml();
 $bar_home_active = "active";
 $planService = new CheckPlan;
 $check = $planService->checkPlan();
+
+// Busca cliente logado (para birth/gender)
+$client = new Client();
+$client = $client->getQuery(single: true, customWhere: [['column' => 'id', 'value' => $_SESSION['client_id']]]);
+
+// Verifica se cliente possui perfil nutricional cadastrado
+$clientNutritionalProfile = new ClientNutritionalProfile();
+$clientProfile = $clientNutritionalProfile->getQuery(single: true, customWhere: [['column' => 'customer_id', 'value' => $_SESSION['client_id']]]);
+
+// Carrega níveis de atividade física e metas apenas se as classes existirem no autoload
+$activityLevels = [];
+$goals = [];
+if (class_exists('\Microfw\\Src\\Main\\Common\\Entity\\Public\\ClientPhysicalActivityLevel')) {
+    $activityRepo = new ClientPhysicalActivityLevel();
+    $activityLevels = $activityRepo->getQuery(customWhere: [['column' => 'is_active', 'value' => 1]], order: 'display_order ASC');
+}
+if (class_exists('\Microfw\\Src\\Main\\Common\\Entity\\Public\\ClientNutritionalGoal')) {
+    $goalRepo = new ClientNutritionalGoal();
+    $goals = $goalRepo->getQuery(customWhere: [['column' => 'is_active', 'value' => 1]], order: 'display_order ASC');
+}
 ?>
 <!DOCTYPE html>
 <html lang="pt-br" style="height: auto;">
@@ -22,11 +46,15 @@ $check = $planService->checkPlan();
         <?php echo $baseHtml->baseCSS(); ?>  
 
         <!-- end top base html css -->
-    </head>
+        <!-- Font Awesome CDN (fallback caso não esteja carregado pelo tema) -->
+        <title>Dashboard - Perfil Nutricional</title>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-p2c6XoVxj1Z+Yh4Z1nXkK2Qe5sZl7Yf2KqG1nZl6JQm2h1Q9j1b5h2KQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+        <link rel="stylesheet" href="/assets/css/custom/nutrition-wizard.css">
+     </head>
 
-    <body class="sidebar-mini layout-fixed layout-navbar-fixed layout-footer-fixed" style="height: auto;">
+     <body class="sidebar-mini layout-fixed layout-navbar-fixed layout-footer-fixed" style="height: auto;">
 
-        <div class="wrapper">
+         <div class="wrapper">
             <?php
             $baseHtml->baseMenu("home");
             ?>
@@ -138,7 +166,7 @@ $check = $planService->checkPlan();
         <div class="card fade-in">
             <div class="card-header">
                 <h3 class="card-title">
-                    <i class="fas fa-chart-line mr-2" style="color: var(--primary-green);"></i>
+                    <i class="fas fa-chart-line mr-2" style="color: var(--primary-color,#6b5bff);"></i>
                     Consumo Calórico - Semana
                 </h3>
                 <div class="card-tools">
@@ -158,7 +186,7 @@ $check = $planService->checkPlan();
         <div class="card fade-in" style="animation-delay: 0.1s">
             <div class="card-header">
                 <h3 class="card-title">
-                    <i class="fas fa-history mr-2" style="color: var(--primary-green);"></i>
+                    <i class="fas fa-history mr-2" style="color: var(--primary-color,#6b5bff);"></i>
                     Atividades Recentes
                 </h3>
             </div>
@@ -229,7 +257,7 @@ $check = $planService->checkPlan();
         <div class="card fade-in">
             <div class="card-header">
                 <h3 class="card-title">
-                    <i class="fas fa-chart-pie mr-2" style="color: var(--primary-green);"></i>
+                    <i class="fas fa-chart-pie mr-2" style="color: var(--primary-color,#6b5bff);"></i>
                     Macronutrientes (Hoje)
                 </h3>
             </div>
@@ -281,7 +309,7 @@ $check = $planService->checkPlan();
         <div class="card fade-in" style="animation-delay: 0.1s">
             <div class="card-header">
                 <h3 class="card-title">
-                    <i class="fas fa-bolt mr-2" style="color: var(--primary-green);"></i>
+                    <i class="fas fa-bolt mr-2" style="color: var(--primary-color,#6b5bff);"></i>
                     Ações Rápidas
                 </h3>
             </div>
@@ -321,83 +349,177 @@ $check = $planService->checkPlan();
     </div>
 </div>
 
-<!-- SCRIPT PARA GRÁFICO (Chart.js) -->
-<script>
-document.addEventListener('DOMContentLoaded', function() {
-    const ctx = document.getElementById('caloriesChart');
-    
-    if (ctx) {
-        new Chart(ctx, {
-            type: 'line',
-            data: {
-                labels: ['Seg', 'Ter', 'Qua', 'Qui', 'Sex', 'Sáb', 'Dom'],
-                datasets: [{
-                    label: 'Calorias Consumidas',
-                    data: [1800, 2100, 1950, 1850, 2000, 1900, 1850],
-                    borderColor: '#2ecc71',
-                    backgroundColor: 'rgba(46, 204, 113, 0.1)',
-                    borderWidth: 3,
-                    tension: 0.4,
-                    fill: true,
-                    pointRadius: 5,
-                    pointBackgroundColor: '#2ecc71',
-                    pointBorderColor: '#fff',
-                    pointBorderWidth: 2
-                }, {
-                    label: 'Meta Diária',
-                    data: [2000, 2000, 2000, 2000, 2000, 2000, 2000],
-                    borderColor: '#95a5a6',
-                    borderWidth: 2,
-                    borderDash: [5, 5],
-                    fill: false,
-                    pointRadius: 0
-                }]
-            },
-            options: {
-                responsive: true,
-                maintainAspectRatio: true,
-                plugins: {
-                    legend: {
-                        display: true,
-                        position: 'top',
-                        labels: {
-                            usePointStyle: true,
-                            padding: 15
-                        }
-                    },
-                    tooltip: {
-                        backgroundColor: 'rgba(0, 0, 0, 0.8)',
-                        padding: 12,
-                        borderRadius: 8,
-                        titleFont: {
-                            size: 14,
-                            weight: 'bold'
-                        },
-                        bodyFont: {
-                            size: 13
-                        }
+<?php if (!$clientProfile) : ?>
+<!-- Modal Perfil Nutricional - aparece se não houver perfil -->
+<div id="nutriModal" class="modal show-backdrop" tabindex="-1" role="dialog" aria-modal="true" aria-labelledby="nutriModalLabel" data-client-birth="<?php echo $client ? $client->getBirth() : ''; ?>" data-customer-id="<?php echo (int)($_SESSION['client_id'] ?? 0); ?>">
+  <div class="modal-dialog modal-xl" role="document">
+    <div class="modal-content nutri-modal">
+      <div class="modal-header d-flex align-items-center justify-content-between">
+        <div>
+          <h5 class="modal-title" id="nutriModalLabel">Configurar Perfil Nutricional</h5>
+          <div class="modal-subtitle text-muted" style="font-size:13px;">Complete seu perfil em 4 passos rápidos</div>
+        </div>
+        <button type="button" class="btn btn-sm btn-light" id="nutriClose" aria-label="Fechar janela">×</button>
+      </div>
+      <div class="modal-body">
+        <div class="nutri-stepper" id="nutriStepper" role="tablist" aria-label="Progresso do fluxo">
+            <div class="step-dot" data-step="1" role="tab" aria-selected="true"><div class="dot active" data-step="1"><span class="step-num">1</span></div><div class="step-title">Dados<br><small>Básicos</small></div></div>
+            <div class="connector" aria-hidden="true"></div>
+            <div class="step-dot" data-step="2" role="tab" aria-selected="false"><div class="dot" data-step="2"><span class="step-num">2</span></div><div class="step-title">Atividade<br><small>Física</small></div></div>
+            <div class="connector" aria-hidden="true"></div>
+            <div class="step-dot" data-step="3" role="tab" aria-selected="false"><div class="dot" data-step="3"><span class="step-num">3</span></div><div class="step-title">Metas</div></div>
+            <div class="connector" aria-hidden="true"></div>
+            <div class="step-dot" data-step="4" role="tab" aria-selected="false"><div class="dot" data-step="4"><span class="step-num">4</span></div><div class="step-title">Resultados</div></div>
+        </div>
+
+        <!-- Step 1: Dados Básicos -->
+        <div class="step active" data-step="1">
+            <!-- heading shown in stepper; content area contains form fields only -->
+            <div class="row">
+                <div class="col-md-4">
+                    <label>Sexo biológico <span class="nutri-tooltip" title="Usamos sexo biológico porque as fórmulas de cálculo de taxa metabólica consideram diferenças fisiológicas." tabindex="0">?</span></label>
+                    <div class="d-flex gap-2">
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="sex" id="sex_m" value="M" <?php echo (($client && $client->getGender() === 'M') ? 'checked' : ''); ?>>
+                            <label class="form-check-label" for="sex_m">Masculino</label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="sex" id="sex_f" value="F" <?php echo (($client && $client->getGender() === 'F') ? 'checked' : ''); ?>>
+                            <label class="form-check-label" for="sex_f">Feminino</label>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <label>Altura (cm)</label>
+                    <input type="number" id="height" class="form-control" min="50" max="300" placeholder="Ex: 170">
+                </div>
+                <div class="col-md-4">
+                    <label>Peso atual (kg)</label>
+                    <input type="number" id="weight" class="form-control" step="0.1" min="20" max="500" placeholder="Ex: 78.5">
+                </div>
+            </div>
+        </div>
+
+        <!-- Step 2: Atividade Física -->
+        <div class="step" data-step="2">
+            <!-- heading shown in stepper; content area contains options only -->
+            <div class="nutri-options">
+                <?php
+                if (!empty($activityLevels)) {
+                    foreach ($activityLevels as $lvl) {
+                        // garante prefixo tipo 'fas ' caso não exista (fas/far/fab/fal)
+                        $iconClass = $lvl->getIcon() ? $lvl->getIcon() : 'fa-running';
+                        if (!preg_match('/\b(fas|far|fal|fab)\b/', $iconClass)) { $iconClass = 'fas ' . $iconClass; }
+                        $title = htmlspecialchars($lvl->getTitle() ?? '');
+                        $desc = htmlspecialchars($lvl->getDescription() ?? '');
+                        $mult = $lvl->getMultiplier_factor() ?? '';
+                        echo "<div class=\"nutri-option\" tabindex=\"0\" role=\"button\" aria-pressed=\"false\" data-value=\"{$lvl->getId()}\" data-multiplier=\"{$mult}\">";
+                        echo "<div class=\"icon-box\"><i class=\"{$iconClass} fa-2x\" aria-hidden=\"true\"></i></div>";
+                        echo "<div class=\"content\"><h5>{$title}</h5><small>{$desc}</small></div>";
+                        echo "</div>";
                     }
-                },
-                scales: {
-                    y: {
-                        beginAtZero: true,
-                        grid: {
-                            color: 'rgba(0, 0, 0, 0.05)'
-                        }
-                    },
-                    x: {
-                        grid: {
-                            display: false
-                        }
-                    }
+                } else {
+                    // fallback options (fixed HTML + icons with prefix)
+                    echo '<div class="nutri-option" tabindex="0" role="button" aria-pressed="false" data-value="1" data-multiplier="1.2"><div class="icon-box"><i class="fas fa-couch fa-2x" aria-hidden="true"></i></div><div class="content"><h5>Sedentário</h5><small>Pouco ou nenhum exercício</small></div></div>';
+                    echo '<div class="nutri-option" tabindex="0" role="button" aria-pressed="false" data-value="2" data-multiplier="1.375"><div class="icon-box"><i class="fas fa-walking fa-2x" aria-hidden="true"></i></div><div class="content"><h5>Levemente Ativo</h5><small>Exercício leve 1-3 dias/semana</small></div></div>';
+                    echo '<div class="nutri-option" tabindex="0" role="button" aria-pressed="false" data-value="3" data-multiplier="1.55"><div class="icon-box"><i class="fas fa-running fa-2x" aria-hidden="true"></i></div><div class="content"><h5>Moderadamente Ativo</h5><small>Exercício moderado 3-5 dias/semana</small></div></div>';
+                    echo '<div class="nutri-option" tabindex="0" role="button" aria-pressed="false" data-value="4" data-multiplier="1.725"><div class="icon-box"><i class="fas fa-dumbbell fa-2x" aria-hidden="true"></i></div><div class="content"><h5>Muito Ativo</h5><small>Exercício intenso 6-7 dias/semana</small></div></div>';
+                    echo '<div class="nutri-option" tabindex="0" role="button" aria-pressed="false" data-value="5" data-multiplier="1.9"><div class="icon-box"><i class="fas fa-fire fa-2x" aria-hidden="true"></i></div><div class="content"><h5>Extremamente Ativo</h5><small>Exercício + trabalho físico</small></div></div>';
                 }
-            }
-        });
-    }
-});
-</script>
+                ?>
+            </div>
+        </div>
+
+        <!-- Step 3: Metas -->
+        <div class="step" data-step="3">
+            <!-- heading shown in stepper; content area contains options only -->
+            <div class="nutri-options">
+                <?php
+                if (!empty($goals)) {
+                    foreach ($goals as $g) {
+                        $icon = $g->getIcon() ? $g->getIcon() : 'fa-bullseye';
+                        if (!preg_match('/\b(fas|far|fal|fab)\b/', $icon)) { $icon = 'fas ' . $icon; }
+                        $title = htmlspecialchars($g->getTitle() ?? '');
+                        $desc = htmlspecialchars($g->getDescription() ?? '');
+                        $calAdj = $g->getCaloric_adjustment() ?? 0;
+                        $prot = $g->getProtein_percentage() ?? null;
+                        $carb = $g->getCarbohydrate_percentage() ?? null;
+                        $fat = $g->getFat_percentage() ?? null;
+                        echo "<div class=\"nutri-option\" tabindex=\"0\" role=\"button\" aria-pressed=\"false\" data-value=\"{$g->getId()}\" data-caloric-adjustment=\"{$calAdj}\" data-protein=\"{$prot}\" data-carbs=\"{$carb}\" data-fat=\"{$fat}\">";
+                        echo "<div class=\"icon-box\"><i class=\"{$icon} fa-2x\" aria-hidden=\"true\"></i></div>";
+                        echo "<div class=\"content\"><h5>{$title}</h5><small>{$desc}</small></div>";
+                        echo "</div>";
+                    }
+                } else {
+                    // fallback
+                    echo '<div class="nutri-option" tabindex="0" role="button" aria-pressed="false" data-value="1" data-caloric-adjustment="-500" data-protein="30" data-carbs="50" data-fat="20"><div class="icon-box"><i class="fas fa-arrow-down fa-2x" aria-hidden="true"></i></div><div class="content"><h5>Emagrecer</h5><small>Déficit calórico de -500 kcal/dia</small></div></div>';
+                    echo '<div class="nutri-option" tabindex="0" role="button" aria-pressed="false" data-value="2" data-caloric-adjustment="0" data-protein="30" data-carbs="50" data-fat="20"><div class="icon-box"><i class="fas fa-balance-scale fa-2x" aria-hidden="true"></i></div><div class="content"><h5>Manter Peso</h5><small>Calorias de manutenção</small></div></div>';
+                    echo '<div class="nutri-option" tabindex="0" role="button" aria-pressed="false" data-value="3" data-caloric-adjustment="500" data-protein="25" data-carbs="55" data-fat="20"><div class="icon-box"><i class="fas fa-arrow-up fa-2x" aria-hidden="true"></i></div><div class="content"><h5>Ganhar Peso</h5><small>Superávit calórico de +500 kcal/dia</small></div></div>';
+                    echo '<div class="nutri-option" tabindex="0" role="button" aria-pressed="false" data-value="4" data-caloric-adjustment="350" data-protein="35" data-carbs="45" data-fat="20"><div class="icon-box"><i class="fas fa-dumbbell fa-2x" aria-hidden="true"></i></div><div class="content"><h5>Ganhar Massa Muscular</h5><small>Superávit calórico + alto teor proteico</small></div></div>';
+                }
+                ?>
+            </div>
+        </div>
+
+        <!-- Step 4: Resultados (visualização antes de salvar) -->
+        <div class="step" data-step="4">
+            <!-- heading shown in stepper; content area contains calculated results only -->
+            <div id="nutriResults">
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="card p-3">
+                            <h5>Seu IMC</h5>
+                            <div id="resultImc" style="font-size:32px;font-weight:700">-</div>
+                            <div id="resultImcLabel" class="text-muted">-</div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="card p-3">
+                            <h5>Calorias Diárias</h5>
+                            <div id="resultCalories" style="font-size:32px;font-weight:700">- kcal</div>
+                            <div id="resultTmb" class="text-muted">TMB: - kcal</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row mt-3">
+                    <div class="col-md-4">
+                        <div class="card p-3 text-center">
+                            <div class="text-muted">Proteínas</div>
+                            <div id="resultProteins" style="font-size:24px;font-weight:700">- g</div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="card p-3 text-center">
+                            <div class="text-muted">Carboidratos</div>
+                            <div id="resultCarbs" style="font-size:24px;font-weight:700">- g</div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="card p-3 text-center">
+                            <div class="text-muted">Lipídios</div>
+                            <div id="resultFats" style="font-size:24px;font-weight:700">- g</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+      </div>
+      <div class="modal-footer" style="border-top:0;">
+        <button type="button" class="btn btn-secondary" id="nutriBack">← Voltar</button>
+        <button type="button" class="btn btn-primary" id="nutriNext">Próximo →</button>
+        <button type="button" class="btn btn-success" id="nutriSave" style="display:none;">Salvar Perfil</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- end modal -->
+
+<?php endif; ?>
+
                         <!-- cards -->
-                    <?php } ?>
+<?php } ?>
                 </section>
                 <!-- footer start -->
                 <?php
@@ -408,9 +530,11 @@ document.addEventListener('DOMContentLoaded', function() {
         </div>        
         <!-- start bottom base html js -->
         <?php echo $baseHtml->baseJS(); ?>  
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+        <script src="/assets/js/profile/nutrition-wizard.js"></script>
+        <script src="/assets/js/profile/nutrition-wizard-init.js"></script>
         <script src="/assets/js/home/home.js"></script>
-        <!-- end bottom base html js -->
-    </body>
-</html>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+         <!-- end bottom base html js -->
+     </body>
+ </html>

@@ -29,13 +29,16 @@ $website_ico = (isset($stCompany) ? "/logo/" . $stCompany->getLogo() : $website_
 ?>
 <aside class="main-sidebar">
 
-    <a href="<?php echo $config->getDomain() . "/" . $config->getUrlPublic(); ?>/" class="brand-link">
-        <img src="<?php echo $config->getDomain() . $config->getBaseFile() . $website_ico; ?>" alt="<?php echo $website_title; ?>" class="brand-image img-circle" style="opacity: .8;">
-        <span class="brand-text font-weight-light"><?php echo $website_title; ?></span>
-    </a>
-
     <div class="sidebar">
-        <p class="sidebar-heading">Menu</p>
+        <div class="user-panel mt-3 pb-3 mb-3 d-flex">
+            <div class="image">
+                <img src="<?php echo $config->getDomain() . $config->getBaseFile() . $website_ico; ?>" class="img-circle elevation-2" alt="User Image">
+            </div>
+            <div class="info">
+                <a href="<?php echo $config->getDomain() . "/" . $config->getUrlPublic(); ?>/" class="d-block"><?php echo $website_title; ?></a>
+            </div>
+        </div>
+        <hr style="border-color: #fff;">
         <nav>
             <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
             <?php

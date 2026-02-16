@@ -74,6 +74,9 @@ $router->get('/' . $public . '/scripts/script/{id}', function ($id) {
     $scriptController = new Script;
     $scriptController->page($id);
 });
+    $router->post('/' . $public . '/profile/save_nutritional_profile', fn() =>
+        $routes->getController('Profile/SaveNutritionalProfile', 'notFound')
+);
 /**
  * =========================
  * PANEL (ADMIN)
