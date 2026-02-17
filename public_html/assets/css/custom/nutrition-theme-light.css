@@ -386,7 +386,6 @@ html[data-theme="light"] .modal-header {
 }
 
 html[data-theme="light"] .modal-title {
-    color: var(--nt-text-primary) !important;
     font-weight: 600 !important;
 }
 

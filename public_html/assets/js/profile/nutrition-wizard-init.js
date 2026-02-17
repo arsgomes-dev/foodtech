@@ -45,10 +45,7 @@ document.addEventListener('DOMContentLoaded', function(){
         if(typeof NutritionWizard === 'function'){
             try{ window.__nutriWizard = new NutritionWizard('#nutriModal'); }catch(e){ console.error('NutritionWizard init error', e); }
         }
-        // Close button
-        const closeBtn = modalEl.querySelector('#nutriClose');
-        if(closeBtn){ closeBtn.addEventListener('click', function(){ modalEl.style.display = 'none'; try{ delete window.__nutriWizard; }catch(e){} }); }
-        // ESC key closes modal
-        document.addEventListener('keydown', function(e){ if(e.key === 'Escape'){ if(modalEl.style.display !== 'none'){ modalEl.style.display = 'none'; } } });
+        // Modal não pode ser fechado até o perfil ser preenchido
+        // ESC key NÃO fecha o modal - usuário deve completar o wizard
     }
 });

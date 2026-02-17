@@ -1,96 +1,1327 @@
-/* Nutrition wizard theming and improved UI */
-:root{
-  /* try theme tokens first (sliderbar_base / nutrition-components / common tokens), then fallbacks */
-  --primary-gradient-start: var(--sliderbar-primary, var(--nutrition-primary, var(--primary, #6b5bff)));
-  --primary-gradient-end: var(--sliderbar-primary-end, var(--nutrition-primary-end, var(--primary-dark, #9b6bff)));
-  --primary-color: var(--primary-gradient-start);
-  --muted-bg: var(--card-muted-bg, #f6f7fb);
-  --card-bg: var(--card-bg, #ffffff);
-  --border-color: var(--card-border, #e6e7f3);
-  --muted-text: var(--muted-text, #8892a6);
-  --text-color: var(--text-color, #222222);
-  --stepper-connector: var(--stepper-connector, #eef0fb);
-  --stepper-bg: var(--stepper-bg, #f1f1fb);
-  --stepper-text: var(--stepper-text, #556);
-  --success-start: var(--success-color, #06b76d);
-  --success-end: var(--success-color-end, #2bc77f);
-  --hydration-start: var(--hydration-color, #3498db);
-  --energy-start: var(--energy-color, #6b5bff);
-  --result-border: var(--result-border, #f0f2fb);
-  --gradient-success: linear-gradient(90deg,var(--success-start,#06b76d),var(--success-end,#2bc77f));
-  --gradient-hydration: linear-gradient(90deg,var(--hydration-start,#3498db),#5aa3ff);
-  --gradient-energy: linear-gradient(90deg,var(--energy-start,#6b5bff),#9b6bff);
+/* ===========================================
+   NUTRITION WIZARD - MODERN UI STYLES
+   =========================================== */
+
+/* Modal backdrop */
+.modal.show-backdrop {
+    position: fixed;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, rgba(107, 91, 255, 0.15) 0%, rgba(16, 24, 40, 0.7) 100%);
+    z-index: 1050;
+    padding: 20px;
+    backdrop-filter: blur(4px);
 }
 
-/* Modal backdrop and centering */
-.modal.show-backdrop { position: fixed; inset: 0; display: flex; align-items: center; justify-content: center; background: rgba(16,24,40,0.55); z-index: 1050; padding: 20px; }
-.nutri-modal .modal-content { /* fixed width but responsive fallback */
-    width: var(--nutri-modal-width, 900px);
-    max-width: calc(90vw);
-    border-radius: 12px; box-shadow: 0 18px 50px rgba(12,20,50,0.22); overflow: hidden; height: 640px; max-height: 90vh; display: flex; flex-direction: column; }
-
-/* Header */
-.nutri-modal .modal-header { background: var(--sidebar-bg, var(--primary-gradient-start)); color: var(--nt-text-primary, var(--sidebar-foreground, #fff)); padding: 18px 24px; border-bottom: none; border-top-left-radius: 12px; border-top-right-radius: 12px; }
-.nutri-modal .modal-title { font-weight: 800; margin: 0; font-size: 1.05rem; color: var(--nt-text-primary, var(--sidebar-foreground, #fff)); text-shadow: 0 1px 0 rgba(0,0,0,0.18); }
-.nutri-modal .modal-subtitle { color: var(--nt-text-secondary, rgba(255,255,255,0.92)); }
-.nutri-modal #nutriClose { border: none; background: rgba(255,255,255,0.1); color: #fff; }
-.nutri-modal #nutriClose:hover { background: rgba(255,255,255,0.15); }
-
-/* Body and footer */
-.nutri-modal .modal-body { padding: 22px; background: var(--card-bg); flex: 1 1 auto; overflow: auto; }
-.nutri-modal .modal-footer { padding: 14px 22px; background: var(--card-bg); border-top: none; flex-shrink: 0; }
-
-/* Stepper */
-.nutri-stepper { display:flex; align-items:center; gap:12px; margin-bottom:18px; padding: 8px 6px; }
-.nutri-stepper .step-dot { display:flex; flex-direction:column; align-items:center; width:110px }
-.nutri-stepper .connector { flex:1; height:3px; background:var(--stepper-connector); border-radius:3px }
-.nutri-stepper .dot { width:44px; height:44px; border-radius:50%; background:var(--stepper-bg); display:flex; align-items:center; justify-content:center; color:var(--stepper-text); font-weight:700; box-shadow: none; transition: all .18s; border: 2px solid transparent }
-.nutri-stepper .dot .step-num{ display:inline-block; font-weight:800 }
-.nutri-stepper .dot.active { background: var(--sidebar-bg, var(--primary-gradient-start)); color: var(--sidebar-foreground, #fff); box-shadow: 0 10px 30px rgba(11,12,40,0.12); transform: translateY(-6px); }
-.nutri-stepper .step-title { margin-top:8px; font-size:13px; color:var(--muted-text); text-align:center }
-
-/* Steps visibility */
-.nutri-modal .step { display:none }
-.nutri-modal .step.active { display:block }
-
-/* Options grid - more polished card look */
-.nutri-options { display:grid; gap:14px; grid-template-columns: 1fr }
-@media (min-width:768px){ .nutri-options { grid-template-columns: repeat(2,1fr); } }
-@media (min-width:1200px){ .nutri-options { grid-template-columns: repeat(3,1fr); } }
-
-.nutri-option { background:var(--card-bg); border:1px solid var(--border-color); padding:16px 18px; border-radius:10px; cursor:pointer; min-width:190px; box-shadow:0 6px 18px rgba(16,24,40,0.03); transition: transform .12s ease, box-shadow .18s ease, border-color .12s ease; display:flex; gap:12px; align-items:center }
-.nutri-option .icon-box { width:64px; height:64px; min-width:64px; border-radius:10px; background:var(--muted-bg); display:flex; align-items:center; justify-content:center; color:var(--primary-color); font-size:22px }
-.nutri-option .content { flex:1 }
-.nutri-option .content h5 { margin:0; font-size:16px; font-weight:700; color:var(--text-color) }
-.nutri-option small { color:var(--muted-text); display:block; margin-top:6px }
-.nutri-option:hover { transform: translateY(-4px); box-shadow:0 14px 40px rgba(16,24,40,0.06); border-color: rgba(0,0,0,0.06) }
-.nutri-option.selected { border-color: rgba(0,0,0,0.08); box-shadow: 0 16px 50px rgba(16,24,40,0.08); transform: translateY(-6px); background: linear-gradient(180deg, var(--card-bg), #fbfbff) }
-
-/* Tooltip */
-.nutri-tooltip { margin-left:6px; color:var(--primary-color); cursor:help }
-
-/* Buttons */
-.btn-primary { background: linear-gradient(90deg,var(--primary-gradient-start),var(--primary-gradient-end)); border: none; color:#fff }
-.btn-success { background: linear-gradient(90deg,var(--success-start),var(--success-end)); border: none; color:#fff }
-.btn-secondary { background:var(--secondary,#6c757d); color:#fff }
-
-/* Results cards minor tweaks */
-#nutriResults .card { border-radius:10px; box-shadow:none; border:1px solid var(--result-border) }
-#nutriResults .card h5{ margin-bottom:6px; font-weight:600 }
-#nutriWeightNote { color:var(--muted-text); font-size:13px; margin-bottom:12px }
-
-/* Responsive small tweaks */
-@media (max-width:768px){
-    .nutri-options { grid-template-columns: 1fr }
-    .nutri-option { padding:12px }
-    .nutri-option .icon-box { width:48px; height:48px; min-width:48px }
-    .nutri-option .content h5 { font-size:15px }
-    .nutri-stepper .step-dot { width: auto }
-    .nutri-stepper .step-title { font-size:12px }
+/* Fixed horizontal size for modal */
+#nutriModal .modal-dialog {
+    max-width: 900px !important;
+    width: 100% !important;
+    margin: 0 auto;
 }
 
-/* Theme class mappings: allow host to apply theme classes on body or sliderbar_base/nutrition-components */
-.sliderbar_base.nutrition-theme-light, .nutrition-components.nutrition-theme-light, body.nutrition-theme-light{ /* light overrides if necessary */ }
-.sliderbar_base.nutrition-theme-dark, .nutrition-components.nutrition-theme-dark, body.nutrition-theme-dark{ /* dark overrides if necessary - keep defaults defined earlier */ }
+/* Modal container */
+.nutri-modal {
+    width: 100% !important;
+    max-width: none !important;
+    border-radius: 24px;
+    box-shadow: 0 30px 80px rgba(107, 91, 255, 0.25), 0 10px 30px rgba(0, 0, 0, 0.15);
+    overflow: hidden;
+    height: 800px;
+    max-height: 90vh;
+    display: flex;
+    flex-direction: column;
+    border: none;
+    background: #ffffff;
+}
+
+/* Responsive */
+@media (max-width: 576px) {
+    #nutriModal .modal-dialog {
+        max-width: calc(100vw - 24px) !important;
+    }
+    .nutri-modal {
+        height: auto;
+        max-height: 90vh;
+        border-radius: 16px;
+    }
+}
+
+/* ============ HEADER ============ */
+.nutri-modal .modal-header {
+    background: linear-gradient(135deg, #1b4332 0%, #163728 50%, #2d6a4f 100%);
+    color: #ffffff;
+    padding: 28px 32px;
+    border-bottom: none;
+    position: relative;
+    overflow: hidden;
+}
+
+.nutri-modal .modal-header::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    right: -10%;
+    width: 200px;
+    height: 200px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 50%;
+}
+
+.nutri-modal .modal-header::after {
+    content: '';
+    position: absolute;
+    bottom: -30%;
+    left: 10%;
+    width: 120px;
+    height: 120px;
+    background: rgba(255, 255, 255, 0.08);
+    border-radius: 50%;
+}
+
+.nutri-modal .modal-title {
+    font-weight: 800;
+    margin: 0;
+    font-size: 1.5rem;
+    color: #ffffff !important;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.15);
+    position: relative;
+    z-index: 1;
+}
+
+.nutri-modal .modal-title i {
+    font-size: 1.3rem;
+    background: rgba(255, 255, 255, 0.2);
+    padding: 10px;
+    border-radius: 12px;
+}
+
+.nutri-modal .modal-subtitle {
+    color: rgba(255, 255, 255, 0.95) !important;
+    font-size: 14px;
+    margin-top: 8px;
+    position: relative;
+    z-index: 1;
+    font-weight: 400;
+}
+
+/* ============ BODY ============ */
+.nutri-modal .modal-body {
+    padding: 28px 32px;
+    background: linear-gradient(180deg, #fafbff 0%, #ffffff 100%);
+    flex: 1 1 auto;
+    overflow: auto;
+}
+
+/* ============ FOOTER ============ */
+.nutri-modal .modal-footer {
+    padding: 20px 32px;
+    background: #ffffff;
+    border-top: 1px solid #f0f0f8;
+    flex-shrink: 0;
+    gap: 12px;
+}
+
+.nutri-modal .modal-footer .btn {
+    padding: 12px 28px;
+    font-weight: 600;
+    border-radius: 12px;
+    font-size: 15px;
+    transition: all 0.2s ease;
+}
+
+.nutri-modal .modal-footer .btn-secondary {
+    background: #f0f0f5;
+    color: #555;
+    border: none;
+}
+
+.nutri-modal .modal-footer .btn-secondary:hover {
+    background: #e5e5eb;
+    transform: translateY(-2px);
+}
+
+.nutri-modal .modal-footer .btn-primary {
+    background: linear-gradient(135deg, #6b5bff 0%, #8b7bff 100%);
+    border: none;
+    color: #fff;
+    box-shadow: 0 4px 15px rgba(107, 91, 255, 0.35);
+}
+
+.nutri-modal .modal-footer .btn-primary:hover {
+    background: linear-gradient(135deg, #5a4ae8 0%, #7a6aee 100%);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(107, 91, 255, 0.45);
+}
+
+.nutri-modal .modal-footer .btn-success {
+    background: linear-gradient(135deg, #10b981 0%, #34d399 100%);
+    border: none;
+    color: #fff;
+    box-shadow: 0 4px 15px rgba(16, 185, 129, 0.35);
+}
+
+.nutri-modal .modal-footer .btn-success:hover {
+    background: linear-gradient(135deg, #059669 0%, #10b981 100%);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(16, 185, 129, 0.45);
+}
+
+/* ============ STEPPER ============ */
+.nutri-stepper {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 28px;
+    padding: 16px 20px;
+    background: #ffffff;
+    border-radius: 16px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.04);
+    border: 1px solid #f0f0f8;
+}
+
+.nutri-stepper .step-dot {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex: 0 0 auto;
+}
+
+.nutri-stepper .connector {
+    flex: 1;
+    height: 3px;
+    background: linear-gradient(90deg, #e8e8f0 0%, #f0f0f8 100%);
+    border-radius: 3px;
+    min-width: 20px;
+}
+
+.nutri-stepper .dot {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    background: #f5f5fa;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #888;
+    font-weight: 700;
+    font-size: 16px;
+    box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.05);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    border: 3px solid transparent;
+}
+
+.nutri-stepper .dot .step-num {
+    display: inline-block;
+    font-weight: 800;
+}
+
+.nutri-stepper .dot.active {
+    background: linear-gradient(135deg, #1b4332 0%, #163728 100%);
+    color: #ffffff !important;
+    box-shadow: 0 8px 25px rgba(107, 91, 255, 0.4);
+    transform: scale(1.1);
+    border: 3px solid rgba(255, 255, 255, 0.3);
+}
+
+.nutri-stepper .dot.completed {
+    background: linear-gradient(135deg, #10b981 0%, #34d399 100%);
+    color: #ffffff !important;
+    box-shadow: 0 4px 15px rgba(16, 185, 129, 0.3);
+}
+
+.nutri-stepper .step-title {
+    margin-top: 10px;
+    font-size: 12px;
+    color: #666;
+    text-align: center;
+    font-weight: 500;
+    line-height: 1.3;
+}
+
+.nutri-stepper .step-title small {
+    color: #999;
+    font-weight: 400;
+}
+
+/* ============ STEPS VISIBILITY ============ */
+.nutri-modal .step {
+    display: none;
+    animation: fadeIn 0.3s ease;
+}
+
+.nutri-modal .step.active {
+    display: block;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* ============ OPTIONS GRID ============ */
+.nutri-options {
+    display: grid;
+    gap: 16px;
+    grid-template-columns: 1fr;
+}
+
+@media (min-width: 600px) {
+    .nutri-options {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (min-width: 900px) {
+    .nutri-options {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+/* ============ OPTION CARDS ============ */
+.nutri-option {
+    background: #ffffff;
+    border: 2px solid #f0f0f8;
+    padding: 20px;
+    border-radius: 16px;
+    cursor: pointer;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.03);
+    transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+    display: flex;
+    gap: 16px;
+    align-items: center;
+}
+
+.nutri-option .icon-box {
+    width: 60px;
+    height: 60px;
+    min-width: 60px;
+    border-radius: 14px;
+    background: linear-gradient(135deg, #f0f0ff 0%, #e8e8ff 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #6b5bff;
+    font-size: 24px;
+    transition: all 0.25s ease;
+}
+
+.nutri-option .content {
+    flex: 1;
+}
+
+.nutri-option .content h5 {
+    margin: 0;
+    font-size: 16px;
+    font-weight: 700;
+    color: #1a1a2e;
+    line-height: 1.3;
+}
+
+.nutri-option small {
+    color: #666;
+    display: block;
+    margin-top: 6px;
+    font-size: 13px;
+    line-height: 1.4;
+}
+
+.nutri-option:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 35px rgba(107, 91, 255, 0.12);
+    border-color: #c5bfff;
+}
+
+.nutri-option:hover .icon-box {
+    background: linear-gradient(135deg, #6b5bff 0%, #8b7bff 100%);
+    color: #ffffff;
+    transform: scale(1.05);
+}
+
+.nutri-option.selected {
+    border-color: #6b5bff;
+    box-shadow: 0 12px 40px rgba(107, 91, 255, 0.2);
+    transform: translateY(-4px);
+    background: linear-gradient(180deg, #ffffff 0%, #f8f7ff 100%);
+}
+
+.nutri-option.selected .icon-box {
+    background: linear-gradient(135deg, #6b5bff 0%, #8b7bff 100%);
+    color: #ffffff;
+    box-shadow: 0 6px 20px rgba(107, 91, 255, 0.35);
+}
+
+.nutri-option.selected::after {
+    content: '✓';
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    width: 24px;
+    height: 24px;
+    background: linear-gradient(135deg, #10b981 0%, #34d399 100%);
+    color: #fff;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 12px;
+    font-weight: 700;
+}
+
+.nutri-option {
+    position: relative;
+}
+
+/* ============ STEP 1 - INTRO & FORM CARDS ============ */
+
+/* Step intro header */
+.step-intro {
+    text-align: center;
+    padding: 10px 16px;
+    margin-bottom: 24px;
+    background: linear-gradient(135deg, rgba(107, 91, 255, 0.06) 0%, rgba(139, 123, 255, 0.03) 100%);
+    border-radius: 16px;
+    border: 1px solid rgba(107, 91, 255, 0.1);
+}
+
+.step-intro-icon {
+    width: 34px;
+    height: 34px;
+    margin: 0 auto 14px;
+    background: linear-gradient(135deg, #6b5bff 0%, #8b7bff 100%);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 10px 30px rgba(107, 91, 255, 0.3);
+}
+
+.step-intro-icon i {
+    font-size: 16px;
+    color: #ffffff;
+}
+
+.step-intro h4 {
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: #1a1a2e;
+    margin: 0 0 8px 0;
+}
+
+.step-intro p {
+    font-size: 14px;
+    color: #666;
+    margin: 0;
+    max-width: 400px;
+    margin: 0 auto;
+}
+
+/* Form cards grid */
+.form-cards-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+}
+
+.form-cards-grid .full-width {
+    grid-column: 1 / -1;
+}
+
+@media (max-width: 600px) {
+    .form-cards-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* Form card */
+.form-card {
+    background: #ffffff;
+    border: 2px solid #f0f0f8;
+    border-radius: 16px;
+    padding: 20px;
+    transition: all 0.25s ease;
+}
+
+.form-card:hover {
+    border-color: rgba(107, 91, 255, 0.3);
+    box-shadow: 0 8px 25px rgba(107, 91, 255, 0.08);
+}
+
+.form-card:focus-within {
+    border-color: #6b5bff;
+    box-shadow: 0 8px 25px rgba(107, 91, 255, 0.12);
+}
+
+.form-card-header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 16px;
+}
+
+.form-card-icon {
+    width: 44px;
+    height: 44px;
+    min-width: 44px;
+    border-radius: 12px;
+    background: linear-gradient(135deg, rgba(107, 91, 255, 0.12) 0%, rgba(139, 123, 255, 0.08) 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #6b5bff;
+    font-size: 18px;
+}
+
+.form-card-title h5 {
+    margin: 0;
+    font-size: 15px;
+    font-weight: 700;
+    color: #1a1a2e;
+}
+
+.form-card-hint {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    font-size: 11px;
+    color: #888;
+    margin-top: 2px;
+}
+
+.form-card-hint i {
+    font-size: 10px;
+    color: #6b5bff;
+}
+
+.form-card-body {
+    /* body content */
+}
+
+/* Sex options */
+.sex-options {
+    display: flex;
+    gap: 12px;
+}
+
+@media (max-width: 500px) {
+    .sex-options {
+        flex-direction: column;
+    }
+}
+
+.sex-option {
+    flex: 1;
+    cursor: pointer;
+}
+
+.sex-option input[type="radio"] {
+    display: none;
+}
+
+.sex-option-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    padding: 20px 16px;
+    background: #f8f9ff;
+    border: 2px solid #e8e8f0;
+    border-radius: 14px;
+    transition: all 0.25s ease;
+}
+
+.sex-option:hover .sex-option-content {
+    border-color: #c5bfff;
+    background: #f0f0ff;
+}
+
+.sex-option input[type="radio"]:checked + .sex-option-content {
+    border-color: #6b5bff;
+    background: linear-gradient(180deg, #f8f7ff 0%, #eeecff 100%);
+    box-shadow: 0 6px 20px rgba(107, 91, 255, 0.15);
+}
+
+.sex-option-icon {
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+    transition: all 0.25s ease;
+}
+
+.sex-option-icon.male {
+    background: linear-gradient(135deg, rgba(59, 130, 246, 0.15) 0%, rgba(96, 165, 250, 0.1) 100%);
+    color: #3b82f6;
+}
+
+.sex-option-icon.female {
+    background: linear-gradient(135deg, rgba(236, 72, 153, 0.15) 0%, rgba(244, 114, 182, 0.1) 100%);
+    color: #ec4899;
+}
+
+.sex-option input[type="radio"]:checked + .sex-option-content .sex-option-icon.male {
+    background: linear-gradient(135deg, #3b82f6 0%, #60a5fa 100%);
+    color: #ffffff;
+    box-shadow: 0 8px 20px rgba(59, 130, 246, 0.3);
+}
+
+.sex-option input[type="radio"]:checked + .sex-option-content .sex-option-icon.female {
+    background: linear-gradient(135deg, #ec4899 0%, #f472b6 100%);
+    color: #ffffff;
+    box-shadow: 0 8px 20px rgba(236, 72, 153, 0.3);
+}
+
+.sex-option-content span {
+    font-size: 14px;
+    font-weight: 600;
+    color: #444;
+}
+
+.sex-option input[type="radio"]:checked + .sex-option-content span {
+    color: #1a1a2e;
+}
+
+/* Input with unit */
+.input-with-unit {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.input-with-unit .form-control {
+    padding-right: 50px;
+    font-size: 24px;
+    font-weight: 700;
+    text-align: center;
+    height: 64px;
+    border: 2px solid #e8e8f0;
+    border-radius: 14px;
+    background: #f8f9ff;
+    color: #1a1a2e;
+    transition: all 0.2s ease;
+}
+
+.input-with-unit .form-control:focus {
+    border-color: #6b5bff;
+    background: #ffffff;
+    box-shadow: 0 0 0 4px rgba(107, 91, 255, 0.12);
+    outline: none;
+}
+
+.input-with-unit .form-control::placeholder {
+    color: #bbb;
+    font-weight: 400;
+}
+
+.input-unit {
+    position: absolute;
+    right: 16px;
+    font-size: 14px;
+    font-weight: 600;
+    color: #888;
+    pointer-events: none;
+}
+
+.input-hint {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    margin-top: 10px;
+    font-size: 12px;
+    color: #888;
+}
+
+.input-hint i {
+    font-size: 11px;
+    color: #f59e0b;
+}
+
+/* ============ FORM CONTROLS (General) ============ */
+.nutri-modal .form-control {
+    border: 2px solid #e8e8f0;
+    border-radius: 12px;
+    padding: 14px 16px;
+    font-size: 15px;
+    transition: all 0.2s ease;
+    background: #fafbff;
+}
+
+.nutri-modal .form-control:focus {
+    border-color: #6b5bff;
+    box-shadow: 0 0 0 4px rgba(107, 91, 255, 0.15);
+    background: #ffffff;
+}
+
+.nutri-modal label {
+    font-weight: 600;
+    color: #333;
+    margin-bottom: 8px;
+    display: block;
+    font-size: 14px;
+}
+
+.nutri-modal .form-check-input {
+    width: 20px;
+    height: 20px;
+    margin-right: 8px;
+}
+
+.nutri-modal .form-check-input:checked {
+    background-color: #6b5bff;
+    border-color: #6b5bff;
+}
+
+.nutri-modal .form-check-label {
+    font-size: 15px;
+    color: #444;
+}
+
+/* ============ TOOLTIP ============ */
+.nutri-tooltip {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 20px;
+    height: 20px;
+    background: #e8e8ff;
+    color: #6b5bff;
+    border-radius: 50%;
+    font-size: 12px;
+    font-weight: 700;
+    margin-left: 6px;
+    cursor: help;
+    transition: all 0.2s ease;
+}
+
+.nutri-tooltip:hover {
+    background: #6b5bff;
+    color: #fff;
+}
+
+/* ============ RESULTS - STEP 4 ============ */
+
+/* Weight adjusted note */
+.weight-adjusted-note {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    padding: 14px 18px;
+    margin-bottom: 20px;
+    border-radius: 12px;
+    border-left: 4px solid;
+    animation: slideIn 0.3s ease;
+}
+
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.weight-adjusted-note.obesity {
+    background: linear-gradient(135deg, rgba(245, 158, 11, 0.08) 0%, rgba(251, 191, 36, 0.05) 100%);
+    border-left-color: #f59e0b;
+}
+
+.weight-adjusted-note.underweight {
+    background: linear-gradient(135deg, rgba(59, 130, 246, 0.08) 0%, rgba(96, 165, 250, 0.05) 100%);
+    border-left-color: #3b82f6;
+}
+
+.weight-note-icon {
+    width: 40px;
+    height: 40px;
+    min-width: 40px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+}
+
+.weight-adjusted-note.obesity .weight-note-icon {
+    background: linear-gradient(135deg, rgba(245, 158, 11, 0.2) 0%, rgba(251, 191, 36, 0.15) 100%);
+    color: #f59e0b;
+}
+
+.weight-adjusted-note.underweight .weight-note-icon {
+    background: linear-gradient(135deg, rgba(59, 130, 246, 0.2) 0%, rgba(96, 165, 250, 0.15) 100%);
+    color: #3b82f6;
+}
+
+.weight-note-content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+}
+
+.weight-note-content strong {
+    font-size: 13px;
+    font-weight: 700;
+    color: #1a1a2e;
+}
+
+.weight-note-content span {
+    font-size: 12px;
+    color: #666;
+    line-height: 1.4;
+}
+
+/* Header dos resultados */
+.results-header {
+    text-align: center;
+    margin-bottom: 24px;
+    padding: 20px;
+    background: linear-gradient(135deg, rgba(107, 91, 255, 0.08) 0%, rgba(139, 123, 255, 0.05) 100%);
+    border-radius: 16px;
+    border: 1px solid rgba(107, 91, 255, 0.1);
+}
+
+.results-header .results-icon {
+    width: 64px;
+    height: 64px;
+    margin: 0 auto 14px;
+    background: linear-gradient(135deg, #fbbf24 0%, #f59e0b 100%);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 10px 30px rgba(251, 191, 36, 0.3);
+}
+
+.results-header .results-icon i {
+    font-size: 28px;
+    color: #ffffff;
+}
+
+.results-header h3 {
+    font-size: 1.4rem;
+    font-weight: 800;
+    color: #1a1a2e;
+    margin: 0 0 6px 0;
+}
+
+.results-header p {
+    font-size: 13px;
+    color: #666;
+    margin: 0;
+}
+
+/* Cards principais (IMC e Calorias) */
+.results-main-cards {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 14px;
+    margin-bottom: 20px;
+}
+
+@media (max-width: 600px) {
+    .results-main-cards {
+        grid-template-columns: 1fr;
+    }
+}
+
+.result-card {
+    background: #ffffff;
+    border-radius: 14px;
+    padding: 18px;
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    border: 2px solid #f0f0f8;
+    transition: all 0.25s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.result-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 4px;
+    height: 100%;
+}
+
+.result-card.imc-card::before {
+    background: linear-gradient(180deg, #10b981 0%, #34d399 100%);
+}
+
+.result-card.calories-card::before {
+    background: linear-gradient(180deg, #f59e0b 0%, #fbbf24 100%);
+}
+
+.result-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+}
+
+.result-card-icon {
+    width: 50px;
+    height: 50px;
+    min-width: 50px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 22px;
+}
+
+.imc-card .result-card-icon {
+    background: linear-gradient(135deg, rgba(16, 185, 129, 0.15) 0%, rgba(52, 211, 153, 0.1) 100%);
+    color: #10b981;
+}
+
+.calories-card .result-card-icon {
+    background: linear-gradient(135deg, rgba(245, 158, 11, 0.15) 0%, rgba(251, 191, 36, 0.1) 100%);
+    color: #f59e0b;
+}
+
+.result-card-content {
+    flex: 1;
+}
+
+.result-label {
+    font-size: 11px;
+    font-weight: 600;
+    color: #888;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.result-value {
+    font-size: 28px;
+    font-weight: 800;
+    color: #1a1a2e;
+    line-height: 1.2;
+    margin: 2px 0;
+}
+
+.result-badge {
+    display: inline-block;
+    padding: 3px 10px;
+    border-radius: 20px;
+    font-size: 11px;
+    font-weight: 600;
+    background: linear-gradient(135deg, #10b981 0%, #34d399 100%);
+    color: #ffffff;
+}
+
+.result-sublabel {
+    font-size: 12px;
+    color: #888;
+}
+
+/* Divisor */
+.results-divider {
+    text-align: center;
+    margin: 20px 0;
+    position: relative;
+}
+
+.results-divider::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: linear-gradient(90deg, transparent 0%, #e8e8f0 20%, #e8e8f0 80%, transparent 100%);
+}
+
+.results-divider span {
+    position: relative;
+    background: linear-gradient(180deg, #fafbff 0%, #ffffff 100%);
+    padding: 0 16px;
+    font-size: 12px;
+    font-weight: 700;
+    color: #6b5bff;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+/* Grid de Macronutrientes */
+.macros-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 12px;
+    margin-bottom: 20px;
+}
+
+@media (max-width: 768px) {
+    .macros-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* Cards de Macro */
+.macro-card {
+    background: #ffffff;
+    border-radius: 14px;
+    padding: 16px;
+    border: 2px solid #f0f0f8;
+    transition: all 0.25s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.macro-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+}
+
+.macro-card.protein {
+    border-color: rgba(59, 130, 246, 0.2);
+}
+
+.macro-card.protein:hover {
+    border-color: #3b82f6;
+    box-shadow: 0 10px 25px rgba(59, 130, 246, 0.12);
+}
+
+.macro-card.carbs {
+    border-color: rgba(245, 158, 11, 0.2);
+}
+
+.macro-card.carbs:hover {
+    border-color: #f59e0b;
+    box-shadow: 0 10px 25px rgba(245, 158, 11, 0.12);
+}
+
+.macro-card.fats {
+    border-color: rgba(168, 85, 247, 0.2);
+}
+
+.macro-card.fats:hover {
+    border-color: #a855f7;
+    box-shadow: 0 10px 25px rgba(168, 85, 247, 0.12);
+}
+
+.macro-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.macro-icon {
+    width: 40px;
+    height: 40px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+}
+
+.macro-card.protein .macro-icon {
+    background: linear-gradient(135deg, rgba(59, 130, 246, 0.15) 0%, rgba(96, 165, 250, 0.1) 100%);
+    color: #3b82f6;
+}
+
+.macro-card.carbs .macro-icon {
+    background: linear-gradient(135deg, rgba(245, 158, 11, 0.15) 0%, rgba(251, 191, 36, 0.1) 100%);
+    color: #f59e0b;
+}
+
+.macro-card.fats .macro-icon {
+    background: linear-gradient(135deg, rgba(168, 85, 247, 0.15) 0%, rgba(192, 132, 252, 0.1) 100%);
+    color: #a855f7;
+}
+
+.macro-percent {
+    font-size: 22px;
+    font-weight: 800;
+}
+
+.macro-card.protein .macro-percent {
+    color: #3b82f6;
+}
+
+.macro-card.carbs .macro-percent {
+    color: #f59e0b;
+}
+
+.macro-card.fats .macro-percent {
+    color: #a855f7;
+}
+
+.macro-body {
+    margin-bottom: 10px;
+}
+
+.macro-name {
+    font-size: 11px;
+    font-weight: 600;
+    color: #888;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.macro-value {
+    font-size: 24px;
+    font-weight: 800;
+    color: #1a1a2e;
+    line-height: 1.2;
+}
+
+/* Barra de progresso dos macros */
+.macro-bar {
+    height: 6px;
+    background: #f0f0f8;
+    border-radius: 3px;
+    overflow: hidden;
+    margin-bottom: 10px;
+}
+
+.macro-bar-fill {
+    height: 100%;
+    border-radius: 3px;
+    transition: width 0.5s ease;
+}
+
+.macro-bar-fill.protein {
+    background: linear-gradient(90deg, #3b82f6 0%, #60a5fa 100%);
+}
+
+.macro-bar-fill.carbs {
+    background: linear-gradient(90deg, #f59e0b 0%, #fbbf24 100%);
+}
+
+.macro-bar-fill.fats {
+    background: linear-gradient(90deg, #a855f7 0%, #c084fc 100%);
+}
+
+.macro-info {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    font-size: 10px;
+    color: #999;
+}
+
+.macro-info i {
+    font-size: 9px;
+}
+
+/* Gráfico Donut */
+.macro-chart-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 28px;
+    padding: 18px;
+    background: #ffffff;
+    border-radius: 14px;
+    border: 2px solid #f0f0f8;
+    margin-bottom: 16px;
+}
+
+@media (max-width: 500px) {
+    .macro-chart-container {
+        flex-direction: column;
+        gap: 16px;
+    }
+}
+
+.macro-donut-chart {
+    position: relative;
+    width: 120px;
+    height: 120px;
+}
+
+.macro-donut-chart svg {
+    width: 100%;
+    height: 100%;
+    transform: rotate(-90deg);
+}
+
+.donut-ring {
+    fill: none;
+    stroke: #f0f0f8;
+    stroke-width: 10;
+}
+
+.donut-segment {
+    fill: none;
+    stroke-width: 10;
+    stroke-linecap: round;
+    transition: stroke-dasharray 0.5s ease;
+}
+
+.donut-segment.protein {
+    stroke: #3b82f6;
+}
+
+.donut-segment.carbs {
+    stroke: #f59e0b;
+}
+
+.donut-segment.fats {
+    stroke: #a855f7;
+}
+
+.donut-center {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+}
+
+.donut-total {
+    display: block;
+    font-size: 20px;
+    font-weight: 800;
+    color: #1a1a2e;
+}
+
+.donut-label {
+    display: block;
+    font-size: 11px;
+    color: #888;
+    font-weight: 500;
+}
+
+.macro-legend {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.legend-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 13px;
+    font-weight: 500;
+    color: #444;
+}
+
+.legend-color {
+    width: 14px;
+    height: 14px;
+    border-radius: 4px;
+}
+
+.legend-color.protein {
+    background: linear-gradient(135deg, #3b82f6 0%, #60a5fa 100%);
+}
+
+.legend-color.carbs {
+    background: linear-gradient(135deg, #f59e0b 0%, #fbbf24 100%);
+}
+
+.legend-color.fats {
+    background: linear-gradient(135deg, #a855f7 0%, #c084fc 100%);
+}
+
+/* Nota informativa */
+.results-note {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    padding: 14px;
+    background: linear-gradient(135deg, rgba(107, 91, 255, 0.06) 0%, rgba(139, 123, 255, 0.03) 100%);
+    border-radius: 10px;
+    border-left: 3px solid #6b5bff;
+}
+
+.results-note i {
+    font-size: 16px;
+    color: #6b5bff;
+    margin-top: 1px;
+}
+
+.results-note p {
+    margin: 0;
+    font-size: 12px;
+    color: #555;
+    line-height: 1.5;
+}
+
+/* ============ RESPONSIVE ============ */
+@media (max-width: 768px) {
+    .nutri-modal .modal-header {
+        padding: 20px 20px;
+    }
+
+    .nutri-modal .modal-title {
+        font-size: 1.2rem;
+    }
+
+    .nutri-modal .modal-body {
+        padding: 20px;
+    }
+
+    .nutri-modal .modal-footer {
+        padding: 16px 20px;
+        flex-wrap: wrap;
+    }
+
+    .nutri-modal .modal-footer .btn {
+        flex: 1;
+        min-width: 120px;
+    }
+
+    .nutri-stepper {
+        gap: 4px;
+        padding: 12px;
+    }
+
+    .nutri-stepper .dot {
+        width: 38px;
+        height: 38px;
+        font-size: 14px;
+    }
+
+    .nutri-stepper .step-title {
+        font-size: 10px;
+        display: none;
+    }
+
+    .nutri-option {
+        padding: 16px;
+    }
+
+    .nutri-option .icon-box {
+        width: 50px;
+        height: 50px;
+        min-width: 50px;
+        font-size: 20px;
+    }
+
+    .nutri-option .content h5 {
+        font-size: 14px;
+    }
+
+    .nutri-option small {
+        font-size: 12px;
+    }
+}
+
+/* ============ ANIMATIONS ============ */
+@keyframes pulse {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+}
+
+.nutri-stepper .dot.active {
+    animation: pulse 2s infinite;
+}
 
 /* End of nutrition-wizard styles */

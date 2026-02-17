@@ -356,10 +356,12 @@ if (class_exists('\Microfw\\Src\\Main\\Common\\Entity\\Public\\ClientNutritional
     <div class="modal-content nutri-modal">
       <div class="modal-header d-flex align-items-center justify-content-between">
         <div>
-          <h5 class="modal-title" id="nutriModalLabel">Configurar Perfil Nutricional</h5>
-          <div class="modal-subtitle text-muted" style="font-size:13px;">Complete seu perfil em 4 passos rápidos</div>
+          <h5 class="modal-title" id="nutriModalLabel">
+            <i class="fas fa-seedling me-2"></i>
+            Configurar Perfil Nutricional
+          </h5>
+          <div class="modal-subtitle">Complete seu perfil em 4 passos rápidos para personalizar sua experiência</div>
         </div>
-        <button type="button" class="btn btn-sm btn-light" id="nutriClose" aria-label="Fechar janela">×</button>
       </div>
       <div class="modal-body">
         <div class="nutri-stepper" id="nutriStepper" role="tablist" aria-label="Progresso do fluxo">
@@ -374,28 +376,95 @@ if (class_exists('\Microfw\\Src\\Main\\Common\\Entity\\Public\\ClientNutritional
 
         <!-- Step 1: Dados Básicos -->
         <div class="step active" data-step="1">
-            <!-- heading shown in stepper; content area contains form fields only -->
-            <div class="row">
-                <div class="col-md-4">
-                    <label>Sexo biológico <span class="nutri-tooltip" title="Usamos sexo biológico porque as fórmulas de cálculo de taxa metabólica consideram diferenças fisiológicas." tabindex="0">?</span></label>
-                    <div class="d-flex gap-2">
-                        <div class="form-check">
-                            <input class="form-check-input" type="radio" name="sex" id="sex_m" value="M" <?php echo (($client && $client->getGender() === 'M') ? 'checked' : ''); ?>>
-                            <label class="form-check-label" for="sex_m">Masculino</label>
+            <div class="step-intro">
+                <div class="step-intro-icon">
+                    <i class="fas fa-user-edit"></i>
+                </div>
+                <h5>Vamos começar com seus dados básicos</h5>
+                <p>Essas informações são essenciais para calcular seu perfil nutricional personalizado</p>
+            </div>
+
+            <div class="form-cards-grid">
+                <!-- Card Sexo Biológico -->
+                <div class="form-card full-width">
+                    <div class="form-card-header">
+                        <div class="form-card-icon">
+                            <i class="fas fa-venus-mars"></i>
                         </div>
-                        <div class="form-check">
-                            <input class="form-check-input" type="radio" name="sex" id="sex_f" value="F" <?php echo (($client && $client->getGender() === 'F') ? 'checked' : ''); ?>>
-                            <label class="form-check-label" for="sex_f">Feminino</label>
+                        <div class="form-card-title">
+                            <h5>Sexo Biológico</h5>
+                            <span class="form-card-hint">
+                                <i class="fas fa-info-circle"></i>
+                                Usado para cálculo metabólico
+                            </span>
+                        </div>
+                    </div>
+                    <div class="form-card-body">
+                        <div class="sex-options">
+                            <label class="sex-option" for="sex_m">
+                                <input type="radio" name="sex" id="sex_m" value="M" <?php echo (($client && $client->getGender() === 'M') ? 'checked' : ''); ?>>
+                                <div class="sex-option-content">
+                                    <div class="sex-option-icon male">
+                                        <i class="fas fa-mars"></i>
+                                    </div>
+                                    <span>Masculino</span>
+                                </div>
+                            </label>
+                            <label class="sex-option" for="sex_f">
+                                <input type="radio" name="sex" id="sex_f" value="F" <?php echo (($client && $client->getGender() === 'F') ? 'checked' : ''); ?>>
+                                <div class="sex-option-content">
+                                    <div class="sex-option-icon female">
+                                        <i class="fas fa-venus"></i>
+                                    </div>
+                                    <span>Feminino</span>
+                                </div>
+                            </label>
                         </div>
                     </div>
                 </div>
-                <div class="col-md-4">
-                    <label>Altura (cm)</label>
-                    <input type="number" id="height" class="form-control" min="50" max="300" placeholder="Ex: 170">
+
+                <!-- Card Altura -->
+                <div class="form-card">
+                    <div class="form-card-header">
+                        <div class="form-card-icon">
+                            <i class="fas fa-ruler-vertical"></i>
+                        </div>
+                        <div class="form-card-title">
+                            <h5>Altura</h5>
+                        </div>
+                    </div>
+                    <div class="form-card-body">
+                        <div class="input-with-unit">
+                            <input type="number" id="height" class="form-control form-control-lg" min="50" max="300" placeholder="170">
+                            <span class="input-unit">cm</span>
+                        </div>
+                        <div class="input-hint">
+                            <i class="fas fa-lightbulb"></i>
+                            Digite sua altura em centímetros
+                        </div>
+                    </div>
                 </div>
-                <div class="col-md-4">
-                    <label>Peso atual (kg)</label>
-                    <input type="number" id="weight" class="form-control" step="0.1" min="20" max="500" placeholder="Ex: 78.5">
+
+                <!-- Card Peso -->
+                <div class="form-card">
+                    <div class="form-card-header">
+                        <div class="form-card-icon">
+                            <i class="fas fa-weight-scale"></i>
+                        </div>
+                        <div class="form-card-title">
+                            <h5>Peso Atual</h5>
+                        </div>
+                    </div>
+                    <div class="form-card-body">
+                        <div class="input-with-unit">
+                            <input type="number" id="weight" class="form-control form-control-lg" step="0.1" min="20" max="500" placeholder="75.0">
+                            <span class="input-unit">kg</span>
+                        </div>
+                        <div class="input-hint">
+                            <i class="fas fa-lightbulb"></i>
+                            Use uma casa decimal (ex: 75.5)
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -463,43 +532,149 @@ if (class_exists('\Microfw\\Src\\Main\\Common\\Entity\\Public\\ClientNutritional
 
         <!-- Step 4: Resultados (visualização antes de salvar) -->
         <div class="step" data-step="4">
-            <!-- heading shown in stepper; content area contains calculated results only -->
             <div id="nutriResults">
-                <div class="row">
-                    <div class="col-md-6">
-                        <div class="card p-3">
-                            <h5>Seu IMC</h5>
-                            <div id="resultImc" style="font-size:32px;font-weight:700">-</div>
-                            <div id="resultImcLabel" class="text-muted">-</div>
+                <!-- Header de Parabéns -->
+                <div class="results-header">
+                    <div class="results-icon">
+                        <i class="fas fa-trophy"></i>
+                    </div>
+                    <h3>Seu Plano Personalizado</h3>
+                    <p>Com base nas suas informações, calculamos seu perfil nutricional ideal</p>
+                </div>
+
+                <!-- Cards principais: IMC e Calorias -->
+                <div class="results-main-cards">
+                    <div class="result-card imc-card">
+                        <div class="result-card-icon">
+                            <i class="fas fa-weight"></i>
+                        </div>
+                        <div class="result-card-content">
+                            <span class="result-label">Índice de Massa Corporal</span>
+                            <div class="result-value" id="resultImc">-</div>
+                            <div class="result-badge" id="resultImcLabel">-</div>
                         </div>
                     </div>
-                    <div class="col-md-6">
-                        <div class="card p-3">
-                            <h5>Calorias Diárias</h5>
-                            <div id="resultCalories" style="font-size:32px;font-weight:700">- kcal</div>
-                            <div id="resultTmb" class="text-muted">TMB: - kcal</div>
+
+                    <div class="result-card calories-card">
+                        <div class="result-card-icon">
+                            <i class="fas fa-fire-flame-curved"></i>
+                        </div>
+                        <div class="result-card-content">
+                            <span class="result-label">Meta Calórica Diária</span>
+                            <div class="result-value" id="resultCalories">-</div>
+                            <div class="result-sublabel" id="resultTmb">TMB: - kcal</div>
                         </div>
                     </div>
                 </div>
-                <div class="row mt-3">
-                    <div class="col-md-4">
-                        <div class="card p-3 text-center">
-                            <div class="text-muted">Proteínas</div>
-                            <div id="resultProteins" style="font-size:24px;font-weight:700">- g</div>
+
+                <!-- Divisor -->
+                <div class="results-divider">
+                    <span>Distribuição de Macronutrientes</span>
+                </div>
+
+                <!-- Cards de Macronutrientes com percentuais -->
+                <div class="macros-grid">
+                    <!-- Proteínas -->
+                    <div class="macro-card protein">
+                        <div class="macro-header">
+                            <div class="macro-icon">
+                                <i class="fas fa-drumstick-bite"></i>
+                            </div>
+                            <div class="macro-percent" id="resultProteinPercent">30%</div>
+                        </div>
+                        <div class="macro-body">
+                            <div class="macro-name">Proteínas</div>
+                            <div class="macro-value" id="resultProteins">- g</div>
+                        </div>
+                        <div class="macro-bar">
+                            <div class="macro-bar-fill protein" id="proteinBar" style="width: 30%"></div>
+                        </div>
+                        <div class="macro-info">
+                            <i class="fas fa-info-circle"></i>
+                            <span>Construção muscular e saciedade</span>
                         </div>
                     </div>
-                    <div class="col-md-4">
-                        <div class="card p-3 text-center">
-                            <div class="text-muted">Carboidratos</div>
-                            <div id="resultCarbs" style="font-size:24px;font-weight:700">- g</div>
+
+                    <!-- Carboidratos -->
+                    <div class="macro-card carbs">
+                        <div class="macro-header">
+                            <div class="macro-icon">
+                                <i class="fas fa-bread-slice"></i>
+                            </div>
+                            <div class="macro-percent" id="resultCarbsPercent">50%</div>
+                        </div>
+                        <div class="macro-body">
+                            <div class="macro-name">Carboidratos</div>
+                            <div class="macro-value" id="resultCarbs">- g</div>
+                        </div>
+                        <div class="macro-bar">
+                            <div class="macro-bar-fill carbs" id="carbsBar" style="width: 50%"></div>
+                        </div>
+                        <div class="macro-info">
+                            <i class="fas fa-info-circle"></i>
+                            <span>Fonte primária de energia</span>
                         </div>
                     </div>
-                    <div class="col-md-4">
-                        <div class="card p-3 text-center">
-                            <div class="text-muted">Lipídios</div>
-                            <div id="resultFats" style="font-size:24px;font-weight:700">- g</div>
+
+                    <!-- Lipídios -->
+                    <div class="macro-card fats">
+                        <div class="macro-header">
+                            <div class="macro-icon">
+                                <i class="fas fa-droplet"></i>
+                            </div>
+                            <div class="macro-percent" id="resultFatsPercent">20%</div>
+                        </div>
+                        <div class="macro-body">
+                            <div class="macro-name">Lipídios</div>
+                            <div class="macro-value" id="resultFats">- g</div>
+                        </div>
+                        <div class="macro-bar">
+                            <div class="macro-bar-fill fats" id="fatsBar" style="width: 20%"></div>
+                        </div>
+                        <div class="macro-info">
+                            <i class="fas fa-info-circle"></i>
+                            <span>Hormônios e absorção de vitaminas</span>
                         </div>
                     </div>
+                </div>
+
+                <!-- Gráfico visual de pizza -->
+                <div class="macro-chart-container">
+                    <div class="macro-donut-chart" id="macroDonutChart">
+                        <svg viewBox="0 0 100 100">
+                            <circle class="donut-ring" cx="50" cy="50" r="40"></circle>
+                            <circle class="donut-segment protein" id="donutProtein" cx="50" cy="50" r="40"
+                                    stroke-dasharray="75.4 251.2" stroke-dashoffset="0"></circle>
+                            <circle class="donut-segment carbs" id="donutCarbs" cx="50" cy="50" r="40"
+                                    stroke-dasharray="125.6 251.2" stroke-dashoffset="-75.4"></circle>
+                            <circle class="donut-segment fats" id="donutFats" cx="50" cy="50" r="40"
+                                    stroke-dasharray="50.2 251.2" stroke-dashoffset="-201"></circle>
+                        </svg>
+                        <div class="donut-center">
+                            <span class="donut-total">100%</span>
+                            <span class="donut-label">Total</span>
+                        </div>
+                    </div>
+                    <div class="macro-legend">
+                        <div class="legend-item">
+                            <span class="legend-color protein"></span>
+                            <span>Proteínas</span>
+                        </div>
+                        <div class="legend-item">
+                            <span class="legend-color carbs"></span>
+                            <span>Carboidratos</span>
+                        </div>
+                        <div class="legend-item">
+                            <span class="legend-color fats"></span>
+                            <span>Lipídios</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Nota informativa -->
+                <div class="results-note">
+                    <i class="fas fa-lightbulb"></i>
+                    <p>Estes valores são estimativas baseadas na fórmula Harris-Benedict Revisada (1984). Consulte um nutricionista para um plano personalizado.</p>
                 </div>
             </div>
         </div>

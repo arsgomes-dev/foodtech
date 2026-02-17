@@ -519,7 +519,6 @@ html[data-theme="dark"] .modal-header {
 }
 
 html[data-theme="dark"] .modal-title {
-    color: var(--nt-text-primary) !important;
     font-weight: 600 !important;
 }
 

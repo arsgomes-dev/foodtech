@@ -93,14 +93,17 @@
         // decide se usar peso ajustado: obesidade (IMC>30) ou desnutricao (IMC<18)
         let usedWeight = weight;
         let usedWeightNote = '';
+        let usedWeightType = '';
         if(imc > 30){
             // obesidade -> peso ajustado
             usedWeight = ((weight - weight_ideal) * 0.25) + weight_ideal;
-            usedWeightNote = 'Peso ajustado aplicado por IMC &gt; 30 para evitar superestimação.';
+            usedWeightNote = 'Peso ajustado aplicado (IMC > 30) para cálculo mais preciso.';
+            usedWeightType = 'obesity';
         } else if(imc < 18){
             // desnutrição -> peso ajustado
             usedWeight = ((weight_ideal - weight) * 0.25) + weight;
-            usedWeightNote = 'Peso ajustado aplicado por IMC &lt; 18 para evitar subestimação.';
+            usedWeightNote = 'Peso ajustado aplicado (IMC < 18) para cálculo mais preciso.';
+            usedWeightType = 'underweight';
         }
 
         // Harris-Benedict revisada (1984)
@@ -131,17 +134,73 @@
         this.modal.querySelector('#resultCarbs').innerText = carbs + ' g';
         this.modal.querySelector('#resultFats').innerText = fats + ' g';
 
+        // Update percentages display
+        const proteinPercEl = this.modal.querySelector('#resultProteinPercent');
+        const carbsPercEl = this.modal.querySelector('#resultCarbsPercent');
+        const fatsPercEl = this.modal.querySelector('#resultFatsPercent');
+        if(proteinPercEl) proteinPercEl.innerText = proteinsPerc + '%';
+        if(carbsPercEl) carbsPercEl.innerText = carbsPerc + '%';
+        if(fatsPercEl) fatsPercEl.innerText = fatsPerc + '%';
+
+        // Update progress bars
+        const proteinBar = this.modal.querySelector('#proteinBar');
+        const carbsBar = this.modal.querySelector('#carbsBar');
+        const fatsBar = this.modal.querySelector('#fatsBar');
+        if(proteinBar) proteinBar.style.width = proteinsPerc + '%';
+        if(carbsBar) carbsBar.style.width = carbsPerc + '%';
+        if(fatsBar) fatsBar.style.width = fatsPerc + '%';
+
+        // Update donut chart (SVG)
+        const circumference = 2 * Math.PI * 40; // radius = 40
+        const proteinDash = (proteinsPerc / 100) * circumference;
+        const carbsDash = (carbsPerc / 100) * circumference;
+        const fatsDash = (fatsPerc / 100) * circumference;
+
+        const donutProtein = this.modal.querySelector('#donutProtein');
+        const donutCarbs = this.modal.querySelector('#donutCarbs');
+        const donutFats = this.modal.querySelector('#donutFats');
+
+        if(donutProtein) {
+            donutProtein.setAttribute('stroke-dasharray', proteinDash + ' ' + circumference);
+            donutProtein.setAttribute('stroke-dashoffset', '0');
+        }
+        if(donutCarbs) {
+            donutCarbs.setAttribute('stroke-dasharray', carbsDash + ' ' + circumference);
+            donutCarbs.setAttribute('stroke-dashoffset', -proteinDash);
+        }
+        if(donutFats) {
+            donutFats.setAttribute('stroke-dasharray', fatsDash + ' ' + circumference);
+            donutFats.setAttribute('stroke-dashoffset', -(proteinDash + carbsDash));
+        }
+
         // show note if weight adjusted
         let noteElem = this.modal.querySelector('#nutriWeightNote');
         if(!noteElem){
             noteElem = document.createElement('div');
             noteElem.id = 'nutriWeightNote';
-            noteElem.style.marginTop = '8px';
-            noteElem.style.fontSize = '13px';
-            noteElem.style.color = '#6b6b6b';
-            this.modal.querySelector('#nutriResults').prepend(noteElem);
+            noteElem.className = 'weight-adjusted-note';
+            // Insert after results-header
+            const resultsHeader = this.modal.querySelector('.results-header');
+            if(resultsHeader && resultsHeader.nextSibling) {
+                resultsHeader.parentNode.insertBefore(noteElem, resultsHeader.nextSibling);
+            } else {
+                this.modal.querySelector('#nutriResults').prepend(noteElem);
+            }
         }
-        noteElem.innerText = usedWeightNote;
+
+        if(usedWeightNote) {
+            const noteClass = usedWeightType === 'obesity' ? 'obesity' : 'underweight';
+            noteElem.className = 'weight-adjusted-note ' + noteClass;
+            noteElem.innerHTML = '<div class="weight-note-icon"><i class="fas fa-calculator"></i></div>' +
+                '<div class="weight-note-content">' +
+                '<strong>Cálculo Ajustado</strong>' +
+                '<span>' + usedWeightNote + '</span>' +
+                '</div>';
+            noteElem.style.display = 'flex';
+        } else {
+            noteElem.style.display = 'none';
+            noteElem.innerHTML = '';
+        }
 
         // store results for save
         this.modal.dataset.nutri = JSON.stringify({
