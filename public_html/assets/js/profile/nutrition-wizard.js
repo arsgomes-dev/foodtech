@@ -204,7 +204,7 @@
 
         // store results for save
         this.modal.dataset.nutri = JSON.stringify({
-            sex, height, weight, usedWeight, activity_id, goal_id, imc: parseFloat(imcFixed), age, tmb, calories, proteins, carbs, fats
+            sex, height, weight, usedWeight, activity_id, factor, goal_id, imc: parseFloat(imcFixed), age, tmb, calories, proteins, carbs, fats
         });
     };
     NutritionWizard.prototype.init = function(){
@@ -260,7 +260,7 @@
             if(!payload.customer_id){ window.alert('Usuário não autenticado.'); return; }
             const dirVal = document.getElementById('dir_site')?.value || '';
             const dir = dirVal?('/'+dirVal):'';
-            $.post(dir + '/profile/save_nutritional_profile', payload, function(resp){
+            $.post(dir + '/profile/savenutritionalprofile', payload, function(resp){
                 try{ var r = JSON.parse(resp); } catch(e){ window.alert('Erro de servidor'); return; }
                 if(r.success){ self.modal.style.display = 'none'; location.reload(); } else { window.alert(r.message || 'Erro ao salvar perfil'); }
             }).fail(function(){ window.alert('Erro na requisição'); });

@@ -21,7 +21,6 @@ class ClientNutritionalProfile extends ModelClass {
     private int $meta_id;
     private $imc;
     private $tmb;
-    private $total_ge;
     private $necessary_calories;
     private $proteins_g;
     private $carbohydrates_g;
@@ -158,18 +157,6 @@ class ClientNutritionalProfile extends ModelClass {
         $this->tmb = $tmb;
     }
 
-    public function getTotal_ge() {
-        if (isset($this->total_ge)) {
-            return $this->total_ge;
-        } else {
-            return null;
-        }
-    }
-
-    public function setTotal_ge($total_ge) {
-        $this->total_ge = $total_ge;
-    }
-
     public function getNecessary_calories() {
         if (isset($this->necessary_calories)) {
             return $this->necessary_calories;
@@ -241,7 +228,6 @@ class ClientNutritionalProfile extends ModelClass {
     public function setUsed_weight($used_weight) {
         $this->used_weight = $used_weight;
     }
-
 }
 
 ?>

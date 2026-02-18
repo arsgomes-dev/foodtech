@@ -674,7 +674,7 @@ if (class_exists('\Microfw\\Src\\Main\\Common\\Entity\\Public\\ClientNutritional
                 <!-- Nota informativa -->
                 <div class="results-note">
                     <i class="fas fa-lightbulb"></i>
-                    <p>Estes valores são estimativas baseadas na fórmula Harris-Benedict Revisada (1984). Consulte um nutricionista para um plano personalizado.</p>
+                    <p>Estes valores são estimativas baseadas na fórmula Harris-Benedict (Revisada: 1984). Consulte um nutricionista para um plano personalizado.</p>
                 </div>
             </div>
         </div>
